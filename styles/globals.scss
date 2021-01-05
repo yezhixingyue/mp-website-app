@@ -1,0 +1,219 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  // font-family: MicrosoftYaHei, 微软雅黑, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+	// 	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  // padding-top: 60px !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	/* font: inherit; */
+	font-style: inherit;
+    font-variant-ligatures: inherit;
+    font-variant-caps: inherit;
+    font-variant-numeric: inherit;
+    font-variant-east-asian: inherit;
+    font-weight: inherit;
+    font-stretch: inherit;
+    font-size: 100%;
+    line-height: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html,body, #app{
+	height: 100%;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+// .page-global-page-wrap {
+// 	width: 100vw;
+// 	> .page-global-page-content {
+// 		width: 1200px;
+// 	}
+// }
+.mp-show-confirm-message-box {
+  width: 370px !important;
+  > .ant-modal-content {
+    // height: 100%;
+    border-radius: 5px;
+    > .ant-modal-body {
+      min-height: 220px;
+      width: 388px;
+      padding-left: 20px;
+      > .ant-modal-confirm-body-wrapper {
+        position: relative;
+        min-height: 164px;
+        padding-bottom: 45px;
+        > .ant-modal-confirm-body {
+          text-align: center;
+          padding-top: 10px;
+          > .anticon {
+            display: inline-block;
+            float: none;
+            // vertical-align: top;
+            
+            &.warn {
+              height: 38px;
+              width: 45px;
+              background: url(../public/warn.png) no-repeat center center/100% 100%;
+            }
+            &.success {
+              height: 30px;
+              width: 30px;
+              background: url(../public/success.png) no-repeat center center/100% 100%;
+            }
+          }
+          > .ant-modal-confirm-title {
+            display: inline-block;
+            font-size: 20px;
+            color: #3b3d40;
+          }
+          > .ant-modal-confirm-content {
+            margin: 10px 0 20px 0;
+            font-size: 15px;
+            color: #28292e;
+          }
+        }
+        > .ant-modal-confirm-btns {
+          text-align: center;
+          float: none;
+          // display: flex;
+          // flex-direction: row-reverse;
+          margin: 0;
+          position: absolute;
+          bottom: 2px;
+          left: 50%;
+          // transform: translateX(-50%);
+          > button {
+            margin: 0 10px;
+            width: 108px;
+            height: 35px;
+            font-size: 15px;
+          }
+        }
+
+        // &::before {
+        //   content: '×';
+        //   font-size: 44px;
+        //   top: -58px;
+        //   position: absolute;
+        //   right: -66px;
+        //   color: #fff;
+        //   font-weight: 100;
+        //   cursor: pointer;
+        // }
+      }
+    }
+  }
+  
+  &.warn-box {
+    > .ant-modal-content {
+      > .ant-modal-body {
+        > .ant-modal-confirm-body-wrapper {
+          > .ant-modal-confirm-btns {
+            > button {
+              background: #fff;
+              color: #428dfa;
+              width: 120px;
+              height: 40px;
+              border-radius: 5px;
+              box-shadow: none;
+              text-shadow: none;
+              &:hover {
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.145);
+                background-color: mix(#fff, #428dfa, 90%);
+              }
+              &:active {
+                background-color: #94bbf5d2;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &.with-null-msg {
+    > .ant-modal-content {
+      > .ant-modal-body {
+        > .ant-modal-confirm-body-wrapper {
+          > .ant-modal-confirm-body {
+            padding-top: 20px;
+          }
+        }
+      }
+    }
+  }
+  &.print-orderid-confirm-wrap {
+    > .ant-modal-content {
+      .ant-modal-confirm-content {
+        font-size: 14px !important;
+        > div {
+          > p {
+            color: #444;
+            margin-top: 4px;
+            &:last-of-type {
+              line-height: 24px;
+              max-height: 58px;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              padding: 4px 15px;
+              // white-space: nowrap;
+              margin-bottom: 0px;
+              color: #666;
+            }
+          }
+        }
+      }
+    }
+  }
+}

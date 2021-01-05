@@ -1,0 +1,86 @@
+.mp-common-header-wrap {
+  background-color: #428dfa;
+  height: 60px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  > .content {
+    width: 1200px;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    > div {
+      display: inline-block;
+      height: 100%;
+      vertical-align: top;
+      color: #fff;
+      &.left {
+        height: 100%;
+        width: 255px;
+        .logo {
+          width: 162px;
+          height: 40px;
+          margin-top: 10px;
+          cursor: pointer;
+          background: url(../../../public/logo.png) no-repeat left center/162px 39px;
+        }
+      }
+      &.right {
+        height: 100%;
+        position: absolute;
+        right: 0;
+        padding: 18px 0;
+        line-height: 24px;
+        cursor: pointer;
+        user-select: none;
+        transition: color 0.2s;
+        &:active {
+          color: #ddd;
+        }
+        > i {
+          display: inline-block;
+          width: 18px;
+          height: 24px;
+          margin-right: 9px;
+          background: url(../../../public/avator.png) no-repeat left center/18px 21px;
+        }
+        > span {
+          vertical-align: top;
+        }
+      }
+    }
+    > ul.menus {
+      font-size: 16px;
+      display: inline-block;
+      height: 100%;
+      vertical-align: top;
+      color: #fff;
+      padding: 0;
+      margin: 0;
+      > li {
+        display: inline-block;
+        vertical-align: top;
+        height: 100%;
+        transition: background-color 0.2s;
+        &:hover {
+          background-color: #3d69ce;
+          box-shadow: inset 0 1px 3px rgba(0,0,0,.2), 0 0 0 #fff;
+        }
+        &.active {
+          background: rgba(28, 77, 149, 0.5);
+          // text-shadow: 0 1px 0 hsla(0,0%,100%,.3);
+          box-shadow: inset 0 1px 3px rgba(0,0,0,.2), 0 0 0 #428dfa
+        }
+        > a {
+          display: block;
+          height: 100%;
+          padding: 20px 25px;
+          line-height: 20px;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

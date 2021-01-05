@@ -1,0 +1,83 @@
+.foot-wrap {
+  height: 197px;
+  width: 100%;
+  background-color: #22284C;
+  padding: 10px 0;
+  .content {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    .left {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 984px;
+      .top {
+        width: 100%;
+        height: 95px;
+        // border-bottom: 1px solid #131A45;
+        color: #fff;
+        font-size: 16px;
+        padding-top: 31px;
+        padding-bottom: 30px;
+        > .logo {
+          width: 143px;
+          height: 34px;
+          display: inline-block;
+          margin-right: 65px;
+          background: url(../../../public/logo-m.png) no-repeat center center/143px 34px;
+        }
+        > ul {
+          display: inline-block;
+          vertical-align: top;
+          line-height: 34px;
+          > li {
+            display: inline-block;
+            margin: 0 30px;
+            > a {
+              cursor: pointer;
+              &:hover {
+                color: #ddd;
+              }
+              &:active {
+                color: #aaa;
+              }
+            }
+          }
+        }
+      }
+      .bottom {
+        border-top: 1px solid #131A45;
+        width: 100%;
+        height: 82px;
+        font-size: 14px;
+        color: #AAA8B5;
+        line-height: 20px;
+        padding: 31px 0;
+        > span {
+          margin-right: 47px;
+          &.last-span {
+            margin: 0;
+          }
+        }
+      }
+    }
+    .right {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding-top: 32px;
+      .official-account {
+        width: 86px;
+        height: 86px;
+        background: url(../../../public/code.png) no-repeat center center/100% 100%;
+      }
+      p {
+        color: #918EA3;
+        font-size: 12px;
+        margin-top: 10px;
+        line-height: 16px;
+      }
+    }
+  }
+}
