@@ -1,0 +1,37 @@
+.wrap {
+  width: 100%;
+  height: 666px;
+  background: url(../../../public/home-intro.png) no-repeat center center/cover;
+}
+.wrap section {
+  width: 1200px;
+  margin: 0 auto;
+}
+.wrap section > header {
+  padding: 67px 0 55px;
+  font-size: 32px;
+  color: #FFFFFF;
+  line-height: 54px;
+  text-align: center;
+}
+.wrap section > header p {
+  margin: 0;
+}
+.wrap section > ul li {
+  color: #eee;
+  width: 1088px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.wrap section > footer {
+  text-align: center;
+  margin-top: 76px;
+}
+.wrap section > footer button {
+  width: 175px;
+  height: 62px;
+  font-size: 20px;
+}

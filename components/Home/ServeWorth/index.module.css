@@ -1,0 +1,76 @@
+.wrap {
+  width: 100%;
+  margin-top: 120px;
+}
+.wrap > header {
+  text-align: center;
+  user-select: none;
+  color: #333;
+  margin-bottom: 80px;
+}
+.wrap > header p {
+  margin-bottom: 17px;
+  font-size: 24px;
+  line-height: 30px;
+}
+.wrap > header p.f {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 40px;
+}
+.wrap .content {
+  width: 100%;
+}
+.wrap .content > div {
+  width: 50%;
+  height: 505px;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+.wrap .content > ul {
+  display: inline-block;
+  height: 505px;
+  width: 50%;
+  vertical-align: top;
+  padding-top: 90px;
+  padding-left: 24px;
+  margin: 0;
+}
+.wrap .content > ul > li {
+  display: inline-block;
+  margin: 45px 0px 45px 50px;
+  width: 300px;
+}
+.wrap .content > ul > li > div {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 20px;
+}
+.wrap .content > ul > li > div > p {
+  font-size: 13px;
+  line-height: 30px;
+  color: #a1a1a1;
+  margin: 0;
+}
+.wrap .content > ul > li > div > p.f {
+  font-weight: 700;
+  font-size: 16px;
+  color: #2F2F2F;
+  margin-top: 12px;
+}
+
+@media screen and (max-width: 1470px) {
+  .wrap .content > ul > li {
+    display: inline-block;
+    margin: 45px 0px 45px 10px;
+    width: 300px;
+  }
+}
+@media screen and (max-width: 1305px) {
+  .wrap .content > ul > li {
+    display: inline-block;
+    margin: 45px 0px 45px -5px;
+    width: 292px;
+  }
+}

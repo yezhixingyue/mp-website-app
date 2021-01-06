@@ -1,0 +1,20 @@
+.wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+.wrap > header {
+  text-align: center;
+
+  user-select: none;
+  color: #333;
+}
+.wrap > header p {
+  margin-bottom: 17px;
+  font-size: 24px;
+  line-height: 30px;
+}
+.wrap > header p.f {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 40px;
+}

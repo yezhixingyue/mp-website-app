@@ -1,0 +1,8 @@
+.wrap {
+  width: 1200px;
+  margin: 0 auto;
+}
+.wrap > header {
+  margin-top: 55px;
+  margin-bottom: 60px;
+}

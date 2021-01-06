@@ -1,6 +1,57 @@
+.wrap {
+  width: 100%;
+}
 .panel-wrap {
-  width: 575px;
+  width: 570px;
   height: 165px;
   background-color: #fff;
   border-radius: 2px;
+  box-shadow: 0 0px 5px rgba(0,0,0,.08), 0 2px 6px 0 rgba(0,0,0,.08);
+  padding: 32px 43px;
+  cursor: pointer;
+  transition: 0.3s;
+  display: inline-block;
+  margin: 0;
+}
+.panel-wrap.left {
+  margin-right: 60px;
+}
+.panel-wrap:hover {
+  box-shadow: 0 0px 10px rgba(0,0,0,.18), 0 2px 6px 0 rgba(0,0,0,.18);
+}
+.panel-wrap:active {
+  background: rgb(252, 252, 252);
+}
+.panel-wrap li {
+  display: inline-block;
+  vertical-align: top;
+}
+.panel-wrap li.left {
+  margin-right: 28px;
+}
+.panel-wrap li.center {
+  width: 352px;
+  margin-right: 17px;
+}
+.panel-wrap li.center p {
+  line-height: 26px;
+  font-size: 20px;
+  color: #438DFA;
+  margin-bottom: 14px;
+  user-select: none;
+}
+.panel-wrap li.center div {
+  font-size: 12px;
+  color: #999;
+  line-height: 18px;
+  user-select: none;
+}
+.panel-wrap li.right {
+  height: 80px;
+}
+.panel-wrap li.right i{
+  display: block;
+  height: 100%;
+  width: 29px;
+  background: url(../../../public/to-right.png) no-repeat center center/29px 29px;
 }

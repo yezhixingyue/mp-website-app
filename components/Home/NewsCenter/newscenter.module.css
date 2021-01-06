@@ -1,0 +1,21 @@
+.news-center-wrap {
+  margin: 0 auto;
+  width: 1200px;
+  margin-top: 55px;
+  margin-bottom: 40px;
+}
+.news-center-wrap ul {
+  margin: 0 -15px;
+}
+.news-center-wrap ul li {
+  display: inline-block;
+  margin: 0 15px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+.news-center-wrap ul li p {
+  line-height: 19px;
+  font-size: 14px;
+  color: #333;
+  margin-top: 16px;
+}
