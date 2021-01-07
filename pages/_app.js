@@ -7,9 +7,10 @@ import { useRouter } from 'next/router';
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   if (router.pathname === '/login') return <Component {...pageProps} />
+  const needShowBlueList = ['/'];
   return (
     <div>
-      <Header />
+      <Header showBlueBg={needShowBlueList.indexOf(router.pathname) > -1} />
       <Component {...pageProps} />
       <Footer />
     </div>

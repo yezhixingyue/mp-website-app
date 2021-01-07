@@ -10,6 +10,7 @@ import HomeIntro from '../components/Home/HomeIntro'
 import NewsCenter from '../components/Home/NewsCenter'
 import PartnersComp from '../components/Home/PartnersComp'
 import ServeWorth from '../components/Home/ServeWorth'
+if (process.browser) { window.history.replaceState = window.history.replaceState || function () {} }
 
 export default function Home({ swiperData, newsDate, lv1Classify, pruducts }) {
   return (
@@ -29,39 +30,29 @@ export default function Home({ swiperData, newsDate, lv1Classify, pruducts }) {
 }
 
 export async function getServerSideProps() {
-  // const res = await Promise.all([api.getSwiperData(), api.getNewsArticleList(), api.getProductClassify()]);
-  // const [ swiperResp, newsResp, classifyRes ] = res;
-  // let lv1Classify = [];
-  // let pruducts = [];
-  // if (classifyRes.data.Status === 1000) {
-  //   lv1Classify = classifyRes.data.Data.filter(it => it.Level === 1);
-  //   if (lv1Classify.length > 0) {
-  //     const proResp = await api.getProductsList({
-  //       Page: 1,
-  //       PageSize: 3,
-  //       ProductClass: {
-  //         First: lv1Classify[0].ID
-  //       }
-  //     })
-  //     if (proResp.data.Status === 1000) pruducts = proResp.data.Data;
-  //   }
-  // }
-  // return {
-  //   props: {
-  //     swiperData: swiperResp.data.Data,
-  //     newsDate: newsResp.data.Data,
-  //     lv1Classify,
-  //     pruducts,
-  //   }
-  // };
-  const res = await api.getTestData();
-  console.log(res);
+  const res = await Promise.all([api.getSwiperData(), api.getNewsArticleList(), api.getProductClassify()]);
+  const [ swiperResp, newsResp, classifyRes ] = res;
+  let lv1Classify = [];
+  let pruducts = [];
+  if (classifyRes.data.Status === 1000) {
+    lv1Classify = classifyRes.data.Data.filter(it => it.Level === 1);
+    if (lv1Classify.length > 0) {
+      const proResp = await api.getProductsList({
+        Page: 1,
+        PageSize: 3,
+        ProductClass: {
+          First: lv1Classify[0].ID
+        }
+      })
+      if (proResp.data.Status === 1000) pruducts = proResp.data.Data;
+    }
+  }
   return {
     props: {
-      swiperData: [],
-      newsDate: [],
-      lv1Classify: [],
-      pruducts: [],
+      swiperData: swiperResp.data.Data,
+      newsDate: newsResp.data.Data,
+      lv1Classify,
+      pruducts,
     }
   };
 }

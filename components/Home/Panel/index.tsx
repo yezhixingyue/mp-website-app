@@ -1,16 +1,27 @@
 import React from 'react'
 import styles from './index.module.css'
-import Image from 'next/image'
+import { useRouter } from 'next/router';
+// import Image from 'next/image'
 // const imgSrc = require('../../../public/place.png');
 // import imgSrc from '../../../public/place.png';
 // console.log(imgSrc);
 
 export default function index() {
+  const router = useRouter();
+
+  const onOnlineClick = () => {
+    router.push('http://order.mpzj.cn:8156/pc/#/placeOrder');
+  };
+
+  const onDownloadClick = () => {
+    router.push('/download');
+  };
+
   return (
     <div className={styles.wrap}>
-      <ul className={`${styles['panel-wrap']} ${styles.left}`}>
+      <ul className={`${styles['panel-wrap']} ${styles.left}`} onClick={onOnlineClick}>
         <li className={styles.left}>
-          <Image src='/place.png' alt="" width={58} height={58}/>
+          <img src='/place.png' alt="" width={58} height={58}/>
         </li>
         <li className={styles.center}>
           <p>报价下单</p>
@@ -20,9 +31,9 @@ export default function index() {
           <i></i>
         </li>
       </ul>
-      <ul className={styles['panel-wrap']}>
+      <ul className={styles['panel-wrap']} onClick={onDownloadClick}>
         <li className={styles.left}>
-          <Image src='/download.png' alt="" width={58} height={58}/>
+          <img src='/download.png' alt="" width={58} height={58}/>
         </li>
         <li className={styles.center}>
           <p>软件下载</p>

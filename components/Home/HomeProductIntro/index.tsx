@@ -9,13 +9,7 @@ export default function index({ pruducts, classify }) {
   const [state, setState] = useState({
     pruductList: pruducts,
   })
-  // useEffect(() => {
-  //   console.log('pruducts', pruducts);
-  //   console.log('classify', classify);
-  // }, [])
-
   const onTabChange = async (ID) => {
-    console.log(ID, 'onTabChange');
     const resp = await api.getProductsList({
       Page: 1,
       PageSize: 3,

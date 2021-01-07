@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './index.module.css'
-import Image from 'next/image'
+// import Image from 'next/image'
 
 export default function index() {
   return (
@@ -11,12 +11,12 @@ export default function index() {
       </header>
       <div className={styles.content}>
         <div>
-          <Image src='/worth.png' layout='fill' objectFit='cover' alt='' />
+          <img src='/worth.png' object-fit='cover' alt='' />
         </div>
         <ul>
           <li>
             <div>
-              <Image src='/qian.png' width={87} height={87} />
+              <img src='/qian.png' width={87} height={87} />
             </div>
             <div>
               <p className={styles.f}>千款产品</p>
@@ -25,7 +25,7 @@ export default function index() {
           </li>
           <li>
             <div>
-              <Image src='/qian.png' width={87} height={87} />
+              <img src='/qian.png' width={87} height={87} />
             </div>
             <div>
               <p className={styles.f}>专业团队</p>
@@ -34,7 +34,7 @@ export default function index() {
           </li>
           <li>
             <div>
-              <Image src='/qian.png' width={87} height={87} />
+              <img src='/qian.png' width={87} height={87} />
             </div>
             <div>
               <p className={styles.f}>自营物流</p>
@@ -43,7 +43,7 @@ export default function index() {
           </li>
           <li>
             <div>
-              <Image src='/qian.png' width={87} height={87} />
+              <img src='/qian.png' width={87} height={87} />
             </div>
             <div>
               <p className={styles.f}>色彩管理</p>

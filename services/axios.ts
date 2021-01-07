@@ -130,5 +130,5 @@ axios.interceptors.response.use(
   },
 );
 
-export default axios; // .create({ baseURL: 'http://192.168.1.92:8055/' })
-// export default axios.create({ baseURL: 'http://192.168.1.92:8055/' });
+// export default axios; // .create({ baseURL: 'http://192.168.1.92:8055/' })
+export default axios.create({ baseURL: 'http://192.168.1.92:8055/' });

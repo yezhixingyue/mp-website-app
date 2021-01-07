@@ -1,0 +1,163 @@
+.mp-abount-page-wrap {
+  width: 100%;
+}
+.mp-abount-page-wrap .header {
+  width: 100%;
+  height: 396px;
+  background: url(../../public/about-banner.png) no-repeat center center/cover;
+}
+.mp-abount-page-wrap ul {
+  width: 100%;
+  margin: 0;
+}
+
+.intro {
+  margin: 0 auto;
+  width: 1200px;
+  margin-bottom: 86px;
+}
+.intro-content {
+  margin-top: 50px;
+  padding-top: 28px;
+  position: relative;
+  height: 405px;
+}
+.intro-content > ul {
+  width: 600px;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 28px;
+}
+.intro-content > ul > li {
+  font-size: 14px;
+  color: #333333;
+  line-height: 26px;
+  margin-bottom: 32px;
+}
+.intro-content > div {
+  width: 447px;
+  height: 376px;
+  /* overflow: hidden; */
+  position: absolute;
+  right: 38px;
+  top: 28px;
+  background: url(../../public/about-intro.png) no-repeat center center/100% 100%;
+}
+.intro-content > div::before {
+  position: absolute;
+  content: '';
+  left: -39px;
+  bottom: 0;
+  height: 106px;
+  width: 40px;
+  background-color: rgb(73, 195, 53);
+}
+.intro-content > div::after {
+  position: absolute;
+  content: '';
+  right: -38px;
+  top: -30px;
+  height: 230px;
+  width: 267px;
+  background-color: rgb(66, 141, 250);
+  z-index: -1;
+}
+
+.item-header {
+  margin-top: 60px;
+  text-align: center;
+  font-family: MicrosoftYaHei;
+}
+.item-header > p {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333333;
+  line-height: 40px;
+  margin-bottom: 12px;
+}
+.item-header > div {
+  height: 31px;
+  font-size: 24px;
+  color: #333333;
+  line-height: 31px;
+}
+
+.menus {
+  width: 100%;
+  height: 409px;
+  background-color: #F9FAFE;
+  text-align: center;
+}
+.menus > div {
+  display: inline-block;
+  padding-top: 110px;
+  text-align: center;
+  color: #333333;
+  /* width: 260px; */
+}
+.menus > div > img {
+  width: 73px;
+  height: 73px;
+  margin-bottom: 17px;
+}
+.menus > div > div {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 26px;
+  margin-bottom: 17px;
+}
+.menus > div > p {
+  margin: 0;
+  font-size: 14px;
+  color: #333333;
+  line-height: 24px;
+}
+
+.course {
+  margin: 0 auto;
+  margin-top: 82px;
+  margin-bottom: 80px;
+  width: 1200px;
+  height: 730px;
+  background: url(../../public/about-map.png) no-repeat center 210px/1055px 518px;
+}
+.course .item-header {
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.course .course-content {
+  margin-top: 148px;
+  position: relative;
+}
+.course .course-content > img {
+  width: 1210px;
+  height: 251px;
+}
+.course .course-content > ul > li {
+  position: absolute;
+  width: 169px;
+  text-align: center;
+}
+.course .course-content > ul > li > h2 {
+  font-weight: bolder;
+  color: #333333;
+  margin: 10px;
+  font-size: 18px;
+  line-height: 18px;
+  /* font-family: MicrosoftYaHei-Bold, MicrosoftYaHei; */
+}
+.course .course-content > ul > li > p {
+  color: #999;
+  font-size: 14px;
+}
+.course .course-content > ul > li > div {
+  display: inline-block;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}

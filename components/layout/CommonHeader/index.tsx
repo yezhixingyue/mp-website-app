@@ -3,10 +3,10 @@ import styles from './index.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-export default function index() {
+export default function index({ showBlueBg }) {
   const router = useRouter();
   return (
-    <div className={styles['mp-common-header-wrap']}>
+    <div className={`${styles['mp-common-header-wrap']} ${showBlueBg && styles['show-blue']}`}>
       <div className={styles.content}>
         <div className={styles.left}>
           <div className={styles.logo}></div>

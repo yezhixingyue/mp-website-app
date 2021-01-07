@@ -2,8 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  // font-family: MicrosoftYaHei, 微软雅黑, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-	// 	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: MicrosoftYaHei, 微软雅黑, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   // padding-top: 60px !important;
 }
@@ -75,6 +74,25 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+@font-face {
+  font-family: 'PingFang-R'; 
+  src: url('./font/PingFang Regular_0.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PingFang-M'; 
+  src: url('./font/PingFang Medium.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PingFang-H'; 
+  src: url('./font/PingFang Heavy.ttf');
+  font-weight: normal;
+  font-style: normal;
 }
 
 

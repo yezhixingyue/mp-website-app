@@ -1,5 +1,4 @@
 .mp-common-header-wrap {
-  background-color: #428dfa;
   height: 60px;
   width: 100%;
   position: fixed;
@@ -83,4 +82,7 @@
       }
     }
   }
+}
+.mp-common-header-wrap.show-blue {
+  background-color: #428dfa;
 }
