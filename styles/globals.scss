@@ -280,3 +280,45 @@ table {
     }
   }
 }
+
+// .ant-form-item-label > label::after {
+//   content: '' !important;
+// }
+form.opinion-form-wrap input {
+  height: 60px !important;
+  background-color: #fff !important;
+  border-color: #ccc;
+  &::placeholder {
+    color: #ccc;
+    font-size: 16px;
+  }
+}
+form.opinion-form-wrap textarea {
+  height: 209px !important;
+  line-height: 52px !important;
+  border-color: #ccc;
+  &::placeholder {
+    color: #ccc;
+    font-size: 16px;
+  }
+}
+form.opinion-form-wrap .ant-form-item-label {
+  line-height: 58px;
+}
+form.opinion-form-wrap button {
+  width: 109px;
+  height: 40px;
+  margin-top: 25px;
+}
+.amap-marker {
+  width: 130px;
+  &::after {
+    content: '郑州名片之家';
+    position: absolute;
+    color: #000;
+    font-weight: 700;
+    top: 32px;
+    font-size: 17px;
+    left: -40px;
+  }
+}

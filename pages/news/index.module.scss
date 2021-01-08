@@ -1,0 +1,106 @@
+.mp-news-center-page-wrap {
+  width: 100%;
+  background: linear-gradient(to bottom, #22284C 416px, #fff 417px);
+  > header {
+    height: 416px;
+    width: 100%;
+    background: url(../../public/news-banner.png) no-repeat center center/cover;
+  }
+
+  > .news-intro {
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 65px;
+    height: 297px;
+    > header {
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 42px;
+      width: 472px;
+      text-align: right;
+      > h2 {
+        font-size: 22px;
+        font-weight: bold;
+        color: #2F2F2F;
+        line-height: 29px;
+      }
+      > p {
+        font-size: 14px;
+        font-family: PingFang-R;
+        font-weight: 400;
+        color: #2F2F2F;
+        line-height: 20px;
+        letter-spacing: 2px;
+      }
+    }
+    > div {
+      display: inline-block;
+      vertical-align: top;
+      width: 676px;
+      > ul {
+        > li {
+          font-size: 14px;
+          color: #A7A7A8;
+          line-height: 24px;
+        }
+      }
+      > p {
+        font-size: 16px;
+        color: #1677FF;
+        line-height: 22px;
+        > i {
+          display: inline-block;
+          height: 20px;
+          width: 20px;
+          margin-left: 8px;
+          vertical-align: top;
+          background: url(../../public/to-right-sm.png) no-repeat center center/100% 100%;
+        }
+      }
+    }
+  }
+  > .news-menus {
+    width: 100%;
+    height: 336px;
+    background-color: #f4f4f4;
+    > div {
+      width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      > div {
+        width: 406px;
+        height: 545px;
+        background: url(../../public/news-timg.png) no-repeat center center/cover;
+        position: absolute;
+        left: 100px;
+        top: -105px;
+        // z-index: 9;
+        &::before {
+          content: '';
+          position: absolute;
+          width: 115px;
+          height: 33px;
+          background-color: rgb(66, 141, 250);
+          left: -100px;
+          top: 72px;
+          // z-index: 1;
+        }
+      }
+      > ul {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 600px;
+        padding-left: 10px;
+        padding-top: 70px;
+
+      }
+    }
+  }
+
+  > .news-hot {
+    height: 1158px;
+    width: 1200px;
+    margin: 0 auto;
+  }
+}

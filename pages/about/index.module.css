@@ -1,5 +1,6 @@
 .mp-abount-page-wrap {
   width: 100%;
+  background: linear-gradient(to bottom, rgb(0, 79, 119) 396px, #fff 397px);
 }
 .mp-abount-page-wrap .header {
   width: 100%;
