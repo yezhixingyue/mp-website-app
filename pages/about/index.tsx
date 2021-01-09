@@ -1,7 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
 import styles from './index.module.css'
-import Item from 'antd/lib/list/Item'
 
 export default function index() {
   return (
@@ -11,7 +10,7 @@ export default function index() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.header}></div>
-      <ul>
+      <ul id='change-title-style-to-show'>
         <li className={styles.intro}>
           <div className={styles['item-header']}>
             <p>公司简介</p>
@@ -28,29 +27,37 @@ export default function index() {
         </li>
         <li className={styles.menus}>
           <div style={{width: 215}}>
-            <img src='/about-icon1.png' />
+            <header>
+              <img src='/about-icon1.png' />
+            </header>
             <div>愿景</div>
             <p>做中国文化创意与印刷科技产业</p>
             <p>生态系统的缔造者</p>
           </div>
 
           <div style={{width: 215, marginLeft: 90}}>
-            <img src='/about-icon2.png' />
+            <header>
+              <img src='/about-icon2.png' />
+            </header>
             <div>使命</div>
             <p>实现产业链价值持续升级，帮助</p>
             <p>客户创造价值回报</p>
           </div>
 
           <div style={{width: 260, marginLeft: 90}}>
-            <img src='/about-icon3.png' />
+            <header>
+              <img src='/about-icon3.png' />
+            </header>
             <div>价值观</div>
             <p>以客户为中心 、相互成就、 共享共担、</p>
             <p>勇于创新、诚信、活力、精益求精</p>
           </div>
 
           <div style={{width: 240, marginLeft: 90}}>
-            <img src='/about-icon4.png' />
-            <div>愿景</div>
+            <header>
+              <img src='/about-icon4.png' />
+            </header>
+            <div>企业精神</div>
             <p>上善若水、臻于至善、以人为本、脚</p>
             <p>踏实地、百折不挠、创造奇迹。</p>
           </div>

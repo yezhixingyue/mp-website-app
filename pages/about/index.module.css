@@ -97,10 +97,23 @@
   color: #333333;
   /* width: 260px; */
 }
-.menus > div > img {
+.menus > div > header {
+  width: 76px;
+  height: 75px;
+  margin-bottom: 12px;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+  padding-top: 1px;
+  padding-left: 1px;
+}
+.menus > div > header > img {
   width: 73px;
   height: 73px;
-  margin-bottom: 17px;
+  transition: 0.35s;
+}
+.menus > div > header:hover > img {
+  transform: scale(1.3);
 }
 .menus > div > div {
   font-size: 20px;
@@ -161,4 +174,8 @@
   background-color: #fff;
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
   margin: 10px;
+  transition: background-color 0.2s;
+}
+.course .course-content > ul > li > div:hover {
+  background-color: rgb(111, 167, 252);
 }

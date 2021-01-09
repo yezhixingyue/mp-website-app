@@ -5,15 +5,17 @@ import OpinionForm from '../../components/ContactPage/OpinionForm'
 
 export default function index() {
   const handleMapBringIn = () => {
-    const map = new AMap.Map('map-container', {
-      center:[113.684598,34.818867],
-      zoom:13
-    });
-    const marker = new AMap.Marker({
-      position: new AMap.LngLat(113.684598,34.818867),
-      title: '名片之家',
-    });
-    map.add(marker);
+    if (AMap) {
+      const map = new AMap.Map('map-container', {
+        center:[113.684598,34.818867],
+        zoom:13
+      });
+      const marker = new AMap.Marker({
+        position: new AMap.LngLat(113.684598,34.818867),
+        title: '名片之家',
+      });
+      map.add(marker);
+    }
   }
 
   const mapUrl = 'https://webapi.amap.com/maps?v=1.4.15&key=d1de441473f06000bd61463102442b1e';
@@ -50,7 +52,7 @@ export default function index() {
       <header>
         <div>联系我们</div>
       </header>
-      <section className={styles['intro-part']}>
+      <section className={styles['intro-part']} id='change-title-style-to-show'>
         <header>
           <h1>联系我们</h1>
           <h2>{'contact us'.toLocaleUpperCase()}</h2>

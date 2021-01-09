@@ -19,8 +19,14 @@
 .panel-wrap:hover {
   box-shadow: 0 0px 10px rgba(0,0,0,.18), 0 2px 6px 0 rgba(0,0,0,.18);
 }
+.panel-wrap:hover li.right i {
+  opacity: 0.75;
+}
 .panel-wrap:active {
   background: rgb(252, 252, 252);
+}
+.panel-wrap:active li.right i {
+  opacity: 1;
 }
 .panel-wrap li {
   display: inline-block;
@@ -53,5 +59,6 @@
   display: block;
   height: 100%;
   width: 29px;
+  transition: 0.22s;
   background: url(../../../public/to-right.png) no-repeat center center/29px 29px;
 }

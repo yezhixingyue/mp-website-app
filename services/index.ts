@@ -21,9 +21,11 @@ const api = {
   getProductClassify() { // 获取产品分类
     return instance.post('/api/Constant/VersionValid', { Key: 6 });
   },
-  // getTestData() {
-  //   return instance.get('/api/hello');
-  // },
+  /* 新闻
+  ----------------------------------------------------------------------------------- */
+  getNewsHotList(data = { Page: 1, pageSize: 4 }) { // POST /api/Article/ArticleList 获取新闻列表
+    return instance.post('/api/Article/ArticleList', data);
+  },
 };
 
 export default api;

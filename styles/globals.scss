@@ -322,3 +322,39 @@ form.opinion-form-wrap button {
     left: -40px;
   }
 }
+
+.ant-back-top.mp-back-top {
+  width: 73px;
+  height: 73px;
+  right: 60px;
+  bottom: 100px;
+}
+
+.ant-popover-placement-left .ant-popover-inner {
+  background-color: rgb(34, 34, 34);
+}
+body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
+  border-top-color:  rgb(34, 34, 34);
+  border-right-color:  rgb(34, 34, 34);
+  right: 4px;
+  width: 15px;
+  height: 15px;
+  border-width: 8px;
+}
+
+#header-anchor-root-comp {
+  position: absolute;
+  top: 500px;
+  width: 1px;
+  height: 0.1px;
+  left: 0;
+  opacity: 0;
+}
+#header-anchor-root-comp0 {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 0.1px;
+  left: 0;
+  opacity: 0;
+}

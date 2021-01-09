@@ -1,12 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './index.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Anchor from '../Anchor';
 
-export default function index({ showBlueBg }) {
+export default function index() {
   const router = useRouter();
+  const needShowBlueList = ['/']; // 需要顶部展示蓝色背景的页面地址， 目前只有主页需要
+  const key = needShowBlueList.indexOf(router.pathname) > -1;
+  const [state, setState] = useState({
+    showBlueBg: false,
+    num: 1
+  });
+
+  const handleAnchorChange = (link) => {
+    if (link && link === '#change-title-style-to-show') {
+      setState({
+        ...state,
+        showBlueBg: true,
+      })
+    }
+     else if (!link && state.showBlueBg) {
+      setState({
+        ...state,
+        showBlueBg: false,
+      })
+    }
+    console.log('handleAnchorChange', link, state.showBlueBg);
+  }
+
   return (
-    <div className={`${styles['mp-common-header-wrap']} ${showBlueBg && styles['show-blue']}`}>
+    <div className={`${styles['mp-common-header-wrap']} ${(state.showBlueBg || key) && styles['show-blue']}`}>
       <div className={styles.content}>
         <div className={styles.left}>
           <div className={styles.logo}></div>
@@ -36,6 +60,7 @@ export default function index({ showBlueBg }) {
           <span>登录</span>
         </div>
       </div>
+      <Anchor handleAnchorChange={handleAnchorChange} />
     </div>
   )
 }

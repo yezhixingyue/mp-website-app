@@ -18,7 +18,7 @@ export default function index() {
           <Button shape="round">立即下载</Button>
         </div>
       </div>
-      <section className={styles.introPart}>
+      <section className={styles.introPart} id='change-title-style-to-show'>
         <header>
           <h2>功能介绍</h2>
           <p>{'Function introduction'.toLocaleUpperCase()}</p>
