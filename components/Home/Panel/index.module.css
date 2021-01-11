@@ -9,7 +9,8 @@
   box-shadow: 0 0px 5px rgba(0,0,0,.08), 0 2px 6px 0 rgba(0,0,0,.08);
   padding: 32px 43px;
   cursor: pointer;
-  transition: 0.3s;
+  /* transition: 0.3s; */
+  transition: box-shadow 0.2s;
   display: inline-block;
   margin: 0;
 }

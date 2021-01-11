@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head'
 import styles from './index.module.scss'
 import api from '../../services'
+import MpImage from '../../components/common/MpImage'
 
 export default function index({ hotList }) {
   return (
@@ -39,7 +40,7 @@ export default function index({ hotList }) {
             <ul>
               <li style={{marginRight: 50}}>
                 <aside>
-                  <img src="/news-menu-1.png" alt=""/>
+                  <MpImage src="/news-menu-1.png" alt=""/>
                 </aside>
                 <div>
                   <h2>行业资讯</h2>
@@ -48,7 +49,7 @@ export default function index({ hotList }) {
               </li>
               <li>
                 <aside>
-                  <img src="/news-menu-2.png" alt=""/>
+                  <MpImage src="/news-menu-2.png" alt=""/>
                 </aside>
                 <div>
                   <h2>公司动态</h2>
@@ -57,7 +58,7 @@ export default function index({ hotList }) {
               </li>
               <li style={{marginRight: 50}}>
                 <aside>
-                  <img src="/news-menu-3.png" alt=""/>
+                  <MpImage src="/news-menu-3.png" alt=""/>
                 </aside>
                 <div>
                   <h2>产品上新</h2>
@@ -66,7 +67,7 @@ export default function index({ hotList }) {
               </li>
               <li>
                 <aside>
-                  <img src="/news-menu-4.png" alt=""/>
+                  <MpImage src="/news-menu-4.png" alt=""/>
                 </aside>
                 <div>
                   <h2>展会活动</h2>

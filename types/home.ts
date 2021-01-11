@@ -1,0 +1,4 @@
+export const SWIPER = 'SWIPER'
+export const HOMENEWS = 'HOMENEWS'
+export const LEVEL1PROCLASSLIST = 'LEVEL1PROCLASSLIST'
+export const HOMEPRODUCTS = 'HOMEPRODUCTS'

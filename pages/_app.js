@@ -3,20 +3,32 @@ import 'antd/dist/antd.css';
 import Header from '../components/layout/CommonHeader';
 import Footer from '../components/layout/CommonFooter';
 import Aside from '../components/layout/Aside';
-import React, { useState } from 'react'
+import React from 'react';
+import { Provider } from 'react-redux';
+import { useStore } from '../store';
 
 import { useRouter } from 'next/router';
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  if (router.pathname === '/login') return <Component {...pageProps} />  // 登录页
-  
+  const store = useStore(pageProps.initialReduxState)
+
+  if (router.pathname === '/login') {
+    return (
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>  // 登录页
+    )
+  }
+
   return (
-    <div style={{position: 'relative'}}>
-      <Header />
-      <Component {...pageProps} />
-      <Aside />
-      <Footer />
-    </div>
+    <Provider store={store}>
+      <div style={{ position: 'relative' }}>
+        <Header {...pageProps} />
+        <Component {...pageProps} />
+        <Aside {...pageProps} />
+        <Footer {...pageProps} />
+      </div>
+    </Provider>
   )
 }
 

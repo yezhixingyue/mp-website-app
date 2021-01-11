@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import styles from './index.module.scss';
 import { Button } from 'antd';
+import MpImage from '../../components/common/MpImage';
 
 export default function index() {
   return (
@@ -25,42 +26,42 @@ export default function index() {
         </header>
         <ul>
           <li>
-            <aside><img src="/down-1.png" alt=""/></aside>
+            <aside><MpImage src="/down-1.png" alt=""/></aside>
             <div>
               <h4>在线报价</h4>
               <span>不排队，零等待，一键获取最新价格，为用户提供快捷高效的在线报价</span>
             </div>
           </li>
           <li>
-            <aside><img src="/down-2.png" alt=""/></aside>
+            <aside><MpImage src="/down-2.png" alt=""/></aside>
             <div>
               <h4>优惠下单</h4>
               <span>不定时优惠卷，下单先领劵。全天24h均可下单，在线下单专享优惠。</span>
             </div>
           </li>
           <li>
-            <aside><img src="/down-3.png" alt=""/></aside>
+            <aside><MpImage src="/down-3.png" alt=""/></aside>
             <div>
               <h4>查账对账</h4>
               <span>系统提供查账对账功能，历史付款明细条理清晰，笔笔支出有迹可寻。</span>
             </div>
           </li>
           <li>
-            <aside><img src="/down-4.png" alt=""/></aside>
+            <aside><MpImage src="/down-4.png" alt=""/></aside>
             <div>
               <h4>订单跟踪</h4>
               <span>从下单、拼板、生产到配送，全环节实时跟踪，随时查看。</span>
             </div>
           </li>
           <li>
-            <aside><img src="/down-5.png" alt=""/></aside>
+            <aside><MpImage src="/down-5.png" alt=""/></aside>
             <div>
               <h4>在线充值</h4>
               <span>价格便宜，安全方便，鼠标轻触充值金额瞬间到账，账户金额实时更新。</span>
             </div>
           </li>
           <li>
-            <aside><img src="/down-6.png" alt=""/></aside>
+            <aside><MpImage src="/down-6.png" alt=""/></aside>
             <div>
               <h4>批量下单</h4>
               <span>多个订单合并付款，一次支付，简单便捷，更能节省运费。</span>
@@ -76,27 +77,27 @@ export default function index() {
         <div>
           <aside style={{textAlign: 'right'}}>
             <div className={styles['specialit-f']}>
-              <img src="/down-spec-1.png" alt=""/>
+              <MpImage src="/down-spec-1.png" alt=""/>
               <h4>适用平台</h4>
               <span>本软件支持windows7及以上版本系统安装使用</span>
             </div>
             <div>
-              <img src="/down-spec-3.png" alt=""/>
+              <MpImage src="/down-spec-3.png" alt=""/>
               <h4>软件优势</h4>
               <span>与同类软件相比较，无需安装插件、系统稳定性更高，可确保用户在下单过程中万无一失</span>
             </div>
           </aside>
           <div>
-            <img src="/speciality.png" alt=""/>
+            <MpImage src="/speciality.png" alt=""/>
           </div>
           <aside>
             <div className={styles['specialit-f']}>
-              <img src="/down-spec-2.png" alt=""/>
+              <MpImage src="/down-spec-2.png" alt=""/>
               <h4>适用人群</h4>
               <span>本软件主要面向电商平台、广告公司、以及线下图文店等用户。</span>
             </div>
             <div>
-              <img src="/down-spec-4.png" alt=""/>
+              <MpImage src="/down-spec-4.png" alt=""/>
               <h4>免费版</h4>
               <span>自助下单免费版，面向个人用户，无试用时间限制。用户初次登录后，所有功能均可使用。</span>
             </div>
@@ -108,28 +109,28 @@ export default function index() {
           <ul>
             <li className={styles['infoPart-first']}>
               <div>
-                <img src="/down-info-1.png" alt=""/>
+                <MpImage src="/down-info-1.png" alt=""/>
               </div>
               <h2>61.6MB</h2>
               <h3>文件大小</h3>
             </li>
             <li>
               <div>
-                <img src="/down-info-2.png" alt=""/>
+                <MpImage src="/down-info-2.png" alt=""/>
               </div>
               <h2>70%</h2>
               <h3>专属用户</h3>
             </li>
             <li>
               <div>
-                <img src="/down-info-3.png" alt=""/>
+                <MpImage src="/down-info-3.png" alt=""/>
               </div>
               <h2>20000+</h2>
               <h3>文件下载</h3>
             </li>
             <li className={styles['infoPart-last']}>
               <div>
-                <img src="/down-info-4.png" alt=""/>
+                <MpImage src="/down-info-4.png" alt=""/>
               </div>
               <h2>v2.0</h2>
               <h3>版本信息</h3>
@@ -139,7 +140,7 @@ export default function index() {
       </section>
       <section className={styles.lastPart}>
         <aside>
-          <img src="/down-copy.png" alt=""/>
+          <MpImage src="/down-copy.png" alt=""/>
         </aside>
         <ul>
           <li className={styles['last-f']}>

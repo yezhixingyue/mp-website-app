@@ -4,6 +4,6 @@
 // })
 module.exports = {
   images: {
-    domains: ['https://dss3.bdstatic.com'],
+    domains: ['192.168.1.92'],
   },
 }

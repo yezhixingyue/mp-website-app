@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import styles from './index.module.css'
+import MpImage from '../../components/common/MpImage'
 
 export default function index() {
   return (
@@ -28,7 +29,7 @@ export default function index() {
         <li className={styles.menus}>
           <div style={{width: 215}}>
             <header>
-              <img src='/about-icon1.png' />
+              <MpImage src='/about-icon1.png' />
             </header>
             <div>愿景</div>
             <p>做中国文化创意与印刷科技产业</p>
@@ -37,7 +38,7 @@ export default function index() {
 
           <div style={{width: 215, marginLeft: 90}}>
             <header>
-              <img src='/about-icon2.png' />
+              <MpImage src='/about-icon2.png' />
             </header>
             <div>使命</div>
             <p>实现产业链价值持续升级，帮助</p>
@@ -46,7 +47,7 @@ export default function index() {
 
           <div style={{width: 260, marginLeft: 90}}>
             <header>
-              <img src='/about-icon3.png' />
+              <MpImage src='/about-icon3.png' />
             </header>
             <div>价值观</div>
             <p>以客户为中心 、相互成就、 共享共担、</p>
@@ -55,7 +56,7 @@ export default function index() {
 
           <div style={{width: 240, marginLeft: 90}}>
             <header>
-              <img src='/about-icon4.png' />
+              <MpImage src='/about-icon4.png' />
             </header>
             <div>企业精神</div>
             <p>上善若水、臻于至善、以人为本、脚</p>
@@ -68,7 +69,7 @@ export default function index() {
             <div>{'development history'.toLocaleUpperCase()}</div>
           </div>
           <div className={styles['course-content']}>
-            <img src="/about-line.png" alt=""/>
+            <MpImage src="/about-line.png" alt=""/>
             <ul>
               <li style={{top: 185}}>
                 <div></div>

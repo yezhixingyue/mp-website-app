@@ -1,11 +1,12 @@
 import React from 'react'
+import MpImage from '../../common/MpImage';
 import styles from './newscenter.module.css'
 // import Image from 'next/image';
 
 function SingleNewsCode({ newsData }) {
   return (
     <li>
-      <img src={'http://192.168.1.92:8055' + newsData.Cover} alt="" width={380} height={185}/>
+      <MpImage src={'http://192.168.1.92:8055' + newsData.Cover} alt="" width={380} height={185}/>
       <p>{newsData.Title}</p>
       <p>
         {newsData.Introduce}
