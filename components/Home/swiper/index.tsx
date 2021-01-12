@@ -9,8 +9,8 @@ export default function index({ swiperData }) {
       {
         swiperData.map(it => (
           <div key={it.ID}>
-            <a href={it.Url}>
-              <img src={'http://192.168.1.92:8055/' + it.Pic} alt={it.Title}/>
+            <a href={it.Url} target='_blank' >
+              <img src={'http://192.168.1.92:8055/' + it.Pic} alt={it.Title} />
             </a>
           </div>
         ))

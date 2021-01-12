@@ -1,10 +1,11 @@
+import { ILoginPagrms } from '../utils/TSTypes';
 import instance from './axios';
 
 const api = {
   /* 登录注册部分 与 账号相关等 api
   ----------------------------------------------------------------------------------- */
-  getLogin(data) { // POST /api/Staff/Login
-    return instance.post('/api/Staff/Login', data);
+  getLogin(data: ILoginPagrms) { // POST /Api/Customer/Login
+    return instance.post('/api/Customer/Login', { ...data, Terminal: 1} );
   },
 
   /* 首页

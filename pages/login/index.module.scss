@@ -1,0 +1,146 @@
+.mp-login-page-wrap {
+  height: 100vh;
+  width: 100%;
+  background-color: #f8f9fe;
+  > header {
+    height: 60px;
+    width: 100%;
+    background-color: #677aff;
+    > div {
+      margin-left: 100px;
+      width: 161px;
+      height: 100%;
+      background: url(../../public/logo.png) no-repeat left center/161px 39px;
+    }
+  }
+  > div.content {
+    position: relative;
+    min-height: calc(100% - 60px);
+    width: 100%;
+    background: url(../../public/login-bg.png) no-repeat bottom center/cover;
+    > section {
+      width: 432px;
+      height: 478px;
+      position: absolute;
+      left: calc(50% - 216px);
+      top: calc(49% - 276px);
+      box-sizing: border-box;
+      padding: 70px 63px 90px;
+      box-shadow: 0px 8px 20px 0 rgba(103, 122, 255, 0.3);
+      border-radius: 10px;
+      padding: 45px 35px 90px;
+      background-color: #fff;
+      // background: url(../../public/login-box-bg.png) no-repeat center center/100% 100%;
+      > header {
+        color: #2f2f2f;
+        font-weight: 700;
+        font-size: 20px;
+        margin-bottom: 38px;
+        font-family: PingFang-M;
+      }
+      > form {
+        > div {
+          margin-bottom: 11px;
+          height: 75px;
+          &.checkLitem {
+            height: 34px;
+          }
+          &.btnBox {
+            height: 120px;
+          }
+          > div {
+            > div {
+              > span {
+                > span {
+                  > input {
+                    height: 56px;
+                    border: none;
+                    border-bottom: 1px solid #bdbdbd;
+                    border-radius: 0;
+                    color: #444;
+                    font-family: PingFang-M;
+                    font-size: 16px;
+                    &:focus {
+                      box-shadow: none !important;
+                    }
+                  }
+                  &::after {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    bottom: 0;
+                    height: 2px;
+                    width: 0%;
+                    transition: 0.3s;
+                    background-color: rgb(103, 122, 255);
+                  }
+                  &.active::after {
+                    width: 100%;
+                  }
+                  > span {
+                    > i.icon {
+                      display: block;
+                      width: 15px;
+                      height: 58px;
+                      margin-left: -9px;
+                      // margin-top: -1px;
+                      &.phone {
+                        background: url(../../public/login-avator.png) no-repeat center center/15px 16px;
+                      }
+                      &.pwd {
+                        margin-top: -2px;
+                        background: url(../../public/login-pwd.png) no-repeat center center/14px 16px;
+                      }
+                    }
+                  }
+                }
+                > label {
+                  top: -15px;
+                  user-select: none;
+                }
+                > button {
+                  height: 50px;
+                  width: 100%;
+                  background: #677aff;
+                  border-color: #677aff;
+                  font-family: PingFang-M;
+                  font-size: 20px;
+                  &:hover {
+                    background: mix(#fff, #677aff, 18%);
+                    border-color: mix(#fff, #677aff, 18%);
+                  }
+                  &:active {
+                    background: mix(#fff, #5868e4, 0%);
+                    border-color: mix(#fff, #5868e4, 0%);
+                  }
+                  &:disabled {
+                    background: mix(#fff, #677aff, 18%);
+                    border-color: mix(#fff, #677aff, 18%);
+                    background: mix(#fff, #5868e4, 0%);
+                    border-color: mix(#fff, #5868e4, 0%);
+                    // color: #eee;
+                  }
+                }
+                > p {
+                  height: 45px;
+                  line-height: 18px;
+                  margin: 0;
+                  text-align: center;
+                  color: #f5222d;
+                  overflow: hidden;
+                  padding: 8px 20px 0;
+                  margin-bottom: 2px;
+                }
+              }
+              > div {
+                font-size: 12px;
+                line-height: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

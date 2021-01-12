@@ -3,7 +3,7 @@ import Panel from '../Panel'
 import HomeProductIntro from '../HomeProductIntro'
 import styles from './index.module.css'
 
-export default function index({ pruducts, lv1Classify }) {
+export default function index() {
   return (
     <section className={styles.wrap}>
       <header>
@@ -16,7 +16,7 @@ export default function index({ pruducts, lv1Classify }) {
           <span className='s-r'>查看更多 &gt;</span>
         </p>
       </div>
-      <HomeProductIntro pruducts={pruducts} classify={lv1Classify} />
+      <HomeProductIntro />
     </section>
   )
 }

@@ -10,7 +10,7 @@ import { useStore } from '../store';
 import { useRouter } from 'next/router';
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const store = useStore(pageProps.initialReduxState)
+  const store = useStore(pageProps.initialReduxState);
 
   if (router.pathname === '/login') {
     return (

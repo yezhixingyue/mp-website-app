@@ -10,7 +10,6 @@ export default function index() {
   const key = needShowBlueList.indexOf(router.pathname) > -1;
   const [state, setState] = useState({
     showBlueBg: false,
-    num: 1
   });
 
   const handleAnchorChange = (link) => {
@@ -26,8 +25,11 @@ export default function index() {
         showBlueBg: false,
       })
     }
-    console.log('handleAnchorChange', link, state.showBlueBg);
   }
+
+  const onLoginClick = () => {
+    router.push('/login');
+  };
 
   return (
     <div className={`${styles['mp-common-header-wrap']} ${(state.showBlueBg || key) && styles['show-blue']}`}>
@@ -55,7 +57,7 @@ export default function index() {
             <Link href='/help'>帮助中心</Link>
           </li>
         </ul>
-        <div className={styles.right}>
+        <div className={styles.right} onClick={onLoginClick}>
           <i></i>
           <span>登录</span>
         </div>

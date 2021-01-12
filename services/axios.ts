@@ -24,7 +24,7 @@ axios.interceptors.request.use(
 
 axios.interceptors.response.use(
   (response) => {
-    const _list2NotNeed2Toast = ['/Api/ExpressWaybill/Record/Excel'];
+    const _list2NotNeed2Toast = ['/Api/ExpressWaybill/Record/Excel', '/api/Customer/Login'];
     const _statusList2NotNeed2Toast = [1000];
     // 包含以上的状态码 或 以上的请求路径  不会弹窗报错  其余以外都会报错出来
 

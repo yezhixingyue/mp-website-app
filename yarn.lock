@@ -2670,6 +2670,11 @@ jest-worker@24.9.0:
     merge-stream "^2.0.0"
     supports-color "^6.1.0"
 
+js-base64@2.6.2:
+  version "2.6.2"
+  resolved "https://registry.npm.taobao.org/js-base64/download/js-base64-2.6.2.tgz?cache=0&sync_timestamp=1604450395858&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjs-base64%2Fdownload%2Fjs-base64-2.6.2.tgz#cf9301bc5cc756892a9a6c8d7138322e5944fb0d"
+  integrity sha1-z5MBvFzHVokqmmyNcTgyLllE+w0=
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"

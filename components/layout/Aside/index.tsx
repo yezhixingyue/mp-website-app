@@ -10,12 +10,12 @@ export default function index() {
   const PhoneList = (
     <ul className={styles['phone-list']}>
       <li>
-        <p>服务热线</p>
-        <p><Paragraph copyable><span>4006363006</span></Paragraph></p>
+        <div>服务热线</div>
+        <div><Paragraph copyable><span>4006363006</span></Paragraph></div>
       </li>
       <li style={{border: 'none', paddingTop: 15, paddingBottom: 4}}>
-        <p>售后专线</p>
-        <p><Paragraph copyable><span>4006363500</span></Paragraph></p>
+        <div>售后专线</div>
+        <div><Paragraph copyable><span>4006363500</span></Paragraph></div>
       </li>
     </ul>
   )
@@ -31,7 +31,7 @@ export default function index() {
           </a> */}
           {/* <span>4006363006</span> */}
           
-          <Tooltip placement="right" title={<Paragraph copyable={{ text: '4006363006' }} style={{color: '#fff', marginBottom: '-6px', marginTop: '-1px'}}>复制号码：</Paragraph>}>
+          <Tooltip placement="right" title={<Paragraph copyable={{ text: '4006363006' }} style={{color: '#fff', marginBottom: '-6px', marginTop: '-1px'}}>复制QQ号码：</Paragraph>}>
             <span>4006363006</span>
           </Tooltip>
         </p>
@@ -71,7 +71,7 @@ export default function index() {
             <span>800050507</span>
           </a> */}
           {/* <span>800050507</span> */}
-          <Tooltip placement="right" title={<Paragraph copyable={{ text: '800050507' }} style={{color: '#fff', marginBottom: '-6px', marginTop: '-1px'}}>复制号码：</Paragraph>}>
+          <Tooltip placement="right" title={<Paragraph copyable={{ text: '800050507' }} style={{color: '#fff', marginBottom: '-6px', marginTop: '-1px'}}>复制QQ号码：</Paragraph>}>
             <span>800050507</span>
           </Tooltip>
         </p>
@@ -83,7 +83,7 @@ export default function index() {
             <span>800051513</span>
           </a> */}
           {/* <span>800051513</span> */}
-          <Tooltip placement="right" title={<Paragraph copyable={{ text: '800051513' }} style={{color: '#fff', marginBottom: '-6px', marginTop: '-1px'}}>复制号码：</Paragraph>}>
+          <Tooltip placement="right" title={<Paragraph copyable={{ text: '800051513' }} style={{color: '#fff', marginBottom: '-6px', marginTop: '-1px'}}>复制QQ号码：</Paragraph>}>
             <span>800051513</span>
           </Tooltip>
         </p>
