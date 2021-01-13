@@ -6,11 +6,12 @@ import Aside from '../components/layout/Aside';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { useStore } from '../store';
-
 import { useRouter } from 'next/router';
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const store = useStore(pageProps.initialReduxState);
+
 
   if (router.pathname === '/login') {
     return (

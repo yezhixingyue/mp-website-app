@@ -1,3 +1,5 @@
+import { IClassifyItem } from "./types4TS";
+
 export const isBrower = () => {
   return typeof window !== 'undefined';
 }
@@ -55,4 +57,19 @@ export const throttle = (callback: { apply: (arg0: any, arg1: IArguments) => voi
       }, time);
     }
   }
+}
+
+export const getFilterClassifyList = (list: IClassifyItem[]) => {
+  let level1List = list // 挑选第一级分类
+    .filter(item => item.Level === 1)
+    .map(item => ({ ...item, children: [] }));
+  // 设置第二级分类
+  level1List.forEach(level1 => {
+    const _list = list
+      .filter(item => item.ParentID === level1.ID)
+      .map(item => ({ ...item, children: [] }));
+    level1.children = _list;
+  });
+  level1List = level1List.filter(_leve1 => _leve1.children.length > 0);
+  return level1List;
 }

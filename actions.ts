@@ -1,5 +1,7 @@
 import * as types from './types/test'
 import * as HomeTypes from './types/home'
+import * as UserTypes from './types/user'
+import api from './services'
 
 // INITIALIZES CLOCK ON SERVER
 export const serverRenderClock = () => (dispatch) =>
@@ -24,8 +26,27 @@ export const decrementCount = () => ({ type: types.DECREMENT })
 export const resetCount = () => ({ type: types.RESET })
 
 
-// SWIPER HOME
+// ACTIONS FOR HOME
 export const setSwiperState = (payload) => ({type: HomeTypes.SWIPER, payload });
 export const setNewsState = (payload) => ({type: HomeTypes.HOMENEWS, payload });
 export const setLv1ClassifyState = (payload) => ({type: HomeTypes.LEVEL1PROCLASSLIST, payload });
 export const setHomeProductState = (payload) => ({type: HomeTypes.HOMEPRODUCTS, payload });
+
+// ACTIONS FOR USER
+export const setUserState = (payload) => ({ type: UserTypes.SETUSER, payload });
+export const removeUserState = () => ({ type: UserTypes.SETUSER, payload: null });
+export const fetchUserState = () => {
+  return async (dispatch) => {
+    let key = true;
+    const res = await api.getUserDetail().catch(() => { key = false });
+    if (key && res && res.data.Status === 1000) {
+      const user = res.data.Data;
+      dispatch(setUserState(user));
+      if (process.browser) sessionStorage.setItem('user', JSON.stringify(user));
+      return true;
+    } else {
+      dispatch(removeUserState());
+      return false;
+    }
+  };
+}

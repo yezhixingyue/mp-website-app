@@ -1,4 +1,4 @@
-import { ILoginPagrms } from '../utils/TSTypes';
+import { ICondtion4ProList, ILoginPagrms } from '../utils/types4TS';
 import instance from './axios';
 
 const api = {
@@ -6,6 +6,9 @@ const api = {
   ----------------------------------------------------------------------------------- */
   getLogin(data: ILoginPagrms) { // POST /Api/Customer/Login
     return instance.post('/api/Customer/Login', { ...data, Terminal: 1} );
+  },
+  getUserDetail() { // GET /Api/Customer/Detail
+    return instance.get('/api/Customer/Detail');
   },
 
   /* 首页
@@ -16,7 +19,7 @@ const api = {
   getNewsArticleList(data = { Page: 1, pageSize: 6 }) { // POST /api/Article/ArticleList 获取新闻列表
     return instance.post('/api/Article/ArticleList', data);
   },
-  getProductsList(data = {}) { // POST /api/Product/List 获取产品介绍列表
+  getProductsList(data:ICondtion4ProList = { Page: 1, PageSize: 3 }) { // POST /api/Product/List 获取产品介绍列表
     return instance.post('/api/Product/List', data);
   },
   getProductClassify() { // 获取产品分类
@@ -27,6 +30,8 @@ const api = {
   getNewsHotList(data = { Page: 1, pageSize: 4 }) { // POST /api/Article/ArticleList 获取新闻列表
     return instance.post('/api/Article/ArticleList', data);
   },
+  /* 产品
+  ----------------------------------------------------------------------------------- */
 };
 
 export default api;

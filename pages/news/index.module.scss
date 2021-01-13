@@ -128,12 +128,12 @@
             display: inline-block;
             vertical-align: top;
             border-radius: 50%;
-            > img {
+            > div > img {
               width: 100%;
               height: 100%;
               transition: 0.35s;
             }
-            &:hover > img {
+            &:hover > div > img {
               transform: scale(1.25);
             }
           }

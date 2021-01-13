@@ -12,6 +12,8 @@ import NewsCenter from '../components/Home/NewsCenter'
 import PartnersComp from '../components/Home/PartnersComp'
 import ServeWorth from '../components/Home/ServeWorth'
 import { useSelector } from 'react-redux'
+import { IStore } from '../utils/types4TS';
+import { getFilterClassifyList } from '../utils';
 // import { setSwiperState, setNewsState, setLv1ClassifyState, setHomeProductState } from '../actions'
 // if (process.browser) { window.history.replaceState = window.history.replaceState || function () {} }
 // if (process.browser) {
@@ -19,7 +21,7 @@ import { useSelector } from 'react-redux'
 // }
 
 export default function Home() {
-  const { swiperData, newsDate } = useSelector(store => store.home);
+  const { swiperData, newsDate } = useSelector((store: IStore) => store.home);
 
   return (
     <div className={styles['home-page-wrap']}>
@@ -38,29 +40,36 @@ export default function Home() {
 }
 
 export async function getServerSideProps() {
-  const res = await Promise.all([api.getSwiperData(), api.getNewsArticleList(), api.getProductClassify()]);
-  const [ swiperResp, newsResp, classifyRes ] = res;
+  let key = true;
+  const handleErrCatch = () => {
+    key = false;
+  }
+  const res = await Promise.all([api.getSwiperData().catch(handleErrCatch), api.getNewsArticleList().catch(handleErrCatch), api.getProductClassify().catch(handleErrCatch)]);
+  const [swiperResp, newsResp, classifyRes] = res;
   let swiperData = [];
   let newsDate = [];
   let lv1Classify = [];
   let products = [];
-  if (swiperResp.data.Status === 1000) swiperData = swiperResp.data.Data;
-  if (newsResp.data.Status === 1000) newsDate = newsResp.data.Data;
-  if (classifyRes.data.Status === 1000) {
-    lv1Classify = classifyRes.data.Data.filter(it => it.Level === 1);
-    if (lv1Classify.length > 0) {
-      const proResp = await api.getProductsList({
-        Page: 1,
-        PageSize: 3,
-        ProductClass: {
-          First: lv1Classify[0].ID
+  if (key && swiperResp && newsResp && classifyRes) {
+    if (swiperResp.data.Status === 1000) swiperData = swiperResp.data.Data;
+    if (newsResp.data.Status === 1000) newsDate = newsResp.data.Data;
+    if (classifyRes.data.Status === 1000) {
+      lv1Classify =  getFilterClassifyList(classifyRes.data.Data);
+      if (lv1Classify.length > 0) {
+        const proResp = await api.getProductsList({
+          Page: 1,
+          PageSize: 3,
+          ProductClass: {
+            First: lv1Classify[0].ID
+          }
+        }).catch(handleErrCatch)
+        if (key && proResp && proResp.data.Status === 1000) {
+          products = proResp.data.Data;
         }
-      })
-      if (proResp.data.Status === 1000) {
-        products = proResp.data.Data;
       }
     }
   }
+  
   return {
     props: {
       initialReduxState: {

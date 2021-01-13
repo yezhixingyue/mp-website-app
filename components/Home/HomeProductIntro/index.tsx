@@ -6,7 +6,7 @@ import { isBrower } from '../../../utils';
 import MpImage from '../../common/MpImage';
 import { useSelector, useDispatch } from 'react-redux';
 import { setHomeProductState } from '../../../actions';
-import { IHomePageState, IStore } from '../../../utils/TSTypes';
+import { IHomePageState, IStore } from '../../../utils/types4TS';
 
 const { TabPane } = Tabs;
 

@@ -5,9 +5,16 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
 import api from '../../services';
 import { Base64 } from 'js-base64';
+import { Cookie } from '../../utils/cookie';
+import { NextRouter, withRouter } from 'next/router';
+import { connect } from 'react-redux';
+import { removeUserState } from '../../actions';
+import { route } from 'next/dist/next-server/server/router';
 
 interface IProps extends FormComponentProps {
   // 添加组件props类型
+  router: NextRouter;
+  clearLoginState: () => void;
 }
 
 interface IState {
@@ -46,6 +53,8 @@ class NormalLoginForm extends React.Component<IProps, IState> {
       errMsg: '',
       isLoginSuccess: false,
     }
+
+    console.log(props);
   }
 
   handleSubmit = e => {
@@ -56,6 +65,10 @@ class NormalLoginForm extends React.Component<IProps, IState> {
         this.setState({ ...this.state, errMsg: '', isLoading: true, isLoginSuccess: false }); // 请求前先清除错误信息 及设置loading
         const _pwd = Password !== this.state.loginData.Pwd ? Base64.encode(Password) : Password;
         const loginReqData =  { Mobile, Password: _pwd };
+        // ----- clear old loginInfo 
+        Cookie.removeCookie('token');
+        sessionStorage.clear();
+        this.props.clearLoginState();
         const res = await api.getLogin(loginReqData).catch(() => {
           this.setState({ ...this.state, errMsg: '登录失败，请重试', isLoading: false });
         });
@@ -68,10 +81,16 @@ class NormalLoginForm extends React.Component<IProps, IState> {
         // 登录成功
         if (remember) localStorage.setItem('loginData', JSON.stringify(loginReqData));
         else localStorage.removeItem('loginData');
-        this.setState({ ...this.state, isLoginSuccess: true });
+        this.setState({ ...this.state, isLoginSuccess: true, errMsg: '即将跳转主页...' });
+        Cookie.setCookie('token', res.data.Data, 24 * 60 * 60);
+        this.props.router.push('/');
       }
     });
   };
+
+  onLogoClick = () => {
+    this.props.router.push('/');
+  }
 
   componentDidMount() {
     this.props.form.setFieldsValue({ Mobile: this.state.loginData.Mobile });
@@ -87,7 +106,7 @@ class NormalLoginForm extends React.Component<IProps, IState> {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <header>
-          <div></div>
+          <div onClick={this.onLogoClick}></div>
         </header>
         <div className={styles.content}>
           <section>
@@ -97,6 +116,7 @@ class NormalLoginForm extends React.Component<IProps, IState> {
                 {getFieldDecorator('Mobile', {
                   rules: [
                     { required: true, message: '请输入手机号' },
+                    { min: 11, message: '手机号码长度应为11位' },
                     { pattern: /^1[3456789]\d{9}$/, message: '手机号码格式不正确' }
                   ],
                   initialValue: ''
@@ -136,7 +156,7 @@ class NormalLoginForm extends React.Component<IProps, IState> {
                 })(<Checkbox className='login-check'>记住密码</Checkbox>)}
               </Form.Item>
               <Form.Item className={styles.btnBox}>
-                <p>{this.state.errMsg}</p>
+                <p className={this.state.isLoginSuccess ? 'is-success' : ''}>{this.state.errMsg}</p>
                 <Button type="primary" htmlType="submit" disabled={this.state.isLoading}>
                   { this.state.isLoading ? (<><Icon type="loading" />登录中...</>) : this.state.isLoginSuccess ? '登录成功' : '登录' }
                 </Button>
@@ -156,6 +176,16 @@ const callback = (props, changedValues, allValues) => {
   }
 }
 
-const WrappedNormalLoginForm = Form.create({ name: 'login', onValuesChange: callback })(NormalLoginForm);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    clearLoginState() {
+      dispatch(removeUserState());
+    }
+  }
+}
+
+const WithStoreLoginComp = connect(null, mapDispatchToProps)(NormalLoginForm);
+
+const WrappedNormalLoginForm = Form.create({ name: 'login', onValuesChange: callback })(withRouter(WithStoreLoginComp));
 
 export default WrappedNormalLoginForm;

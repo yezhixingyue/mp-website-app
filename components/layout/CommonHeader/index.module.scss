@@ -30,8 +30,9 @@
         height: 100%;
         position: absolute;
         right: 0;
-        padding: 18px 0;
+        padding-top: 18px;
         line-height: 24px;
+        height: 42px;
         cursor: pointer;
         user-select: none;
         transition: color 0.2s;
@@ -85,4 +86,21 @@
 }
 .mp-common-header-wrap.show-blue {
   background-color: #428dfa;
+}
+.loginout-box {
+  padding: 1px 8px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 2px;
+  transition: color 0.2s;
+  font-size: 14px;
+  &:hover {
+    color: mix(#428dfa, #fff, 75%);
+  }
+  &:active {
+    color: #428dfa;
+  }
+  > i {
+    margin-right: 6px;
+  }
 }

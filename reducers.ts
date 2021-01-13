@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import * as types from './types/test'
 import * as HomeTypes from './types/home'
+import * as UserTypes from './types/user'
 
 // COUNTER REDUCER
 const counterReducer = (state = 0, { type }) => {
@@ -57,11 +58,44 @@ const homeReducer = (state = initialHomeState, { type, payload }) => {
   }
 }
 
+const userReducer = (state = null, { type, payload }) => {
+  switch (type) {
+    case UserTypes.SETUSER:
+      return payload;
+    case UserTypes.REMOVEUSER: 
+      return null;
+    default:
+      return state;
+  }
+}
+
+const initialProductState = {
+  productClassify: [],
+  productList: [],
+  DataNumber: 0,
+  curLv1Class: 0,
+  curLv2Class: 0,
+  curProduct: null,
+}
+
+const productReducer = (state = initialProductState, { type, payload }) => {
+  switch (type) {
+    // case UserTypes.SETUSER:
+    //   return payload;
+    // case UserTypes.REMOVEUSER: 
+    //   return null;
+    default:
+      return state;
+  }
+}
+
 // COMBINED REDUCERS
 const reducers = {
   counter: counterReducer,
   timer: timerReducer,
   home: homeReducer,
+  user: userReducer,
+  product: productReducer,
 }
 
 export default combineReducers(reducers)

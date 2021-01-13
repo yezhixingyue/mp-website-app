@@ -12,7 +12,7 @@ export default function index() {
       </header>
       <div className={styles.content}>
         <div>
-          <MpImage src='/worth.png' object-fit='cover' alt='' />
+          <MpImage src='/worth.png' alt='' />
         </div>
         <ul>
           <li>
@@ -26,7 +26,7 @@ export default function index() {
           </li>
           <li>
             <div>
-              <MpImage src='/qian.png' width={87} height={87} />
+              <MpImage src='/team.png' width={87} height={87} />
             </div>
             <div>
               <p className={styles.f}>专业团队</p>
@@ -35,7 +35,7 @@ export default function index() {
           </li>
           <li>
             <div>
-              <MpImage src='/qian.png' width={87} height={87} />
+              <MpImage src='/express.png' width={87} height={87} />
             </div>
             <div>
               <p className={styles.f}>自营物流</p>
@@ -44,7 +44,7 @@ export default function index() {
           </li>
           <li>
             <div>
-              <MpImage src='/qian.png' width={87} height={87} />
+              <MpImage src='/color.png' width={87} height={87} />
             </div>
             <div>
               <p className={styles.f}>色彩管理</p>
