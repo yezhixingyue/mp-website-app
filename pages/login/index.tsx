@@ -54,7 +54,7 @@ class NormalLoginForm extends React.Component<IProps, IState> {
       isLoginSuccess: false,
     }
 
-    console.log(props);
+    // console.log(props);
   }
 
   handleSubmit = e => {

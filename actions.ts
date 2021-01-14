@@ -50,3 +50,5 @@ export const fetchUserState = () => {
     }
   };
 }
+
+// ACTIONS FOR PRODUCT

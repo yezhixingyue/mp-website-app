@@ -76,6 +76,7 @@ const initialProductState = {
   curLv1Class: 0,
   curLv2Class: 0,
   curProduct: null,
+  Page: 1,
 }
 
 const productReducer = (state = initialProductState, { type, payload }) => {

@@ -2,6 +2,7 @@ import React from 'react'
 // import { LazyLoadImage } from 'react-lazy-load-image-component';
 // import 'react-lazy-load-image-component/src/effects/blur.css';
 import LazyLoad from 'react-lazyload';
+import styles from './index.module.scss';
 
 interface IProps {
   src: string;
@@ -19,14 +20,13 @@ const MpImage = (props: IProps) => {
   //   src={props.src}
   //   width={props.width} />
   if (process.browser && !window.btoa) {
-    console.log('213213 --- btoa');
     return <img
       alt={props.alt}
       height={props.height}
       src={props.src}
       width={props.width} />
   }
-  return <LazyLoad height={props.wrapHeight || '100%'} offset={100} once>
+  return <LazyLoad height={props.wrapHeight || '100%'} offset={100} once className={styles['mp-imgae-comp-wrap']}>
     <img
       alt={props.alt}
       height={props.height}

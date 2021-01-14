@@ -8,7 +8,7 @@ export const isInClietn = (eldom) => {
 };
 
 export const checkAllImags = () => {
-  console.log('checkAllImags');
+  // console.log('checkAllImags');
   const imgs = document.querySelectorAll('img');
   let index = 0;
   Array.from(imgs).map((item, inx) => {

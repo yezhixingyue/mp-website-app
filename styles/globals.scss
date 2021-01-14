@@ -434,3 +434,41 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
     }
   }
 }
+
+.link-blue {
+  color: #428dfa;
+  transition: color 0.2s;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    color: mix( #428dfa,  #fff, 70%);
+  }
+  &:active {
+    color: #428dfa;
+  }
+}
+
+.ant-pagination {
+  .ant-pagination-prev, .ant-pagination-next, .ant-pagination-item {
+    height: 40px;
+    min-width: 40px;
+    > a {
+      line-height: 40px;
+      font-size: 14px;
+    }
+  }
+  .ant-pagination-item > a {
+    color: #333;
+  }
+  .ant-pagination-item-active {
+    background: #428dfa;
+    border-color: #428dfa;
+    a {
+      color: #fff !important;
+    }
+  } 
+}
+
+.lazyload-wrapper {
+  background-color: #f5f7fa;
+}

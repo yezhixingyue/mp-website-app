@@ -111,6 +111,7 @@ export interface IProductPageState {
   curLv1Class: number;
   curLv2Class: number;
   curProduct: null;
+  Page: number;
 }
 
 
