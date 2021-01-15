@@ -32,6 +32,9 @@ const api = {
   },
   /* 产品
   ----------------------------------------------------------------------------------- */
+  getProductIntroduce(productID: string) { // GET /Api/Product/Introduce
+    return instance.get(`/api/Product/Introduce?productID=${productID}`);
+  },
 };
 
 export default api;

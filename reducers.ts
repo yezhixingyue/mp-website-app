@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 import * as types from './types/test'
 import * as HomeTypes from './types/home'
 import * as UserTypes from './types/user'
+import * as ProductTypes from './types/product'
 
 // COUNTER REDUCER
 const counterReducer = (state = 0, { type }) => {
@@ -81,8 +82,8 @@ const initialProductState = {
 
 const productReducer = (state = initialProductState, { type, payload }) => {
   switch (type) {
-    // case UserTypes.SETUSER:
-    //   return payload;
+    case ProductTypes.HANDLELV1CLASSCHANGE:
+      return { ...state, ...payload };
     // case UserTypes.REMOVEUSER: 
     //   return null;
     default:

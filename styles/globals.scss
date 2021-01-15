@@ -76,6 +76,7 @@ table {
 	border-spacing: 0;
 }
 
+
 @font-face {
   font-family: 'PingFang-R'; 
   src: url('./font/PingFang Regular_0.ttf');
@@ -471,4 +472,126 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
 
 .lazyload-wrapper {
   background-color: #f5f7fa;
+  position: relative;
+  > p {
+    position: absolute;
+    text-align: center;
+    top: 45%;
+    width: 100%;
+    color: #999;
+    font-size: 12px;
+  }
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.mp-product-tab-wrap {
+  > .ant-tabs-bar {
+    margin: 0;
+    border: none;
+    > .ant-tabs-nav-container {
+      height: 77px;
+      > div {
+        .ant-tabs-tab {
+          height: 77px;
+          padding: 28px 1px;
+          font-size: 18px;
+          margin-right: 73px;
+          color: #999;
+          &.ant-tabs-tab-active {
+            color: #333;
+            font-weight: 700;
+          }
+        }
+        .ant-tabs-ink-bar {
+          background-color: #333;
+          transition: 0.05s;
+        }
+      }
+    }
+  }
+}
+
+.rich-edit-content {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+  /* font
+  -------------------------*/
+  .ql-font-SimSun {
+      font-family: "SimSun";
+  }
+  .ql-font-SimHei {
+      font-family: "SimHei";
+  }
+  .ql-font-Microsoft-YaHei {
+      font-family: "Microsoft YaHei";
+  }
+  .ql-font-KaiTi {
+      font-family: "KaiTi";
+  }
+  .ql-font-FangSong {
+      font-family: "FangSong";
+  }
+  .ql-font-Arial {
+      font-family: "Arial";
+  }
+  .ql-font-Times-New-Roman {
+      font-family: "Times New Roman";
+  }
+  .ql-font-sans-serif {
+      font-family: "sans-serif";
+  }
+
+  /* 部分标签样式初始化
+  ----------------------*/
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  u {
+    text-decoration: underline;
+  }
+
+  s {
+    text-decoration: line-through;
+  }
+
+  sub {
+    vertical-align: sub;
+    font-size: smaller;
+  }
+
+  sup {
+    vertical-align: super;
+    font-size: smaller;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  h3 {
+    font-size: 1.17em;
+  }
+  h4 {
+    font-size: 1em;
+  }
+  h5 {
+    font-size: 0.83em;
+  }
+  h6 {
+    font-size: 0.67em;
+  }
+
+  img {
+    max-width: 100%;
+  }
 }

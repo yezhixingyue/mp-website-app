@@ -73,3 +73,56 @@ export const getFilterClassifyList = (list: IClassifyItem[]) => {
   level1List = level1List.filter(_leve1 => _leve1.children.length > 0);
   return level1List;
 }
+
+export const clone = function (obj, deep) {
+  if (Array.isArray(obj)) {
+      if (deep) {
+          //深度克隆
+          var newArr = [];
+          for (var i = 0; i < obj.length; i++) {
+              newArr.push(this.clone(obj[i], deep));
+          }
+          return newArr;
+      }
+      else {
+          return obj.slice(); //复制数组
+      }
+  }
+  else if (typeof obj === "object") {
+      var newObj = {};
+      for (var prop in obj) {
+          if (deep) {
+              //深度克隆
+              newObj[prop] = this.clone(obj[prop], deep);
+          }
+          else {
+              newObj[prop] = obj[prop];
+          }
+      }
+      return newObj;
+  }
+  else {
+      //函数、原始类型
+      return obj; //递归的终止条件
+  }
+}
+
+export const animateScroll = (start: number, end: number, callback: (num: number) => void, totalTime?: number, handleAnimateEnd?: () => void) => {
+  let num = start;
+  const tick = 16; // 每隔16毫秒完成一次变化
+  const total = totalTime ? totalTime : 300;
+  const times = Math.ceil(total / tick); // 变化的次数
+  let curTimes = 0;
+  const dis = (end - start) / times; // 总距离/次数，每次运动的距离
+  const timer = setInterval(() => {
+    curTimes += 1;
+    num += dis;
+    if (curTimes === times) {
+      num = end;
+      clearInterval(timer);
+      if (handleAnimateEnd) handleAnimateEnd();
+    }
+    callback(num);
+  }, tick);
+  return timer;
+}

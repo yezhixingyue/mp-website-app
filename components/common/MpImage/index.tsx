@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import { LazyLoadImage } from 'react-lazy-load-image-component';
 // import 'react-lazy-load-image-component/src/effects/blur.css';
 import LazyLoad from 'react-lazyload';
@@ -9,10 +9,16 @@ interface IProps {
   width?: string | number;
   height?: string | number;
   wrapHeight?: number | string;
+  wrapWidth?: number | string;
   alt?: string;
   caption?: string; // 标题
 }
 const MpImage = (props: IProps) => {
+  const [state, setState] = useState({
+    isLoaded: false,
+    // msg: '加载中...'
+    msg: ' '
+  })
   // <LazyLoadImage
   //   alt={props.alt}
   //   height={props.height}
@@ -20,18 +26,36 @@ const MpImage = (props: IProps) => {
   //   src={props.src}
   //   width={props.width} />
   if (process.browser && !window.btoa) {
-    return <img
+    return <div className={styles['mp-imgae-comp-box']}>
+      <img
+      className={ !state.isLoaded ? 'opacity-0' : '' }
       alt={props.alt}
       height={props.height}
       src={props.src}
+      onLoad={() => {
+        setState({ ...state, isLoaded: true, msg: '' })
+      }}
+      onError={() => {
+        setState({ ...state, isLoaded: true, msg: '加载失败!' })
+      }}
       width={props.width} />
+      { state.msg && <p>{state.msg}</p> }
+    </div>
   }
-  return <LazyLoad height={props.wrapHeight || '100%'} offset={100} once className={styles['mp-imgae-comp-wrap']}>
+  return <LazyLoad offset={100} once >
     <img
+      className={ !state.isLoaded ? 'opacity-0' : '' }
       alt={props.alt}
       height={props.height}
+      onLoad={() => {
+        setState({ ...state, isLoaded: true, msg: '' })
+      }}
+      onError={() => {
+        setState({ ...state, isLoaded: true, msg: '加载失败!' })
+      }}
       src={props.src}
       width={props.width} />
+      { state.msg && <p>{state.msg}</p> }
   </LazyLoad>
 }
 

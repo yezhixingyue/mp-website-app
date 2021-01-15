@@ -1,5 +1,6 @@
 import '../styles/globals.scss';
 import 'antd/dist/antd.css';
+// import '../styles/quill.snow.css';
 import Header from '../components/layout/CommonHeader';
 import Footer from '../components/layout/CommonFooter';
 import Aside from '../components/layout/Aside';

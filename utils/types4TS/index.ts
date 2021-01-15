@@ -69,14 +69,16 @@ export interface User {
 /* PRODUCT PAGE
 ----------------------------------------------------------------------------------- */
 // 1. 请求相关
+export interface IProductClass {
+  First: number;
+  Second?: number; 
+}
+
 export interface ICondtion4ProList {
   Page: number;
   PageSize: number;
   KeyWords?: string;
-  ProductClass?: {
-    First: number;
-    Second?: number; 
-  }
+  ProductClass?: IProductClass;
 
 }
 
@@ -104,14 +106,29 @@ export interface IProductType { // 单个产品
   };
 }
 
+export interface IArticleType {
+  ID: string;
+  Name: string;
+  ProductClass: {
+    FirstLevelID: number;
+    FirstLevelName: string;
+    SecondLevelID: number;
+    SecondLevelName: string;
+  };
+  Content: string;
+  AboutList: IProductType[];
+}
+
 export interface IProductPageState {
   productClassify: IClassifyItem[];
   productList: IProductType[];
   DataNumber: number;
   curLv1Class: number;
   curLv2Class: number;
-  curProduct: null;
+  curProduct: null | IArticleType;
   Page: number;
+  Loading: boolean;
+  lv2List: BaseClassifyItem[];
 }
 
 

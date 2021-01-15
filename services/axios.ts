@@ -5,7 +5,7 @@ import { message } from 'antd';
 import { isBrower } from '../utils/index';
 
 
-message.config({top: 60, })
+message.config({ top: 60, })
 
 let closeTip = false;
 axios.interceptors.request.use(
@@ -37,7 +37,7 @@ axios.interceptors.response.use(
       return response;
     }
     if (!_statusList2NotNeed2Toast.includes(response.data.Status) && !_list2NotNeed2Toast.includes(_url) && (!closeTip) && isBrower()) {
-      const _obj:{
+      const _obj: {
         title?: string | undefined;
         msg?: string | undefined;
         onOk?: (() => void) | undefined;
@@ -63,7 +63,7 @@ axios.interceptors.response.use(
       // if (_url === '/Api/Staff/Login') _msg = '登录失败';
       // if (_url === '/Api/Staff/Detail') _msg = '获取用户信息失败';
       // if (_url === '/Api/ExpressWaybill/OrderInfo') _msg = '获取订单信息失败';
-      
+
       switch (error.response.status) {
         case 401:
           // router.replace('/login');
@@ -77,24 +77,19 @@ axios.interceptors.response.use(
       }
       if (key) return Promise.reject(error.response);
     }
-    if (error.message === 'Network Error') {
-      if (isBrower()) {
+    if (isBrower()) {
+      console.log('isBrower', isBrower());
+      if (error.message === 'Network Error') {
         model.showWarnWithoutMsg({ title: '网络错误' })
-      }
-    } else if (error.message.includes('timeout')) {
-      if (isBrower()) {
+      } else if (error.message && error.message.includes('timeout')) {
         model.showWarnWithoutMsg({ title: '网络超时' })
-      }
-    } else if (error.response && error.response.status === 404) {
-      if (isBrower()) {
+      } else if (error.response && error.response.status === 404) {
         model.showWarnWithoutMsg({ title: '404， 内容找不到' })
-      }
-    } else {
-      let msg = '未知错误';
-      if (error.response && error.response.data && error.response.data.Message) {
-        msg = error.response.data.Message;
-      }
-      if (isBrower()) {
+      } else {
+        let msg = '未知错误';
+        if (error.response && error.response.data && error.response.data.Message) {
+          msg = error.response.data.Message;
+        }
         model.showWarnWithoutMsg({ title: msg })
       }
     }
