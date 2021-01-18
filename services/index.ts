@@ -30,6 +30,12 @@ const api = {
   getNewsHotList(data = { Page: 1, pageSize: 4 }) { // POST /api/Article/ArticleList 获取新闻列表
     return instance.post('/api/Article/ArticleList', data);
   },
+  getNewsDetail(id: number) { // GET /Api/Article/Detail 获取新闻详情
+    return instance.get(`/Api/Article/Detail?id=${id}&isRead=true`);
+  },
+  getArticleClass(type: number) { // GET /Api/ArticleClass/List 获取文章分类 0 为新闻 1为帮助
+    return instance.get(`/Api/ArticleClass/List?Type=${type}`);
+  },
   /* 产品
   ----------------------------------------------------------------------------------- */
   getProductIntroduce(productID: string) { // GET /Api/Product/Introduce

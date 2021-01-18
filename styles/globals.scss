@@ -327,8 +327,8 @@ form.opinion-form-wrap button {
 }
 
 .ant-back-top.mp-back-top {
-  width: 73px;
-  height: 73px;
+  width: 60px;
+  height: 60px;
   right: 60px;
   bottom: 100px;
 }
@@ -595,3 +595,37 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
     max-width: 100%;
   }
 }
+
+.ant-breadcrumb.mp-breadcrumb {
+  font-size: 16px;
+  color: #999;
+}
+
+// .news-detail-tab-wrap {
+//   .ant-tabs-bar {
+//     height: 80px;
+//     box-shadow: 0px 2px 11px 0px rgba(231, 231, 231, 0.5);
+//     border: none;
+//     .ant-tabs-nav-container {
+//       height: 80px;
+//       width: 1200px;
+//       margin: 0 auto;
+//       .ant-tabs-nav .ant-tabs-tab {
+//         height: 81px;
+//         padding: 30px 0;
+//         margin-right: 100px;
+//         line-height: 24px;
+//         font-size: 18px;
+//         color: #999;
+//       }
+//       .ant-tabs-nav .ant-tabs-tab-active {
+//         font-weight: bold;
+//         color: #333333;
+        
+//       }
+//       .ant-tabs-ink-bar {
+//         background-color: #333;
+//       }
+//     }
+//   }
+// }

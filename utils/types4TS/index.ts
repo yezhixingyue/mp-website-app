@@ -131,7 +131,47 @@ export interface IProductPageState {
   lv2List: BaseClassifyItem[];
 }
 
+/* NEWS STORE TYPE
+----------------------------------------------------------------------------------- */
+export interface INewsHelpsAboutType {
+  Cover: string;
+  ID: number;
+  Introduce: string;
+  Title: string;
+}
 
+export interface INewsHelpsArticleType {
+  AboutList: INewsHelpsAboutType[];
+  Class: {
+    ID: number;
+    Name: string;
+  };
+  Content: string;
+  Cover: string;
+  CreateTime: string;
+  ID: number;
+  Introduce: string;
+  NextArticle: INewsHelpsAboutType;
+  PreArticle: INewsHelpsAboutType;
+  ReadCount: number;
+  Title: string;
+  TopShow: boolean;
+}
+
+export enum ArticleGetEnumType {
+  'news' = 0,
+  'helps' = 1,
+}
+
+export interface IArticleClassType {
+  CreateTime: string;
+  ID: number;
+  Index: number;
+  Level: number;
+  Name: string;
+  ParentID: number;
+  Type: ArticleGetEnumType;
+}
 
 /* COMPLETE STORE TYPE
 ----------------------------------------------------------------------------------- */

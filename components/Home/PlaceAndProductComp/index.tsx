@@ -5,7 +5,7 @@ import styles from './index.module.css'
 
 export default function index() {
   return (
-    <section className={styles.wrap}>
+    <section className={styles.wrap} id='change-title-style-to-show'>
       <header>
         <Panel />
       </header>

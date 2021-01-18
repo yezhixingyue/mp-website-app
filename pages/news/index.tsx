@@ -3,8 +3,15 @@ import Head from 'next/head'
 import styles from './index.module.scss'
 import api from '../../services'
 import MpImage from '../../components/common/MpImage'
+import { useRouter } from 'next/router'
 
 export default function index({ hotList }) {
+  const router = useRouter();
+  const onNewsClick = (id: number) => {
+    console.log(id, 'onNewsClick');
+    router.push(`newsDetail?id=${id}`);
+  }
+
   return (
     <div>
       <Head>
@@ -85,11 +92,11 @@ export default function index({ hotList }) {
           <ul>
             {
               hotList.map(it => (
-                <li key={it.ID} style={{background: `url(http://192.168.1.92:8055/${it.Cover}) no-repeat center center/cover`}}>
+                <li key={it.ID} style={{background: `url(http://192.168.1.92:8055/${it.Cover}) no-repeat center center/cover`}} onClick={() => {onNewsClick(it.ID)}}>
                   <div>
                     <div>
                       <p>{it.Title}</p>
-                      <span>各省、自治区、直辖市和新疆生产建设兵团新闻出版局，北京、天津、上海、重庆市文化市场行政执法总队：　　根据《国家新闻出版署关于做好2019年印刷复制暨内部资料性出版物管理工作的通知》要求，2019年第一季度，国家新闻出版署组成检查组</span>
+                      <span>{it.Introduce}</span>
                     </div>
                     <p>
                       <span>{it.Title}</span>

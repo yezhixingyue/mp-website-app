@@ -126,3 +126,13 @@ export const animateScroll = (start: number, end: number, callback: (num: number
   }, tick);
   return timer;
 }
+
+/**
+ * @description: 转换时间格式
+ * @param {string} str 时间字符串
+ * @return {*}
+ */
+export const formatDateOnlyYear = (str: string) => {
+  const arr = str.split('T');
+  return arr[0];
+}

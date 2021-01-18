@@ -36,7 +36,7 @@ export default function index() {
     }
   }, [])
 
-  const needShowBlueList = ['/', '/productIntro']; // 需要顶部展示蓝色背景的页面地址， 目前只有主页需要
+  const needShowBlueList = ['/productIntro', '/product', '/newsDetail']; // 需要顶部展示蓝色背景的页面地址， 目前只有主页需要
   const key = needShowBlueList.indexOf(router.pathname) > -1;
   const [state, setState] = useState({
     showBlueBg: false,

@@ -1,13 +1,15 @@
+import { useRouter } from 'next/router';
 import React from 'react'
 import MpImage from '../../common/MpImage';
 import styles from './newscenter.module.css'
 // import Image from 'next/image';
 
 function SingleNewsCode({ newsData }) {
+  const router = useRouter();
   return (
-    <li>
+    <li onClick={() => { router.push(`/newsDetail?id=${newsData.ID}`) }}>
       <MpImage src={'http://192.168.1.92:8055' + newsData.Cover} alt="" width={380} height={185}/>
-      <p>{newsData.Title}</p>
+      <p className={styles.title}>{newsData.Title}</p>
       <p>
         {newsData.Introduce}
       </p>

@@ -59,13 +59,16 @@
   vertical-align: top;
   margin-left: 20px;
 }
+.wrap .content > ul > li > div > div {
+  border-radius: 50%;
+}
 .wrap .content > ul > li > div > div > img {
   transition: 0.3s;
   cursor: pointer;
 }
-.wrap .content > ul > li > div > div > img:hover {
+/* .wrap .content > ul > li > div > div > img:hover {
   transform: scale(1.2);
-}
+} */
 .wrap .content > ul > li > div > p {
   font-size: 13px;
   line-height: 30px;

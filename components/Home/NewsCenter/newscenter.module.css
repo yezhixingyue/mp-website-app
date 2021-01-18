@@ -18,4 +18,22 @@
   font-size: 14px;
   color: #333;
   margin-top: 16px;
+  transition: color 0.2s;
+}
+/* .news-center-wrap ul li > div{
+  width: 380px;
+  height: 185px;
+  overflow: hidden;
+} */
+.news-center-wrap ul li > div > img{
+  transition: transform 0.2s;
+  width: 380px;
+  height: 185px;
+}
+.news-center-wrap ul li:hover > div > img{
+  transform: scale(1.05);
+}
+.news-center-wrap ul li:hover > p.title {
+  color: #428dfa;
+  opacity: 0.9;
 }

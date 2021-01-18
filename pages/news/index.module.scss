@@ -120,7 +120,7 @@
           display: inline-block;
           vertical-align: top;
           margin-bottom: 40px;
-          cursor: pointer;
+          // cursor: pointer;
           > aside {
             width: 87px;
             height: 87px;
@@ -133,9 +133,9 @@
               height: 100%;
               transition: 0.35s;
             }
-            &:hover > div > img {
-              transform: scale(1.25);
-            }
+            // &:hover > div > img {
+            //   transform: scale(1.25);
+            // }
           }
           > div {
             width: 164px;
@@ -275,7 +275,7 @@
               margin: 0;
             }
             opacity: 0;
-            transition: 0.45s;
+            transition: 1.2s;
           }
         }
         &:hover > div > div {

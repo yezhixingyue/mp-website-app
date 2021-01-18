@@ -84,8 +84,10 @@ const productReducer = (state = initialProductState, { type, payload }) => {
   switch (type) {
     case ProductTypes.HANDLELV1CLASSCHANGE:
       return { ...state, ...payload };
-    // case UserTypes.REMOVEUSER: 
-    //   return null;
+    case ProductTypes.CLEARCURPRODUCT: 
+      return { ...state, curProduct: null };
+    case ProductTypes.SETCURPRODUCT: 
+      return { ...state, curProduct: payload, curLv1Class: payload.ProductClass.FirstLevelID, curLv2Class: payload.ProductClass.SecondLevelID };
     default:
       return state;
   }

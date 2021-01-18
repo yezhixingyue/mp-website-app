@@ -1,0 +1,153 @@
+.mp-news-detail-page {
+  padding-top: 60px;
+  width: 100%;
+  > header {
+    > .breadcrumb {
+      height: 60px;
+      line-height: 24px;
+      padding: 18px 0;
+      width: 1200px;
+      margin: 0 auto;
+    }
+    border-bottom: 1px solid #eee;
+  }
+  .news-detail-content {
+    width: 1200px;
+    margin: 0 auto;
+    > header {
+      padding-top: 30px;
+      > h2 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 18px;
+      }
+      > p {
+        margin-bottom: 20px;
+        > span {
+          > i {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: url(../../public/clock.png) no-repeat center center/100% 100%;
+            vertical-align: -2px;
+            margin-right: 8px;
+          }
+          font-size: 14px;
+          color: #999;
+        }
+      }
+    }
+    > div {
+      width: 100%;
+      overflow: hidden;
+      > div {
+        width: 850px;
+        float: left;
+        border: none;
+      }
+      > aside {
+        width: 288px;
+        float: right;
+        margin-bottom: 30px;
+        > header {
+          font-size: 17px;
+          color: #333333;
+          font-weight: bold;
+          margin-bottom: 28px;
+        }
+        > ul {
+          > li {
+            margin-bottom: 19px;
+            cursor: pointer;
+            > div {
+              width: 65px;
+              height: 65px;
+              display: inline-block;
+              vertical-align: top;
+              img {
+                object-fit: cover;
+              }
+            }
+            > p {
+              display: inline-block;
+              width: 199px;
+              white-space: normal;
+              height: 58px;
+              overflow: hidden;
+              font-size: 14px;
+              color: #333333;
+              line-height: 21px;
+              transition: color 0.2s;
+              padding-top: 4px;
+              padding-left: 10px;
+              line-height: 29px;
+              overflow: hidden;
+              white-space: normal;
+              margin: 0;
+            }
+            &:hover {
+              > p {
+                color: mix(#428dfa, #fff, 75%);
+              }
+            }
+          }
+        }
+        > footer {
+          width: 286px;
+          height: 42px;
+          background-color: #F0F0F0;
+          text-align: center;
+          user-select: none;
+          cursor: pointer;
+          border-radius: 2px;
+          transition: background-color 0.2s;
+          > a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            line-height: 22px;
+            color: #999;
+          }
+          &:hover {
+            background-color: #cbcbcb;
+          }
+          &:active {
+            background-color: #aaa;
+          }
+        }
+      }
+    }
+    > footer {
+      width: 850px;
+      position: relative;
+      height: 90px;
+      border-top: 1px solid #eee;
+      padding-top: 17px;
+      margin-bottom: 60px;
+      > div {
+        position: absolute;
+        max-width: 380px;
+        overflow: hidden;
+        cursor: pointer;
+        > h2 {
+          font-size: 16px;
+          font-weight: bold;
+          color: #333333;
+        }
+        > p {
+          text-align: left;
+          font-size: 16px;
+          color: #999999;
+          margin: 0;
+          transition: color 0.2s;
+        }
+        &:hover {
+          > p {
+            color: mix(#428dfa, #fff, 85%);
+          }
+        }
+      }
+    }
+  }
+}

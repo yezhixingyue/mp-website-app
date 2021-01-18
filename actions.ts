@@ -125,4 +125,8 @@ export const changeCurPage = ({ curLv1Class, lv2ClassID, Page }: { curLv1Class: 
     }
     dispatch(handleClassChange({ Loading: false }))
   }
-} 
+}
+
+export const clearCurProduct = () => ({ type: ProductTypes.CLEARCURPRODUCT, payload: null });
+
+export const setCurProduct = (payload) => ({ type: ProductTypes.SETCURPRODUCT, payload });

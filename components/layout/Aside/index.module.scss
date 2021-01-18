@@ -6,8 +6,8 @@
       position: fixed;
       right: 60px;
       bottom: 100px;
-      height: 73px;
-      width: 73px;
+      height: 60px;
+      width: 60px;
       border-radius: 50%;
       background-color: #474747;
       // box-shadow: 0px 2px 7px 0px rgba(146, 146, 146, 0.5);
@@ -17,34 +17,34 @@
         background-color: #438DFA;
       }
       .back-top {
-        height: 73px;
-        width: 73px;
+        height: 60px;
+        width: 60px;
         border-radius: 50%;
       }
       > i {
         display: block;
-        height: 71px;
-        width: 73px;
+        height: 59px;
+        width: 60px;
         border-radius: 50%;
-        background: url(../../../public/aside-to-top.png) no-repeat center center/30px 18px;
+        background: url(../../../public/aside-to-top.png) no-repeat center center/25px 16px;
       }
       > .code {
-        height: 73px;
-        width: 73px;
+        height: 60px;
+        width: 60px;
         border-radius: 50%;
-        background: url(../../../public/aside-code.png) no-repeat center center/28px 28px;
+        background: url(../../../public/aside-code.png) no-repeat center center/26px 26px;
       }
       > .qq {
-        height: 73px;
-        width: 71px;
+        height: 60px;
+        width: 59px;
         border-radius: 50%;
-        background: url(../../../public/aside-qq.png) no-repeat center center/30px 30px;
+        background: url(../../../public/aside-qq.png) no-repeat center center/28px 28px;
       }
       > .phone {
-        height: 73px;
-        width: 73px;
+        height: 60px;
+        width: 60px;
         border-radius: 50%;
-        background: url(../../../public/aside-phone.png) no-repeat center center/26px 34px;
+        background: url(../../../public/aside-phone.png) no-repeat center center/22px 28.7px;
       }
     }
   }

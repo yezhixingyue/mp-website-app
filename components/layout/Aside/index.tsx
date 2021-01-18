@@ -107,12 +107,12 @@ export default function index() {
             <div className={styles.phone}></div>
           </Popover>
         </li>
-        <li style={{bottom: 310}}>
+        <li style={{bottom: 330}}>
           <Popover placement="left" content={QQList}>
             <div className={styles.qq}></div>
           </Popover>
         </li>
-        <li style={{bottom: 205}}>
+        <li style={{bottom: 245}}>
           <Popover placement="left" content={(
             <div className={styles['code-box']}>
               <img src="/code.png" alt=""/>
