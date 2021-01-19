@@ -2,8 +2,10 @@ import Head from 'next/head'
 import React, { useEffect } from 'react'
 import styles from './index.module.scss'
 import OpinionForm from '../../components/ContactPage/OpinionForm'
+import { useRouter } from 'next/router';
 
 export default function index() {
+  const router = useRouter();
   const handleMapBringIn = () => {
     if (AMap) {
       const map = new AMap.Map('map-container', {
@@ -21,6 +23,12 @@ export default function index() {
   const mapUrl = 'https://webapi.amap.com/maps?v=1.4.15&key=d1de441473f06000bd61463102442b1e';
 
   useEffect(() => {
+    // setTimeout(() => {
+    //   if (router.asPath.includes('opinion')) {
+    //     const oWrap = document.getElementsByTagName('html')[0];
+    //     oWrap.scrollTop = 1075;
+    //   }
+    // }, 100);
     let key = true;
     const oSrc = document.getElementsByTagName('script');
     for (let i = 0; i < oSrc.length; i++) {
@@ -49,7 +57,7 @@ export default function index() {
         <link rel="icon" href="/favicon.ico" />
         <script src={mapUrl}></script>
       </Head>
-      <header>
+      <header id='contact-top'>
         <div>联系我们</div>
       </header>
       <section className={styles['intro-part']} id='change-title-style-to-show'>
@@ -126,7 +134,7 @@ export default function index() {
         </ul>
       </section>
       <div>
-        <section>
+        <section id='opinion'>
           <header>
             <h2>意见建议</h2>
             <h3>{'Opinions and suggestions'.toLocaleUpperCase()}</h3>

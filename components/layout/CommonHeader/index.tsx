@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import Anchor from '../Anchor';
 import { Cookie } from '../../../utils/cookie';
 import { useSelector, useDispatch } from 'react-redux'
-import { IStore } from '../../../utils/types4TS';
+import { HelpPageEnumType, IStore } from '../../../utils/types4TS';
 import { setUserState, fetchUserState, removeUserState } from '../../../actions';
 import { Icon, Popconfirm, Popover } from 'antd';
 import { showConfirmWithoutMsg } from '../../../utils/model';
@@ -36,7 +36,7 @@ export default function index() {
     }
   }, [])
 
-  const needShowBlueList = ['/productIntro', '/product', '/newsDetail']; // 需要顶部展示蓝色背景的页面地址， 目前只有主页需要
+  const needShowBlueList = ['/help', '/productIntro', '/product', '/newsDetail']; // 需要顶部展示蓝色背景的页面地址， 目前只有主页需要
   const key = needShowBlueList.indexOf(router.pathname) > -1;
   const [state, setState] = useState({
     showBlueBg: false,
@@ -90,7 +90,7 @@ export default function index() {
             <Link href='/'>首页</Link>
           </li>
           <li>
-            <a href='http://192.168.1.92:8055/pc' target='_blank'>快捷下单</a>
+            <a href='http://order.mpzj.cn:8156/pc/#/placeOrder' target='_blank'>快捷下单</a>
           </li>
           <li className={styles[router.pathname === '/productIntro' ? 'active' : '']}>
             <Link href='/productIntro'>产品介绍</Link>
@@ -102,7 +102,7 @@ export default function index() {
             <Link href='/about'>关于我们</Link>
           </li>
           <li className={styles[router.pathname === '/help' ? 'active' : '']}>
-            <Link href='/help'>帮助中心</Link>
+            <Link href={`/help?type=${HelpPageEnumType.question}`}>帮助中心</Link>
           </li>
         </ul>
         {

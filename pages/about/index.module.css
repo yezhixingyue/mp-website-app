@@ -145,9 +145,10 @@
   margin-top: 148px;
   position: relative;
 }
-.course .course-content > img {
+.course .course-content > div {
   width: 1210px;
   height: 251px;
+  background-color: rgba(0, 0, 0, 0);
 }
 .course .course-content > ul > li {
   position: absolute;

@@ -104,11 +104,11 @@
         background-color: mix(#428dfa, #fff, 100%);
       }
     }
-    // &:hover {
-    //   > div.move-item {
-    //     opacity: 0.98;
-    //     z-index: 99;
-    //   }
-    // }
+    &:hover {
+      > div.move-item {
+        opacity: 0.98;
+        z-index: 99;
+      }
+    }
   }
 }

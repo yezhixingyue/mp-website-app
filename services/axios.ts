@@ -78,7 +78,6 @@ axios.interceptors.response.use(
       if (key) return Promise.reject(error.response);
     }
     if (isBrower()) {
-      console.log('isBrower', isBrower());
       if (error.message === 'Network Error') {
         model.showWarnWithoutMsg({ title: '网络错误' })
       } else if (error.message && error.message.includes('timeout')) {

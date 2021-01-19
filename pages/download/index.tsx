@@ -3,8 +3,14 @@ import Head from 'next/head';
 import styles from './index.module.scss';
 import { Button } from 'antd';
 import MpImage from '../../components/common/MpImage';
+import { getFileDownLoad } from '../../utils';
 
 export default function index() {
+  const onDownLoadCLick = () => {
+    const url = 'https://www.mpzj.cn/Private/Files/6373284376831804391773893001.rar';
+    getFileDownLoad(url);
+  }
+
   return (
     <div className={styles.wrap}>
       <Head>
@@ -16,7 +22,7 @@ export default function index() {
           <h1>自助下单</h1>
           <h2>为您更高效便捷的提供服务</h2>
           <p>To provide more efficient and convenient services for you</p>
-          <Button shape="round">立即下载</Button>
+          <Button shape="round" onClick={onDownLoadCLick}>立即下载</Button>
         </div>
       </div>
       <section className={styles.introPart} id='change-title-style-to-show'>
@@ -146,7 +152,7 @@ export default function index() {
           <li className={styles['last-f']}>
             <h2>自助下单</h2>
             <p>名片之家自助下单客户端已全新上线，自助报价、自助上传、自助查单功能全面开启，升级版体验来袭，线上下单还可享专惠！</p>
-            <Button>点击下载</Button>
+            <Button onClick={onDownLoadCLick}>点击下载</Button>
           </li>
           <li>
             <h2>移动端报价</h2>

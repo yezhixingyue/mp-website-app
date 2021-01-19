@@ -76,34 +76,34 @@ export const getFilterClassifyList = (list: IClassifyItem[]) => {
 
 export const clone = function (obj, deep) {
   if (Array.isArray(obj)) {
-      if (deep) {
-          //深度克隆
-          var newArr = [];
-          for (var i = 0; i < obj.length; i++) {
-              newArr.push(this.clone(obj[i], deep));
-          }
-          return newArr;
+    if (deep) {
+      //深度克隆
+      var newArr = [];
+      for (var i = 0; i < obj.length; i++) {
+        newArr.push(this.clone(obj[i], deep));
       }
-      else {
-          return obj.slice(); //复制数组
-      }
+      return newArr;
+    }
+    else {
+      return obj.slice(); //复制数组
+    }
   }
   else if (typeof obj === "object") {
-      var newObj = {};
-      for (var prop in obj) {
-          if (deep) {
-              //深度克隆
-              newObj[prop] = this.clone(obj[prop], deep);
-          }
-          else {
-              newObj[prop] = obj[prop];
-          }
+    var newObj = {};
+    for (var prop in obj) {
+      if (deep) {
+        //深度克隆
+        newObj[prop] = this.clone(obj[prop], deep);
       }
-      return newObj;
+      else {
+        newObj[prop] = obj[prop];
+      }
+    }
+    return newObj;
   }
   else {
-      //函数、原始类型
-      return obj; //递归的终止条件
+    //函数、原始类型
+    return obj; //递归的终止条件
   }
 }
 
@@ -135,4 +135,45 @@ export const animateScroll = (start: number, end: number, callback: (num: number
 export const formatDateOnlyYear = (str: string) => {
   const arr = str.split('T');
   return arr[0];
+}
+
+/**
+ * @description: 获取文件后缀名
+ * @param {type}
+ * @return {type}
+ */
+export function extname(filename) {
+  if (!filename || typeof filename !== 'string') {
+    return '未知类型';
+  }
+  const a = filename.split('').reverse().join('');
+  const b = a.substring(0, a.search(/\./)).split('').reverse().join('');
+  return b;
+}
+
+export const getFileDownLoad = (url: string, fileName?: string) => {
+  const link = document.createElement('a');
+  link.style.display = 'none';
+  link.href = url;
+  const _arr = url.split('/');
+  let _fileName = _arr[_arr.length - 1];
+  if (fileName) {
+    const _name = extname(_fileName);
+    _fileName = fileName + '.' + _name;
+  } else {
+    const _t = _fileName.split(' ');
+    if (_t.length === 2) _fileName = _t[1];
+    else if (_t.length > 2) {
+      const _t2 = _t.slice(1).join(' ');
+      _fileName = _t2;
+    }
+  }
+  link.setAttribute('download', _fileName);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+
+  link.onload = () => {
+    window.URL.revokeObjectURL(url);
+  };
 }

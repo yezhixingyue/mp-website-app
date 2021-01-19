@@ -16,18 +16,13 @@
       &:hover {
         background-color: #438DFA;
       }
-      .back-top {
-        height: 60px;
-        width: 60px;
-        border-radius: 50%;
-      }
-      > i {
-        display: block;
-        height: 59px;
-        width: 60px;
-        border-radius: 50%;
-        background: url(../../../public/aside-to-top.png) no-repeat center center/25px 16px;
-      }
+      // > i {
+      //   display: block;
+      //   height: 59px;
+      //   width: 60px;
+      //   border-radius: 50%;
+      //   background: url(../../../public/aside-to-top.png) no-repeat center center/25px 16px;
+      // }
       > .code {
         height: 60px;
         width: 60px;
@@ -121,5 +116,25 @@
         font-weight: 700;
       }
     }
+  }
+}
+
+
+.top {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #474747;
+  > i {
+    display: block;
+    height: 59px;
+    width: 100%;
+    background: url(../../../public/aside-to-top.png) no-repeat center center/25px 16px;
+  }
+  transition: background-color 0.3s;
+  cursor: pointer;
+  &:hover {
+    background-color: #438DFA;
   }
 }

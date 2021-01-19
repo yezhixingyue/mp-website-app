@@ -1,18 +1,54 @@
 .wrap {
   height: 660px;
   width: 100%;
-  // overflow: hidden;
-  // > div {
-  //   width: 100%;
-  //   height: 100%;
-  //   > div {
-  //     width: 100%;
-  //     height: 100%;
-  //   }
-  // }
-  img {
-    object-fit: cover;
-    // width: 100%;
+  position: relative;
+  background-color: #22284C;
+  .carousel {
     height: 660px;
+    width: 100%;
+    img {
+      object-fit: cover;
+      height: 660px;
+    }
+  }
+  > .prev, >.next {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    z-index: 9;
+    top: 300px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+    > i {
+      width: 100%;
+      height: 100%;
+      display: block;
+      background: url(../../../public/next.png) no-repeat center center/12px 22px;
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    &:active {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+  > .prev {
+    left: 5%;
+    transform: rotate(180deg);
+  }
+  > .next {
+    right: 5%;
+  }
+  &:hover {
+    > .prev {
+      opacity: 1;
+    }
+    > .next {
+      opacity: 1;
+    }
   }
 }

@@ -173,6 +173,16 @@ export interface IArticleClassType {
   Type: ArticleGetEnumType;
 }
 
+/* HELP PAGE TYPE
+----------------------------------------------------------------------------------- */
+export enum HelpPageEnumType {
+  'question' = 1,
+  'software' = 2,
+  'print' = 3,
+  'agreement' = 4,
+  'statement' = 5,
+}
+
 /* COMPLETE STORE TYPE
 ----------------------------------------------------------------------------------- */
 

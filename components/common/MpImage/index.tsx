@@ -12,6 +12,8 @@ interface IProps {
   wrapWidth?: number | string;
   alt?: string;
   caption?: string; // 标题
+  hasModel?: boolean;
+  // tipContent?: string | JSX.Element;
 }
 const MpImage = (props: IProps) => {
   const [state, setState] = useState({
@@ -26,25 +28,34 @@ const MpImage = (props: IProps) => {
   //   src={props.src}
   //   width={props.width} />
   if (process.browser && !window.btoa) {
-    return <div className={styles['mp-imgae-comp-box']}>
+    return <div className='lazyload-wrapper'>
+      {
+        props.hasModel && <i></i>
+      }
       <img
-      className={ !state.isLoaded ? 'opacity-0' : '' }
-      alt={props.alt}
-      height={props.height}
-      src={props.src}
-      onLoad={() => {
-        setState({ ...state, isLoaded: true, msg: '' })
-      }}
-      onError={() => {
-        setState({ ...state, isLoaded: true, msg: '加载失败!' })
-      }}
-      width={props.width} />
-      { state.msg && <p>{state.msg}</p> }
+        className={`${!state.isLoaded && 'opacity-0'} ${props.hasModel && 'animate'}`}
+        alt={props.alt}
+        height={props.height}
+        onLoad={() => {
+          setState({ ...state, isLoaded: true, msg: '' })
+        }}
+        onError={() => {
+          setState({ ...state, isLoaded: true, msg: '加载失败!' })
+        }}
+        src={props.src}
+        width={props.width} />
+      {state.msg && <p>{state.msg}</p>}
+      {
+        props.hasModel && <div></div>
+      }
     </div>
   }
-  return <LazyLoad offset={100} once >
+  return <LazyLoad offset={100} once>
+    {
+      props.hasModel && <i></i>
+    }
     <img
-      className={ !state.isLoaded ? 'opacity-0' : '' }
+      className={`${!state.isLoaded && 'opacity-0'} ${props.hasModel && 'animate'}`}
       alt={props.alt}
       height={props.height}
       onLoad={() => {
@@ -55,7 +66,11 @@ const MpImage = (props: IProps) => {
       }}
       src={props.src}
       width={props.width} />
-      { state.msg && <p>{state.msg}</p> }
+    {state.msg && <p>{state.msg}</p>}
+    {
+      props.hasModel && <div></div>
+    }
+
   </LazyLoad>
 }
 

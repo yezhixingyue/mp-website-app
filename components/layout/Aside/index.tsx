@@ -115,20 +115,23 @@ export default function index() {
         <li style={{bottom: 245}}>
           <Popover placement="left" content={(
             <div className={styles['code-box']}>
-              <img src="/code.png" alt=""/>
+              <img src="/code-big.png" alt=""/>
               <p>名片之家公众号</p>
             </div>
           )}>
             <div className={styles.code}></div>
           </Popover>
         </li>
-        <li>
-          <BackTop className='mp-back-top' visibilityHeight={0}>
-            <div className={styles['back-top']}></div>
-          </BackTop>
-          <i></i>
-        </li>
+        {/* <li>
+          <i></i> className='mp-back-top'  className={styles['back-top']}
+        </li> */}
       </ul>
+      
+      <BackTop  visibilityHeight={300} className='mp-back-top'>
+        <div className={styles.top}>
+          <i></i>
+        </div>
+      </BackTop>
     </div>
   )
 }

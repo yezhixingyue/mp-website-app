@@ -45,15 +45,17 @@ export default function index(props: { curProduct: null | IArticleType, classify
   return (
     <section className={styles['product-detail-wrap']}>
       <header>
-        <Breadcrumb separator={<Icon type="right" />} className='mp-breadcrumb'>
-          <Breadcrumb.Item>
-            <Link href="/"><a>名片之家</a></Link>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item>
-            <Link href={path}><a>产品介绍</a></Link>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item >产品详情</Breadcrumb.Item>
-        </Breadcrumb>
+        <div>
+          <Breadcrumb separator={<Icon type="right" />} className='mp-breadcrumb'>
+            <Breadcrumb.Item>
+              <Link href="/"><a>名片之家</a></Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>
+              <Link href={path}><a>产品介绍</a></Link>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item >产品详情</Breadcrumb.Item>
+          </Breadcrumb>
+        </div>
         {
           props.classifyRes &&  <ProductClassifyComp
            classData={props.classifyRes}
@@ -71,7 +73,7 @@ export default function index(props: { curProduct: null | IArticleType, classify
             <header>
               <span>{`${props.curProduct.ProductClass.SecondLevelName}-${props.curProduct.Name}`}</span>
             </header>
-            <div className='rich-edit-content' dangerouslySetInnerHTML={{ __html: props.curProduct.Content }}></div>
+            <div className='rich-edit-content ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: props.curProduct.Content }}></div>
             <footer>
               {/* <Link href={path}>
                  <a><Button style={{marginRight: 30}}>返回列表</Button></a>

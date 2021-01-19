@@ -1,8 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './index.module.scss';
 import Link from 'next/link';
+import { HelpPageEnumType } from '../../../utils/types4TS';
+import Loading from '../../../utils/loading';
+import { Router } from 'next/router';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+
+NProgress.configure({
+  trickleSpeed: 30,
+  showSpinner: false,
+});
 
 export default function index() {
+  const [loading, setLoading] = useState(false)
+  const startLoading = () => {
+    setLoading(true)
+    NProgress.start();
+  }
+  const stopLoading = () => {
+    setLoading(false)
+    NProgress.done();
+  }
+  useEffect(() => {
+    Router.events.on('routeChangeStart', startLoading)
+    Router.events.on('routeChangeComplete', stopLoading)
+    return () => {
+      Router.events.off('routeChangeStart', stopLoading)
+      Router.events.off('routeChangeComplete', stopLoading)
+    }
+  }, [])
   return (
     <div className={styles['foot-wrap']}>
       <div className={styles.content}>
@@ -13,16 +40,17 @@ export default function index() {
             <div className={styles.logo}></div>
             <ul>
               <li>
-                <Link href='/contact-us' >联系我们</Link>
+                <Link href='/contact-us/#contact-top' ><a>联系我们</a></Link>
               </li>
               <li>
-                <Link href='/agreement' >用户协议</Link>
+                <Link href={`/help?type=${HelpPageEnumType.agreement}`} ><a>用户协议</a></Link>
               </li>
               <li>
-                <Link href='/statement' >权责声明</Link>
+                <Link href={`/help?type=${HelpPageEnumType.statement}`} ><a>权责声明</a></Link>
+                {/* <Link href='/statement' >权责声明</Link> */}
               </li>
               <li>
-                <Link href='/opinion' >意见建议</Link>
+                <Link href='/contact-us/#opinion' ><a>意见建议</a></Link>
               </li>
             </ul>
           </div>
@@ -42,6 +70,7 @@ export default function index() {
           <p>扫描进入公众号</p>
         </div>
       </div>
+      <Loading loading={loading} />
     </div>
   )
 }

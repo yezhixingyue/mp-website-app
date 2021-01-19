@@ -61,12 +61,15 @@
         display: inline-block;
         vertical-align: top;
         margin-right: 25px;
-        > img {
-          transition: 0.35s;
-          &:hover {
-            transform: scale(1.1);
-          }
+        > div {
+          background-color: rgba(0, 0, 0, 0);
         }
+        // > img {
+        //   transition: 0.35s;
+        //   &:hover {
+        //     transform: scale(1.1);
+        //   }
+        // }
       }
       > div {
         display: inline-block;
@@ -126,6 +129,9 @@
         }
         &.specialit-f {
           margin-bottom: 66px;
+        }
+        > div {
+          background-color: rgba(0, 0, 0, 0);
         }
       }
     }
@@ -187,8 +193,11 @@
         > div {
           height: 44px;
           margin-bottom: 26px;
-          > img {
-            transition: 0.35s;
+          > div {
+            background-color: rgba(0, 0, 0, 0);
+            // > img {
+            //   transition: 0.35s;
+            // }
           }
         }
         > h2 {
@@ -203,9 +212,9 @@
           color: #FFFFFF;
           line-height: 31px;
         }
-        &:hover > div > img {
-          transform: scale(1.1);
-        }
+        // &:hover > div > img {
+        //   transform: scale(1.1);
+        // }
       }
     }
   }
