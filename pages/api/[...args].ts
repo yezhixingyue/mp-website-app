@@ -1,10 +1,11 @@
 import { createProxyMiddleware } from "http-proxy-middleware";
+import { SetupEnumType } from "../../utils/types4TS";
 
 const cookieName = "token";
 const maxAge = 24 * 60 * 60;
 
 export default createProxyMiddleware({
-  target: "http://192.168.1.92:8055",
+  target: SetupEnumType.baseUrl,
   changeOrigin: true,
   onProxyRes(proxyRes) {
     // console.log('proxyRes', proxyRes);

@@ -3,6 +3,7 @@ import { Carousel } from 'antd';
 // import 'antd/es/carousel/style'<HTMLUListElement | undefined>
 import styles from './index.module.scss';
 import MpImage from '../../common/MpImage';
+import { SetupEnumType } from '../../../utils/types4TS';
 
 export default function index({ swiperData }) {
   const ref = useRef<Carousel | undefined>();
@@ -27,7 +28,7 @@ export default function index({ swiperData }) {
           swiperData.map(it => (
             <div key={it.ID}>
               <a href={it.Url} target='_blank' >
-                <MpImage src={'http://192.168.1.92:8055/' + it.Pic} alt={it.Title} />
+                <MpImage src={SetupEnumType.baseUrl + it.Pic} alt={it.Title} />
               </a>
             </div>
           ))

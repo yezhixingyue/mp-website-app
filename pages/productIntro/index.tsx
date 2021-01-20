@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import api from '../../services'
-import { IClassifyItem, ICondtion4ProList, IStore } from '../../utils/types4TS';
+import { IClassifyItem, ICondtion4ProList, IStore, SetupEnumType } from '../../utils/types4TS';
 import { getFilterClassifyList } from '../../utils';
 import styles from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -60,7 +60,7 @@ export default function index() {
             {
               productState.productList.map(it => (
                 <li key={it.ID} onClick={() => onDetailClick(it.ID)}>
-                  <MpImage src={`http://192.168.1.92:8055${it.Cover}`} alt="" width={371} height={247.3} />
+                  <MpImage src={`${SetupEnumType.baseUrl}${it.Cover}`} alt="" width={371} height={247.3} />
                   <section>
                     <header>{it.Name}</header>
                     <div>{it.Introduce}</div>

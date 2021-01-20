@@ -19,6 +19,10 @@ export default function index() {
     NProgress.start();
   }
   const stopLoading = () => {
+    // setTimeout(() => {
+    //   setLoading(false)
+    //   NProgress.done();
+    // }, 200 )
     setLoading(false)
     NProgress.done();
   }
@@ -43,10 +47,10 @@ export default function index() {
                 <Link href='/contact-us/#contact-top' ><a>联系我们</a></Link>
               </li>
               <li>
-                <Link href={`/help?type=${HelpPageEnumType.agreement}`} ><a>用户协议</a></Link>
+                <Link href={`/help?type=72`} ><a>用户协议</a></Link>
               </li>
               <li>
-                <Link href={`/help?type=${HelpPageEnumType.statement}`} ><a>权责声明</a></Link>
+                <Link href={`/help?type=73`} ><a>权责声明</a></Link>
                 {/* <Link href='/statement' >权责声明</Link> */}
               </li>
               <li>
@@ -60,7 +64,7 @@ export default function index() {
             <span>服务热线：4006363006</span>
             <span>售后专线：4006363500</span>
             <span className={styles['last-span']}>
-              <a href="http://www.beian.miit.gov.cn/" target='_blank'>豫ICP备16032622号-1</a>
+              <a href="https://beian.miit.gov.cn/" target='_blank'>豫ICP备16032622号-1</a>
             </span>
           </div>
         </div>

@@ -3,6 +3,7 @@ import model from '../utils/model';
 import { message } from 'antd';
 
 import { isBrower } from '../utils/index';
+import { SetupEnumType } from '../utils/types4TS';
 
 
 message.config({ top: 60, })
@@ -12,7 +13,7 @@ axios.interceptors.request.use(
   (config) => {
     const curConfig = config;
     if (!isBrower()) {
-      curConfig.baseURL = 'http://192.168.1.92:8055/';
+      curConfig.baseURL = SetupEnumType.baseUrl;
     }
     return curConfig;
   },

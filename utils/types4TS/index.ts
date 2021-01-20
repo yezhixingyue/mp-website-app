@@ -183,6 +183,51 @@ export enum HelpPageEnumType {
   'statement' = 5,
 }
 
+export enum ArticleClassEnum {
+  'news' = 0,
+  'help' = 1,
+}
+
+export interface IParams4GetHelpList {
+  Type: number;
+  Page?: number;
+  PageSize?: number;
+  KeyWords?: string;
+}
+
+export interface IHelpClassItemType {
+  CreateTime: string;
+  ID: number;
+  Index: number;
+  Level: number;
+  Name: string;
+  ParentID: number;
+  Type: number;
+}
+
+export interface IArticleListItemType {
+  Class: {
+    ID: number;
+    Name: null | string;
+  };
+  Content: null | string;
+  CreateTime: string;
+  ID: number;
+  ReadCount: number;
+  Title: string;
+}
+
+export interface IHelpDetailType {
+  Class: {
+    ID: number;
+    Name: null | string;
+  };
+  Content: string;
+  CreateTime: string;
+  ID: number;
+  ReadCount: number;
+  Title: string;
+}
 /* COMPLETE STORE TYPE
 ----------------------------------------------------------------------------------- */
 
@@ -190,4 +235,21 @@ export interface IStore {
   home: IHomePageState;
   user: null | User;
   product: IProductPageState;
+}
+
+
+/* SETUP
+----------------------------------------------------------------------------------- */
+export enum SetupEnumType {
+  baseUrl = 'http://192.168.1.92:8055/',
+  downloadUrl = 'https://www.mpzj.cn/Private/Files/6373284376831804391773893001.rar',
+}
+
+/* OPINION
+----------------------------------------------------------------------------------- */
+export interface IOpinionSubmitType {
+  Phone: string;
+  Email: string;
+  Content: string;
+  NickName: string;
 }

@@ -36,7 +36,7 @@ export default function index() {
     }
   }, [])
 
-  const needShowBlueList = ['/help', '/productIntro', '/product', '/newsDetail']; // 需要顶部展示蓝色背景的页面地址， 目前只有主页需要
+  const needShowBlueList = ['/help/[id]', '/help', '/productIntro', '/product', '/newsDetail']; // 需要顶部展示蓝色背景的页面地址， 目前只有主页需要
   const key = needShowBlueList.indexOf(router.pathname) > -1;
   const [state, setState] = useState({
     showBlueBg: false,
@@ -102,7 +102,7 @@ export default function index() {
             <Link href='/about'>关于我们</Link>
           </li>
           <li className={styles[router.pathname === '/help' ? 'active' : '']}>
-            <Link href={`/help?type=${HelpPageEnumType.question}`}>帮助中心</Link>
+            <Link href={`/help`}>帮助中心</Link>
           </li>
         </ul>
         {

@@ -5,7 +5,7 @@ import React, { useEffect } from 'react'
 import MpImage from '../../components/common/MpImage';
 import api from '../../services';
 import { getFilterClassifyList } from '../../utils';
-import { BaseClassifyItem, IArticleType, IClassifyItem, IStore } from '../../utils/types4TS';
+import { BaseClassifyItem, IArticleType, IClassifyItem, IStore, SetupEnumType } from '../../utils/types4TS';
 import styles from './index.module.scss';
 import ProductClassifyComp from '../../components/common/ProductClassifyComp';
 
@@ -87,7 +87,7 @@ export default function index(props: { curProduct: null | IArticleType, classify
               {props.curProduct.AboutList.map(it => (
                 <li key={it.ID} onClick={() => onAsideClick(it.ID)}>
                   <div>
-                    <MpImage src={'http://192.168.1.92:8055/' + it.Cover} alt="" height={87} width={87} />
+                    <MpImage src={SetupEnumType.baseUrl + it.Cover} alt="" height={87} width={87} />
                   </div>
                   <section>
                     <header>{it.Name}</header>

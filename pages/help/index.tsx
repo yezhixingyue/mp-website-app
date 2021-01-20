@@ -1,66 +1,48 @@
 import React from 'react'
 import Head from 'next/head'
 import styles from './index.module.scss'
-import Question from '../../components/Help/Question'
-import Software from '../../components/Help/Software'
-import PrintHelp from '../../components/Help/PrintHelp'
-import Agreement from '../../components/Help/Agreement'
-import Statement from '../../components/Help/Statement'
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { HelpPageEnumType } from '../../utils/types4TS';
+import { ArticleClassEnum, IArticleListItemType, IHelpClassItemType, IParams4GetHelpList } from '../../utils/types4TS';
+import api from '../../services'
+import { formatDateOnlyYear } from '../../utils'
+import { Empty, Pagination } from 'antd'
+import AsideComp from '../../components/Help/Aside'
 
+interface IProps {
+  helpClassData: IHelpClassItemType[];
+  helpListData: IArticleListItemType[];
+  helpListCount: number;
+  curClass: IHelpClassItemType | null;
+  Page: number;
+}
 
-export default function index(props) {
-  console.log(props, "props");
+const pageSize = 12;
+
+export default function index(props: IProps) {
   const router = useRouter();
 
-  const createMenu = (type: HelpPageEnumType, title: string) => {
-    return (
-      <div className={router.query.type === `${type}` ? styles.active : ''}>
-        <Link href={`/help?type=${type}`}>
-          <a>{title}</a>
-        </Link>
-      </div>
-    )
+  const onPageChange = (page: number) => {
+    router.push(`?type=${props.curClass.ID}&Page=${page}`);
   }
 
-  const getContent = () => {
-    let title = '';
-    let content = null;
-    switch (+router.query.type) {
-      case HelpPageEnumType.question:
-        title = '常见问题';
-        content = <Question />;
-        break;
-      case HelpPageEnumType.software:
-        title = '软件帮助';
-        content = <Software />;
-        break;
-      case HelpPageEnumType.print:
-        title = '印刷帮助';
-        content = <PrintHelp />;
-        break;
-      case HelpPageEnumType.agreement:
-        title = '用户协议';
-        content = <Agreement />;
-        break;
-      case HelpPageEnumType.statement:
-        title = '权责声明';
-        content = <Statement />;
-        break;
-      default:
-        break;
-    }
-    if (title && content) {
-      return (<>
-        {<header>{title}</header>}
-        {content}
-      </>)
-    } else {
-      return null;
-    }
-  }
+  const listContent = props.helpListCount > 0 && props.helpListData.map(it => (
+    <li key={it.ID} className={styles.listItem} onClick={() => { router.push('/help/' + it.ID) }}>
+      <div>{it.Title}</div>
+      <span>{formatDateOnlyYear(it.CreateTime)}</span>
+    </li>
+  ))
+
+  const emptyContent = props.helpListCount === 0 && <li className={styles.empty}>
+    <Empty description='暂无内容' />
+  </li>
+
+  const pagination = props.helpListCount > pageSize && <Pagination
+    current={props.Page}
+    onChange={onPageChange}
+    pageSize={pageSize}
+    total={props.helpListCount}
+    className={props.helpListCount === 0 ? 'opacity-0' : ''}
+  />
 
   return (
     <section className={styles['mp-help-page-wrap']}>
@@ -69,25 +51,58 @@ export default function index(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <aside>
-          {createMenu(HelpPageEnumType.question, '常见问题')}
-          {createMenu(HelpPageEnumType.software, '软件帮助')}
-          {createMenu(HelpPageEnumType.print, '印刷帮助')}
-          {createMenu(HelpPageEnumType.agreement, '用户协议')}
-          {createMenu(HelpPageEnumType.statement, '权责声明')}
-        </aside>
+        <AsideComp helpClassData={props.helpClassData} classID={props.curClass ? props.curClass.ID : null} />
         <section>
-          {getContent()}
+          <header>{props.curClass ? props.curClass.Name : '分类为空'}</header>
+          <ul>
+            {listContent}
+            {emptyContent}
+          </ul>
+          {
+            props.helpListCount > pageSize && <footer>{pagination}</footer>
+          }
         </section>
       </div>
     </section>
   )
 }
 
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ query }) => {
+  let helpClassData: IHelpClassItemType[] = [];
+  let helpListData: IArticleListItemType[] = [];
+  let helpListCount = 0;
+  let curClass = null;
+  let _key = true;
+  let Page = query.Page ? +query.Page : 1;
+  const resp = await api.getArticleClass(ArticleClassEnum.help).catch(() => { _key = false });
+  if (resp && _key && resp.data.Status === 1000) {
+    helpClassData = resp.data.Data;
+  }
+  if (helpClassData.length > 0) {
+    const { type } = query;
+    const _type = (type || type === 0) ? type : helpClassData[0].ID;
+    const t = helpClassData.find(it => it.ID === +_type);
+    if (t) {
+      curClass = t;
+      const _temp: IParams4GetHelpList = {
+        Type: _type,
+        Page,
+        PageSize: pageSize
+      }
+      const listResp = await api.getHelpList(_temp).catch(() => { _key = false });
+      if (listResp && _key && listResp.data.Status === 1000) {
+        helpListData = listResp.data.Data;
+        helpListCount = listResp.data.DataNumber;
+      }
+    }
+  }
   return {
     props: {
-      a: 10
+      helpClassData,
+      helpListData,
+      helpListCount,
+      curClass,
+      Page,
     }
   }
 }

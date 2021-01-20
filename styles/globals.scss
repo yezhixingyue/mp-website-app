@@ -683,10 +683,20 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
 // }
 
 .fixed-model {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  z-index: -1 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5);
   > div {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    left: 48%;
+    top: 46%;
     > span > i {
       background-color: #428dfa;
     }
@@ -694,4 +704,22 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
       color: #065cdd;
     }
   }
+  &.loading {
+    opacity: 1;
+    z-index: 999 !important;
+  }
+  // &.mp-loading-enter {
+  //   opacity: 0;
+  // }
+  // &.mp-loading-enter-active {
+  //   opacity: 1;
+  // }
+  // &.mp-loading-enter-done {
+  //   opacity: 0;
+  // }
+}
+
+#nprogress .bar {
+  background-color: #428dfa !important;
+  height: 3px !important;
 }

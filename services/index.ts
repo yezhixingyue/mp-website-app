@@ -1,4 +1,4 @@
-import { ICondtion4ProList, ILoginPagrms } from '../utils/types4TS';
+import { ArticleClassEnum, ICondtion4ProList, ILoginPagrms, IOpinionSubmitType, IParams4GetHelpList } from '../utils/types4TS';
 import instance from './axios';
 
 const api = {
@@ -31,15 +31,30 @@ const api = {
     return instance.post('/api/Article/ArticleList', data);
   },
   getNewsDetail(id: number) { // GET /Api/Article/Detail 获取新闻详情
-    return instance.get(`/Api/Article/Detail?id=${id}&isRead=true`);
+    return instance.get(`/api/Article/Detail?id=${id}&isRead=true`);
   },
-  getArticleClass(type: number) { // GET /Api/ArticleClass/List 获取文章分类 0 为新闻 1为帮助
-    return instance.get(`/Api/ArticleClass/List?Type=${type}`);
+  getArticleClass(type: ArticleClassEnum) { // GET /Api/ArticleClass/List 获取文章分类 0 为新闻 1为帮助
+    return instance.get(`/api/ArticleClass/List?Type=${type}`);
   },
   /* 产品
   ----------------------------------------------------------------------------------- */
   getProductIntroduce(productID: string) { // GET /Api/Product/Introduce
     return instance.get(`/api/Product/Introduce?productID=${productID}`);
+  },
+
+  /* 帮助
+  ----------------------------------------------------------------------------------- */
+  getHelpList(data: IParams4GetHelpList) { // POST /Api/Help  获取文章列表
+    return instance.post(`/api/Help`, data);
+  },
+  getHelpDetail(id: number) { // GET /Api/Help/Detail
+    return instance.get(`/api/Help/Detail?id=${id}&isRead=true`);
+  },
+
+  /* 建议
+  ----------------------------------------------------------------------------------- */
+  getOpinionSubmit(data: IOpinionSubmitType) { // POST /Api/Suggest/Save  意见提交
+    return instance.post('/api/Suggest/Save', data);
   },
 };
 

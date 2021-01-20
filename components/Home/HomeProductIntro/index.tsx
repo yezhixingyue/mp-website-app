@@ -6,7 +6,7 @@ import { isBrower } from '../../../utils';
 import MpImage from '../../common/MpImage';
 import { useSelector, useDispatch } from 'react-redux';
 import { setHomeProductState } from '../../../actions';
-import { IHomePageState, IStore } from '../../../utils/types4TS';
+import { IHomePageState, IStore, SetupEnumType } from '../../../utils/types4TS';
 import { useRouter } from 'next/router';
 
 const { TabPane } = Tabs;
@@ -48,7 +48,7 @@ export default function index() {
   const content = products.length > 0
    ? products.map(product => (
       <div key={product.ID} className={styles['product-item']} onClick={() => onProductClick(product.ID)}>
-        <MpImage src={'http://192.168.1.92:8055/' + product.Cover} width={330} height={220} hasModel />
+        <MpImage src={SetupEnumType.baseUrl + product.Cover} width={330} height={220} hasModel />
         <section>
           <header>{product.Name}</header>
           <div>{product.Introduce}</div>

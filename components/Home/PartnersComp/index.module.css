@@ -1,12 +1,14 @@
 .wrap {
   width: 1200px;
   margin: 0 auto;
+  padding-bottom: 20px;
 }
 .wrap > header {
   text-align: center;
 
   user-select: none;
   color: #333;
+  padding-bottom: 15px;
 }
 .wrap > header p {
   margin-bottom: 17px;
@@ -17,4 +19,53 @@
   font-weight: 700;
   font-size: 30px;
   line-height: 40px;
+}
+.item {
+  /* background-color: violet; */
+  margin-top: 40px;
+}
+
+.item > div {
+  width: 200px;
+  height: 90px;
+  display: inline-block;
+  margin-right: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  position: relative;
+}
+.item > div::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.item > div::after {
+  content: '富士胶片';
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 1px solid #eee;
+  text-align: center;
+  color: #fff;
+  font-size: 17px;
+  line-height: 78px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  /* font-weight: 700; */
+}
+.item > div:hover::before {
+  opacity: 1;
+}
+.item > div:hover::after {
+  opacity: 1;
+}
+.item > div:hover {
+  /* opacity: 0.5; */
 }

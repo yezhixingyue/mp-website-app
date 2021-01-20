@@ -5,7 +5,7 @@ import React from 'react'
 import MpImage from '../../components/common/MpImage';
 import api from '../../services';
 import { formatDateOnlyYear } from '../../utils';
-import { ArticleGetEnumType, IArticleClassType, INewsHelpsArticleType } from '../../utils/types4TS';
+import { ArticleGetEnumType, IArticleClassType, INewsHelpsArticleType, SetupEnumType } from '../../utils/types4TS';
 import styles from './index.module.scss';
 
 
@@ -46,7 +46,7 @@ export default function index(props: IProps) {
           {props.data.AboutList.map(it => (
             <li key={it.ID} onClick={() => onAsideClick(it.ID)}>
               <div>
-                <MpImage src={'http://192.168.1.92:8055/' + it.Cover} alt="" height={65} width={65} />
+                <MpImage src={SetupEnumType.baseUrl + it.Cover} alt="" height={65} width={65} />
               </div>
               <p>{it.Title}</p>
             </li>

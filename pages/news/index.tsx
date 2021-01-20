@@ -4,6 +4,7 @@ import styles from './index.module.scss'
 import api from '../../services'
 import MpImage from '../../components/common/MpImage'
 import { useRouter } from 'next/router'
+import { SetupEnumType } from '../../utils/types4TS'
 
 export default function index({ hotList }) {
   const router = useRouter();
@@ -92,7 +93,7 @@ export default function index({ hotList }) {
           <ul>
             {
               hotList.map(it => (
-                <li key={it.ID} style={{background: `url(http://192.168.1.92:8055/${it.Cover}) no-repeat center center/cover`}} onClick={() => {onNewsClick(it.ID)}}>
+                <li key={it.ID} style={{background: `url(${SetupEnumType.baseUrl}/${it.Cover}) no-repeat center center/cover`}} onClick={() => {onNewsClick(it.ID)}}>
                   <div>
                     <div>
                       <p>{it.Title}</p>

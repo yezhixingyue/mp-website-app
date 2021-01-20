@@ -4,11 +4,11 @@ import styles from './index.module.scss';
 import { Button } from 'antd';
 import MpImage from '../../components/common/MpImage';
 import { getFileDownLoad } from '../../utils';
+import { SetupEnumType } from '../../utils/types4TS';
 
 export default function index() {
   const onDownLoadCLick = () => {
-    const url = 'https://www.mpzj.cn/Private/Files/6373284376831804391773893001.rar';
-    getFileDownLoad(url);
+    getFileDownLoad(SetupEnumType.downloadUrl);
   }
 
   return (

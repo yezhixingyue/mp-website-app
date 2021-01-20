@@ -3,6 +3,7 @@ import Panel from '../Panel'
 import HomeProductIntro from '../HomeProductIntro'
 import styles from './index.module.css'
 import { useRouter } from 'next/router'
+import { Icon } from 'antd'
 
 export default function index() {
   const router = useRouter();
@@ -20,7 +21,7 @@ export default function index() {
         <p className='f'>产品介绍</p>
         <p className='s'>
           <span className='s-l'>PRODUCT INTRODUCTION</span>
-          <span className='s-r' onClick={onMoreClick}>查看更多 &gt;</span>
+          <span className='s-r' onClick={onMoreClick}>查看更多 <Icon type="right" /></span>
         </p>
       </div>
       <HomeProductIntro />

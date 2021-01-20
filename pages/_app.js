@@ -8,6 +8,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { useStore } from '../store';
 import { useRouter } from 'next/router';
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

@@ -13,7 +13,9 @@ interface IProps {
   alt?: string;
   caption?: string; // 标题
   hasModel?: boolean;
-  // tipContent?: string | JSX.Element;
+  className?: string;
+  style?: any;
+  tipContent?: string | JSX.Element;
 }
 const MpImage = (props: IProps) => {
   const [state, setState] = useState({
@@ -28,7 +30,7 @@ const MpImage = (props: IProps) => {
   //   src={props.src}
   //   width={props.width} />
   if (process.browser && !window.btoa) {
-    return <div className='lazyload-wrapper'>
+    return <div className='lazyload-wrapper' style={props.style}>
       {
         props.hasModel && <i></i>
       }
@@ -50,7 +52,7 @@ const MpImage = (props: IProps) => {
       }
     </div>
   }
-  return <LazyLoad offset={100} once>
+  return <LazyLoad offset={100} once style={props.style}>
     {
       props.hasModel && <i></i>
     }
