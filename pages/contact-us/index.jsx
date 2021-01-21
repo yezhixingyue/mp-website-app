@@ -62,12 +62,13 @@ export default function index() {
       </Head>
       <header id='contact-top'>
         <div>联系我们</div>
+        <h2>{'contact us'.toLocaleUpperCase()}</h2>
       </header>
       <section className={styles['intro-part']} id='change-title-style-to-show'>
-        <header>
+        {/* <header>
           <h1>联系我们</h1>
           <h2>{'contact us'.toLocaleUpperCase()}</h2>
-        </header>
+        </header> */}
         <ul>
           <li className={styles['intro-item-f']}>
             <aside>

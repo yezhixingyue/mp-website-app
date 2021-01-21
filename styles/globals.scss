@@ -4,6 +4,7 @@ html, body {
   font-family: MicrosoftYaHei, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   // padding-top: 60px !important;
+  min-width: 1200px;
 }
 
 a {
@@ -759,4 +760,8 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
   .ant-input-group-addon {
     padding: 0;
   }
+}
+
+h2 {
+  margin-bottom: 15px;
 }

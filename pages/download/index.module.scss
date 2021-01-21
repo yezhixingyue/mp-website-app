@@ -1,5 +1,5 @@
 .wrap {
-  background: linear-gradient(to bottom, rgb(107, 101, 233) 761px, #fff 762px);
+  background: linear-gradient(to bottom, rgb(107, 101, 233) 700px, #fff 701px);
 }
 .banner {
   height: 831px;
@@ -232,6 +232,9 @@
     margin-right: 71px;
     display: inline-block;
     vertical-align: top;
+    > div {
+      background-color: rgba(0, 0, 0, 0);
+    }
   }
   > ul {
     display: inline-block;

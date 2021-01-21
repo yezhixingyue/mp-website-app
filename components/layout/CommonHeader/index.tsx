@@ -92,10 +92,10 @@ export default function index() {
           <li>
             <a href='http://order.mpzj.cn:8156/pc/#/placeOrder' target='_blank'>快捷下单</a>
           </li>
-          <li className={styles[router.pathname === '/productIntro' ? 'active' : '']}>
+          <li className={styles[['/productIntro', '/product'].includes(router.pathname) ? 'active' : '']}>
             <Link href='/productIntro'>产品介绍</Link>
           </li>
-          <li className={styles[router.pathname === '/news' ? 'active' : '']}>
+          <li className={styles[['/news', '/newsDetail'].includes(router.pathname) ? 'active' : '']}>
             <Link href='/news'>新闻中心</Link>
           </li>
           <li className={styles[router.pathname === '/about' ? 'active' : '']}>

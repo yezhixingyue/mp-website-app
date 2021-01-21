@@ -1,9 +1,9 @@
 .mp-contact-page-wrap {
   width: 100%;
-  background: linear-gradient(to bottom, rgb(46, 52, 60) 510px, #fff 511px);
+  background: linear-gradient(to bottom, rgb(46, 52, 60) 476px, #fff 477px);
   > header {
     width: 100%;
-    height: 510px;
+    height: 480px;
     text-align: center;
     background: url(../../public/contact-us-banner.png) no-repeat center center/cover;
     > div {
@@ -14,32 +14,39 @@
       line-height: 54px;
       font-size: 41px;
       font-weight: bold;
-      margin-top: 228px;
+      margin-top: 220px;
+    }
+    > h2 {
+      color: #fff;
+      font-size: 24px;
+      padding-top: 20px;
     }
   }
   .intro-part {
-    height: 566px;
+    height: 456px;
     width: 1200px;
     margin: 0 auto;
     overflow: hidden;
-    > header {
-      text-align: center;
-      padding-top: 55px;
-      padding-bottom: 60px;
-      > h1 {
-        font-weight: bold;
-        color: #333333;
-        line-height: 40px;
-        font-size: 30px;
-        margin-bottom: 19px;
-      }
-      > h2 {
-        font-size: 24px;
-        color: #333333;
-        line-height: 31px;
-        margin: 0;
-      }
-    }
+    // padding-top: 70px;
+    margin-top: 70px;
+    // > header {
+    //   text-align: center;
+    //   padding-top: 55px;
+    //   padding-bottom: 60px;
+    //   > h1 {
+    //     font-weight: bold;
+    //     color: #333333;
+    //     line-height: 40px;
+    //     font-size: 30px;
+    //     margin-bottom: 19px;
+    //   }
+    //   > h2 {
+    //     font-size: 24px;
+    //     color: #333333;
+    //     line-height: 31px;
+    //     margin: 0;
+    //   }
+    // }
     > ul {
       margin: 0;
       > li {
@@ -115,7 +122,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        margin-top: 92px;
+        margin-top: 82px;
         margin-bottom: 55px;
         text-align: center;
         padding-right: 74px;
@@ -124,6 +131,7 @@
           color: #333333;
           line-height: 40px;
           font-size: 30px;
+          margin-bottom: 15px;
         }
         > h3 {
           font-size: 24px;
@@ -134,7 +142,7 @@
       > div {
         width: 760px;
         position: absolute;
-        top: 245px;
+        top: 230px;
         right: 0;
         padding-right: 74px;
       }
