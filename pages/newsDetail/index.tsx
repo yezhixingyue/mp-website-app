@@ -80,7 +80,7 @@ export default function index(props: IProps) {
       <header>
         <Breadcrumb separator={<Icon type="right" />} className={`mp-breadcrumb ${styles.breadcrumb}`}>
           <Breadcrumb.Item>
-            <Link href="/"><a>名片之家</a></Link>
+            <Link href="/"><a>首页</a></Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item>
             <Link href='/news'><a>新闻介绍</a></Link>

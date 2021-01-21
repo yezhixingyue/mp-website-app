@@ -3,15 +3,9 @@ import Head from 'next/head'
 import styles from './index.module.scss'
 import api from '../../services'
 import MpImage from '../../components/common/MpImage'
-import { useRouter } from 'next/router'
-import { SetupEnumType } from '../../utils/types4TS'
+import NewsHot from '../../components/NewsCenter/NewsHot'
 
-export default function index({ hotList }) {
-  const router = useRouter();
-  const onNewsClick = (id: number) => {
-    console.log(id, 'onNewsClick');
-    router.push(`newsDetail?id=${id}`);
-  }
+export default function index({ hotList, DataNumber }) {
 
   return (
     <div>
@@ -85,44 +79,26 @@ export default function index({ hotList }) {
             </ul>
           </div>
         </div>
-        <section className={styles['news-hot']}>
-          <header>
-            <h2>新闻热议</h2>
-            <h3>{'News hot discussion'.toLocaleUpperCase()}</h3>
-          </header>
-          <ul>
-            {
-              hotList.map(it => (
-                <li key={it.ID} style={{background: `url(${SetupEnumType.baseUrl}/${it.Cover}) no-repeat center center/cover`}} onClick={() => {onNewsClick(it.ID)}}>
-                  <div>
-                    <div>
-                      <p>{it.Title}</p>
-                      <span>{it.Introduce}</span>
-                    </div>
-                    <p>
-                      <span>{it.Title}</span>
-                      <i></i>
-                    </p>
-                  </div>
-                </li>
-              ))
-            }
-          </ul>
-        </section>
+        {/* hot */}
+        <NewsHot hotList={hotList} DataNumber={DataNumber} />
       </section>
     </div>
   )
 }
 
 export async function getServerSideProps () {
-  const resp = await api.getNewsHotList();
+  let key = true;
+  const resp = await api.getNewsHotList({ Page: 1, pageSize: 6 }).catch(() => { key = false });
   let hotList = [];
-  if (resp.data.Status === 1000) {
+  let DataNumber = 0;
+  if (key && resp && resp.data.Status === 1000) {
     hotList = resp.data.Data;
+    DataNumber = resp.data.DataNumber;
   }
   return {
     props: {
       hotList,
+      DataNumber,
     }
   };
 }

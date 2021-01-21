@@ -16,6 +16,7 @@ interface IProps {
   className?: string;
   style?: any;
   tipContent?: string | JSX.Element;
+  children?: JSX.Element;
 }
 const MpImage = (props: IProps) => {
   const [state, setState] = useState({
@@ -32,7 +33,7 @@ const MpImage = (props: IProps) => {
   if (process.browser && !window.btoa) {
     return <div className='lazyload-wrapper' style={props.style}>
       {
-        props.hasModel && <i></i>
+        props.hasModel && <i className='hasmodel-i'></i>
       }
       <img
         className={`${!state.isLoaded && 'opacity-0'} ${props.hasModel && 'animate'}`}
@@ -46,15 +47,16 @@ const MpImage = (props: IProps) => {
         }}
         src={props.src}
         width={props.width} />
-      {state.msg && <p>{state.msg}</p>}
+      {state.msg && <p className='msg'>{state.msg}</p>}
       {
-        props.hasModel && <div></div>
+        props.hasModel && <div className='hasmodel-div'></div>
       }
+      {props.children}
     </div>
   }
   return <LazyLoad offset={100} once style={props.style}>
     {
-      props.hasModel && <i></i>
+      props.hasModel && <i className='hasmodel-i'></i>
     }
     <img
       className={`${!state.isLoaded && 'opacity-0'} ${props.hasModel && 'animate'}`}
@@ -68,11 +70,11 @@ const MpImage = (props: IProps) => {
       }}
       src={props.src}
       width={props.width} />
-    {state.msg && <p>{state.msg}</p>}
+    {state.msg && <p className='msg'>{state.msg}</p>}
     {
-      props.hasModel && <div></div>
+      props.hasModel && <div className='hasmodel-div'></div>
     }
-
+    {props.children}
   </LazyLoad>
 }
 

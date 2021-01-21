@@ -19,7 +19,7 @@ export default createProxyMiddleware({
     //   ] = `${cookieName}=${token}; Max-Age=${maxAge}; path=/`;
     // }
   },
-  onProxyReq(proxyReq, req, res) {
+  onProxyReq(proxyReq, req: any, res) {
     const token = req.cookies[cookieName];
     if (token) {
       proxyReq.setHeader("Authorization", `Bearer ${token}`);

@@ -1,8 +1,7 @@
-html,
-body {
+html, body {
   padding: 0;
   margin: 0;
-  font-family: MicrosoftYaHei, 微软雅黑, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
+  font-family: MicrosoftYaHei, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,	Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   // padding-top: 60px !important;
 }
@@ -473,7 +472,7 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
 .lazyload-wrapper {
   background-color: #f5f7fa;
   position: relative;
-  > p {
+  > p.msg {
     position: absolute;
     text-align: center;
     top: 45%;
@@ -481,7 +480,7 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
     color: #999;
     font-size: 12px;
   }
-  > i {
+  > i.hasmodel-i {
     position: absolute;
     left: 0;
     right: 0;
@@ -498,7 +497,7 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
   > img {
     transition: transform 0.2s ease-in-out;
   }
-  > div {
+  > div.hasmodel-div {
     position: absolute;
     // left: 0;
     // top: 45%;
@@ -519,7 +518,7 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
     // }
   }
   &:hover {
-    > i {
+    > i.hasmodel-i {
       // z-index: 99;
       opacity: 1;
       transform: scale(1.05);
@@ -528,7 +527,7 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
       transform: scale(1.05);
       opacity: 0.5;
     }
-    > div {
+    > div.hasmodel-div {
       opacity: 1;
     }
   }
@@ -538,6 +537,17 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
   opacity: 0;
 }
 
+.mp-home-tab-wrap {
+  > .ant-tabs-bar {
+    .ant-tabs-tab-active.ant-tabs-tab {
+      font-size: 16px;
+      color: #428dfa;
+    }
+    .ant-tabs-ink-bar {
+      background-color: #428dfa
+    }
+  }
+}
 .mp-product-tab-wrap {
   > .ant-tabs-bar {
     margin: 0;
@@ -548,7 +558,7 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
         .ant-tabs-tab {
           height: 77px;
           padding: 28px 1px;
-          font-size: 18px;
+          font-size: 16px;
           margin-right: 73px;
           color: #999;
           &.ant-tabs-tab-active {
@@ -722,4 +732,31 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
 #nprogress .bar {
   background-color: #428dfa !important;
   height: 3px !important;
+}
+
+#__next {
+  .ant-btn-primary {
+    background-color: #428dfa;
+    border-color: #428dfa;
+    color: #fff !important;
+    &:hover {
+      background-color: mix(#428dfa, #fff, 85%);
+      border-color: mix(#428dfa, #fff, 85%);
+    }
+    &:active {
+      background-color: #086afc;
+      border-color: #0c6af7;
+    }
+  }
+  .ant-btn:hover, .ant-btn:focus {
+    color: #428dfa;
+    border-color: #428dfa;
+  }
+  .ant-input:hover, .ant-input:focus {
+    border-color: #428dfa;
+  }
+  
+  .ant-input-group-addon {
+    padding: 0;
+  }
 }

@@ -2,10 +2,13 @@ import Head from 'next/head'
 import React, { useEffect } from 'react'
 import styles from './index.module.scss'
 import OpinionForm from '../../components/ContactPage/OpinionForm'
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
 
 export default function index() {
-  const router = useRouter();
+  // const router = useRouter();
+  const user = useSelector((state) => state.user);
+
   const handleMapBringIn = () => {
     if (AMap) {
       const map = new AMap.Map('map-container', {
@@ -140,7 +143,7 @@ export default function index() {
             <h3>{'Opinions and suggestions'.toLocaleUpperCase()}</h3>
           </header>
           <div>
-            <OpinionForm />
+            <OpinionForm user={user} />
           </div>
         </section>
         <div id="map-container" tabIndex="0"></div>

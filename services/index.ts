@@ -27,7 +27,7 @@ const api = {
   },
   /* 新闻
   ----------------------------------------------------------------------------------- */
-  getNewsHotList(data = { Page: 1, pageSize: 4 }) { // POST /api/Article/ArticleList 获取新闻列表
+  getNewsHotList(data = { Page: 1, pageSize: 6 }) { // POST /api/Article/ArticleList 获取新闻列表
     return instance.post('/api/Article/ArticleList', data);
   },
   getNewsDetail(id: number) { // GET /Api/Article/Detail 获取新闻详情
@@ -56,6 +56,9 @@ const api = {
   getOpinionSubmit(data: IOpinionSubmitType) { // POST /Api/Suggest/Save  意见提交
     return instance.post('/api/Suggest/Save', data);
   },
+  getApiCaptcha(width = 140, height = 40, fontSize=24) { // GET /Api/Captcha
+    return instance.get(`/api/Captcha?width=${width}&height=${height}&fontSize=${fontSize}`);
+  }
 };
 
 export default api;

@@ -64,7 +64,7 @@ export default function index() {
   return (
     <section className={styles['intro-wrap']}>
       <Spin spinning={state.loading} delay={100}>
-        <Tabs style={{ height: 525 }} onChange={(activeKey) => onTabChange && onTabChange(activeKey)}>
+        <Tabs style={{ height: 525 }}  onChange={(activeKey) => onTabChange && onTabChange(activeKey)} className='mp-home-tab-wrap'>
           {lv1Classify.map(it => (
             <TabPane tab={it.ClassName} key={`${it.ID}`}>
                 {!state.loading && !state.err && content}

@@ -13,6 +13,12 @@ export default function index() {
   //   slidesToScroll: 0.25
   // };
 
+  const createLogoImg = (src: string, title: string, style?: any) => (
+    <MpImage src={src} style={style}>
+      <div className={styles['logo-msg']}>{title}</div>
+    </MpImage>
+  )
+
   return (
     <section className={styles.wrap}>
       <header>
@@ -26,18 +32,18 @@ export default function index() {
       </Carousel> */}
       <ul>
         <li className={styles.item}>
-          <MpImage src='/logo1.png' />
-          <MpImage src='/logo2.png' />
-          <MpImage src='/logo10.png' />
-          <MpImage src='/logo3.png' />
-          <MpImage style={{marginRight: 0}} src='/logo4.png' />
+          {createLogoImg('/logo1.png', 'MBO印刷设备')}
+          {createLogoImg('/logo2.png', '爱普生')}
+          {createLogoImg('/logo10.png', '小森')}
+          {createLogoImg('/logo3.png', '方正')}
+          {createLogoImg('/logo4.png', '富士胶片', {marginRight: 0})}
         </li>
         <li className={styles.item}>
-          <MpImage src='/logo5.png' />
-          <MpImage src='/logo6.png' />
-          <MpImage src='/logo8.png' />
-          <MpImage src='/logo7.png' />
-          <MpImage style={{marginRight: 0}} src='/logo9.png' />
+          {createLogoImg('/logo5.png', '海德堡')}
+          {createLogoImg('/logo6.png', '惠普')}
+          {createLogoImg('/logo8.png', '柯尼卡美能达')}
+          {createLogoImg('/logo7.png', '柯达')}
+          {createLogoImg('/logo9.png', '马天尼', {marginRight: 0})}
         </li>
       </ul>
     </section>

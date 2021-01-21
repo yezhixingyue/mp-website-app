@@ -85,7 +85,7 @@ export default function index() {
         <section>
           <Breadcrumb separator={<Icon type="right" />} className='mp-breadcrumb'>
             <Breadcrumb.Item>
-              <Link href="/"><a>名片之家</a></Link>
+              <Link href="/"><a>首页</a></Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item>产品介绍</Breadcrumb.Item>
           </Breadcrumb>

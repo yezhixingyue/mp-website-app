@@ -33,39 +33,39 @@
   background-color: rgba(0, 0, 0, 0);
   position: relative;
 }
-.item > div::before {
+.item > div div.logo-msg::before {
   content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.65);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-.item > div::after {
-  content: '富士胶片';
   position: absolute;
   left: 5px;
   top: 5px;
   right: 5px;
   bottom: 5px;
   border: 1px solid #eee;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+.item > div div.logo-msg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.65);
   color: #fff;
   font-size: 17px;
-  line-height: 78px;
+  line-height: 30px;
+  padding: 30px;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-  /* font-weight: 700; */
+  transition: opacity 0.4s ease-in-out;
+  user-select: none;
 }
-.item > div:hover::before {
+.item > div:hover div.logo-msg::before {
   opacity: 1;
 }
-.item > div:hover::after {
+.item > div:hover div.logo-msg {
   opacity: 1;
 }
-.item > div:hover {
-  /* opacity: 0.5; */
+.item > div:hover img {
+  opacity: 0.9;
 }

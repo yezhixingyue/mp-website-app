@@ -1,0 +1,20 @@
+.CaptchaBox {
+  width: 255px;
+  cursor: pointer;
+  height: 50px;
+  padding-top: 5px;
+  padding-right: 30px;
+}
+.tip {
+  > span {
+    display: block;
+  }
+  > h2 {
+    display: inline-block;
+    font-weight: 700;
+    color: #333;
+    font-size: 15px;
+  }
+  margin-bottom: 40px;
+  padding-left: 30px;
+}

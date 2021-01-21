@@ -1,22 +1,46 @@
-import { Form, Input, Button, AutoComplete, Spin } from 'antd';
+import { Form, Input, Button, AutoComplete, Spin, Icon } from 'antd';
 import { FormComponentProps } from 'antd/es/form';
 import React from 'react';
 import api from '../../../services';
 import { showSuccess } from '../../../utils/model';
-import { IOpinionSubmitType } from '../../../utils/types4TS';
+import { IOpinionSubmitType, User } from '../../../utils/types4TS';
+import styles from './index.module.scss';
 
 const AutoCompleteOption = AutoComplete.Option;
 const { TextArea } = Input;
 
 interface IProps extends FormComponentProps {
   // 添加组件props类型
+  user?: null | User;
 }
 
 class RegistrationForm extends React.Component<IProps> {
   state = {
     autoCompleteResult: [],
     loading: false,
+    CaptchaLoading: false,
+    CaptchaData: null,
   };
+
+
+  getApiCaptcha = async () => {
+    this.setState({
+      ...this.state,
+      CaptchaLoading: true,
+    })
+    let key = true;
+    const res = await api.getApiCaptcha().catch(() => { key = false });
+    this.setState({
+      ...this.state,
+      CaptchaLoading: false,
+    })
+    if (key && res && res.data.Status === 1000) {
+      this.setState({
+        ...this.state,
+        CaptchaData: res.data.Data,
+      })
+    }
+  }
 
   submit = async (data: IOpinionSubmitType) => {
     this.setState({ ...this.state, loading: true });
@@ -26,6 +50,7 @@ class RegistrationForm extends React.Component<IProps> {
     if (key && res && res.data.Status === 1000) {
       showSuccess({
         title: '提交成功',
+        msg: '感谢您的提交!',
         onOk: () => {
           this.props.form.resetFields();
         },
@@ -34,6 +59,9 @@ class RegistrationForm extends React.Component<IProps> {
           this.props.form.resetFields();
         },
       });
+    }
+    if (res && res.data.Status !== 7009) {
+      this.getApiCaptcha();
     }
   }
 
@@ -51,6 +79,7 @@ class RegistrationForm extends React.Component<IProps> {
     this.props.form.resetFields();
   };
 
+
   handleWebsiteChange = value => {
     let autoCompleteResult;
     if (!value || value.indexOf('@') > -1) {
@@ -60,6 +89,12 @@ class RegistrationForm extends React.Component<IProps> {
     }
     this.setState({ ...this.state, autoCompleteResult });
   };
+
+  // CaptchaBox = ()
+
+  componentDidMount() {
+    this.getApiCaptcha();
+  }
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -83,20 +118,26 @@ class RegistrationForm extends React.Component<IProps> {
     return (
       <Spin spinning={this.state.loading}>
         <Form {...formItemLayout} onSubmit={this.handleSubmit} hideRequiredMark className='opinion-form-wrap'>
-          <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
-            {getFieldDecorator('NickName', {
-              rules: [
-                { required: true, message: '请输入姓名', whitespace: false },
-                { min: 2, message: '请输入2 - 8个字符', whitespace: false },
-                { max: 8, message: '请输入2 - 8个字符', whitespace: false },
-              ],
-            })(<Input placeholder="请输入姓名" />)}
-          </Form.Item>
-          <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
-            {getFieldDecorator('Phone', {
-              rules: [{ required: true, message: '请输入电话' }, { pattern: /(^\d{8}$)|(^\d{7}$)|(^1[3456789]\d{9}$)/, message: '电话格式不正确' }],
-            })(<Input placeholder="请输入电话" />)}
-          </Form.Item>
+          {
+            !this.props.user ? <>
+
+              <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
+                {getFieldDecorator('NickName', {
+                  rules: [
+                    { required: true, message: '请输入姓名', whitespace: false },
+                    { min: 2, message: '请输入2 - 5个字符', whitespace: false },
+                    { max: 5, message: '请输入2 - 5个字符', whitespace: false },
+                  ],
+                })(<Input placeholder="请输入姓名" maxLength={5} />)}
+              </Form.Item>
+              <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
+                {getFieldDecorator('Phone', {
+                  rules: [{ required: true, message: '请输入电话' }, { pattern: /(^\d{8}$)|(^\d{7}$)|(^1[3456789]\d{9}$)/, message: '电话格式不正确' }],
+                })(<Input placeholder="请输入电话" maxLength={11} />)}
+              </Form.Item>
+            </>
+            : <div className={styles.tip}>您好，<h2>{this.props.user.CustomerName}</h2> <span>如果您认为名片之家有可以做到更好的地方，请在此输入您的建议</span></div>
+          }
           <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
             {getFieldDecorator('Email', {
               rules: [
@@ -118,6 +159,27 @@ class RegistrationForm extends React.Component<IProps> {
               </AutoComplete>,
             )}
           </Form.Item>
+          {
+            !this.props.user &&
+            <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
+              {getFieldDecorator('Captcha', {
+                rules: [
+                  { required: true, message: '请输入验证码' },
+                  { min: 2, message: '请输入2个字符', whitespace: false },
+                  { max: 2, message: '请输入2个字符', whitespace: false },
+                ],
+              })(<Input
+                placeholder="请输入验证码"
+                addonAfter={
+                  <Spin spinning={this.state.CaptchaLoading} indicator={<Icon type="loading" style={{ fontSize: 14 }} spin />}>
+                    <div className={styles.CaptchaBox} onClick={this.getApiCaptcha}>
+                      {this.state.CaptchaData && <img src={this.state.CaptchaData.Image} alt="" />}
+                    </div>
+                  </Spin>
+                }
+              />)}
+            </Form.Item>
+          }
           <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
             {getFieldDecorator('Content', {
               rules: [
