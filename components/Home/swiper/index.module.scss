@@ -1,14 +1,15 @@
 .wrap {
-  height: 660px;
+  height: 520px;
   width: 100%;
   position: relative;
   background-color: #22284C;
   .carousel {
-    height: 660px;
+    height: 520px;
     width: 100%;
     img {
       object-fit: cover;
-      height: 660px;
+      height: 520px;
+      width: 100%;
     }
   }
   > .prev, >.next {
@@ -19,7 +20,7 @@
     background-color: rgba(0, 0, 0, 0.4);
     overflow: hidden;
     z-index: 9;
-    top: 300px;
+    top: 230px;
     cursor: pointer;
     opacity: 0;
     transition: opacity 0.2s;

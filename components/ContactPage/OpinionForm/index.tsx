@@ -136,7 +136,7 @@ class RegistrationForm extends React.Component<IProps> {
                 })(<Input placeholder="请输入电话" maxLength={11} />)}
               </Form.Item>
             </>
-            : <div className={styles.tip}>您好，<h2>{this.props.user.CustomerName}</h2> <span>如果您认为名片之家有可以做到更好的地方，请在此输入您的建议</span></div>
+            : <div className={styles.tip}>您好，<h2>{this.props.user.CustomerName}</h2> <span>如果您认为名片之家有可以做到更好的地方，请在此输入您的意见和建议吧</span></div>
           }
           <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
             {getFieldDecorator('Email', {

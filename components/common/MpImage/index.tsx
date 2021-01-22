@@ -30,8 +30,12 @@ const MpImage = (props: IProps) => {
   //   effect="black-and-white"
   //   src={props.src}
   //   width={props.width} />
+  let style: any = {};
+  if (props.width) style.width = props.width;
+  if (props.height) style.height = props.height;
+  style = { ...style, ...props.style};
   if (process.browser && !window.btoa) {
-    return <div className='lazyload-wrapper' style={props.style}>
+    return <div className='lazyload-wrapper' style={style}>
       {
         props.hasModel && <i className='hasmodel-i'></i>
       }
@@ -54,7 +58,7 @@ const MpImage = (props: IProps) => {
       {props.children}
     </div>
   }
-  return <LazyLoad offset={100} once style={props.style}>
+  return <LazyLoad offset={100} once style={style}>
     {
       props.hasModel && <i className='hasmodel-i'></i>
     }

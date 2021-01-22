@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <div className={styles['home-page-wrap']}>
       <Head>
-        <title>郑州名片之家电子商务有限公司</title>
+        <title>首页 - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SwiperComp swiperData={swiperData} />  {/* 轮播图 */}
