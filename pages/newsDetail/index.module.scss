@@ -68,25 +68,27 @@
                 object-fit: cover;
               }
             }
-            > p {
+            > section {
               display: inline-block;
-              width: 199px;
-              white-space: normal;
-              height: 58px;
-              overflow: hidden;
-              font-size: 14px;
-              color: #333333;
-              line-height: 21px;
-              transition: color 0.2s;
-              padding-top: 4px;
-              padding-left: 10px;
-              line-height: 29px;
-              overflow: hidden;
-              white-space: normal;
-              margin: 0;
+              > div {
+                width: 199px;
+                white-space: normal;
+                height: 58px;
+                overflow: hidden;
+                font-size: 14px;
+                color: #333333;
+                line-height: 21px;
+                transition: color 0.2s;
+                padding-top: 4px;
+                padding-left: 10px;
+                line-height: 29px;
+                overflow: hidden;
+                white-space: normal;
+                margin: 0;
+              }
             }
             &:hover {
-              > p {
+              > section > div {
                 color: mix(#428dfa, #fff, 75%);
               }
             }

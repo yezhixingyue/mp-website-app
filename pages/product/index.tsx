@@ -1,4 +1,4 @@
-import { Breadcrumb, Button, Icon, Tabs } from 'antd';
+import { Breadcrumb, Button, Icon, Typography } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
@@ -8,7 +8,7 @@ import { getFilterClassifyList } from '../../utils';
 import { BaseClassifyItem, IArticleType, IClassifyItem, IStore, SetupEnumType } from '../../utils/types4TS';
 import styles from './index.module.scss';
 import ProductClassifyComp from '../../components/common/ProductClassifyComp';
-
+const { Paragraph } = Typography;
 
 export default function index(props: { curProduct: null | IArticleType, classifyRes: IClassifyItem[], lv2List: BaseClassifyItem[] }) {
   const router = useRouter();
@@ -91,7 +91,8 @@ export default function index(props: { curProduct: null | IArticleType, classify
                   </div>
                   <section>
                     <header>{it.Name}</header>
-                    <div>{it.Introduce}</div>
+                    {/* <div>{it.Introduce}</div> */}
+                    <Paragraph ellipsis={{ rows: 2, expandable: false }}>{it.Introduce}</Paragraph>
                   </section>
                 </li>
               ))}

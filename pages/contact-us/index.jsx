@@ -58,7 +58,7 @@ export default function index() {
       <Head>
         <title>联系我们 - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
-        <script src={mapUrl}></script>
+        {/* <script src={mapUrl}></script> */}
       </Head>
       <header id='contact-top'>
         <div>联系我们</div>

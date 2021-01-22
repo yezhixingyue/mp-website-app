@@ -1,12 +1,15 @@
-import { Breadcrumb, Icon } from 'antd';
+import { Breadcrumb, Icon, Typography } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react'
 import MpImage from '../../components/common/MpImage';
 import api from '../../services';
 import { formatDateOnlyYear } from '../../utils';
-import { ArticleGetEnumType, IArticleClassType, INewsHelpsArticleType, SetupEnumType } from '../../utils/types4TS';
+import { IArticleClassType, INewsHelpsArticleType, SetupEnumType } from '../../utils/types4TS';
 import styles from './index.module.scss';
+import Head from 'next/head';
+
+const { Paragraph } = Typography;
 
 
 interface IProps {
@@ -48,7 +51,13 @@ export default function index(props: IProps) {
               <div>
                 <MpImage src={SetupEnumType.baseUrl + it.Cover} alt="" height={65} width={65} />
               </div>
-              <p>{it.Title}</p>
+              <section>
+                {/* {it.Title} */}
+                <Paragraph ellipsis={{ rows: 2, expandable: false }}>{it.Title}</Paragraph>
+              </section>
+              {/* <p>
+                {it.Title}
+              </p> */}
             </li>
           ))}
         </ul>
@@ -77,6 +86,10 @@ export default function index(props: IProps) {
   
   return (
     <section className={styles['mp-news-detail-page']}>
+      <Head>
+        <title>新闻详情 - 郑州名片之家电子商务有限公司</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <header>
         <Breadcrumb separator={<Icon type="right" />} className={`mp-breadcrumb ${styles.breadcrumb}`}>
           <Breadcrumb.Item>
