@@ -1,8 +1,8 @@
 .CaptchaBox {
   width: 255px;
   cursor: pointer;
-  height: 50px;
-  padding-top: 5px;
+  height: 36px;
+  // padding-top: 5px;
   padding-right: 30px;
 }
 .tip {
@@ -17,4 +17,9 @@
   }
   margin-bottom: 40px;
   padding-left: 30px;
+}
+
+.img {
+  width: 12px;
+  height: 12px;
 }

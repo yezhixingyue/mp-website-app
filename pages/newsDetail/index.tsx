@@ -96,7 +96,7 @@ export default function index(props: IProps) {
             <Link href="/"><a>首页</a></Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item>
-            <Link href='/news'><a>新闻介绍</a></Link>
+            <Link href='/news'><a>新闻中心</a></Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item >新闻详情</Breadcrumb.Item>
         </Breadcrumb>

@@ -8,11 +8,13 @@ import { getFilterClassifyList } from '../../utils';
 import { BaseClassifyItem, IArticleType, IClassifyItem, IStore, SetupEnumType } from '../../utils/types4TS';
 import styles from './index.module.scss';
 import ProductClassifyComp from '../../components/common/ProductClassifyComp';
+import { useSelector } from 'react-redux';
 const { Paragraph } = Typography;
 
 export default function index(props: { curProduct: null | IArticleType, classifyRes: IClassifyItem[], lv2List: BaseClassifyItem[] }) {
   const router = useRouter();
   // const dispatch = useDispatch();
+  const user = useSelector((state: IStore) => state.user);
 
   const onAsideClick = (productID) => {
     router.push(`/product?productID=${productID}`)
@@ -40,6 +42,15 @@ export default function index(props: { curProduct: null | IArticleType, classify
     router.push(`/productIntro?First=${props.curProduct.ProductClass.FirstLevelID}&Second=${id}`);
   }
 
+  const onPlaceOrderClick = () => {
+    let path = SetupEnumType.placeOrderUrl + '?id=' + props.curProduct.ID;
+    if (user && user.Account.Token) path += `&token=${user.Account.Token}`;
+    console.log('onPlaceOrderClick path', path);
+    // router.push(path);
+    // window.open(path, '_blank');
+    window.open(path);
+  }
+
   const path = props.curProduct ? `/productIntro?First=${props.curProduct.ProductClass.FirstLevelID}&Second=${props.curProduct.ProductClass.SecondLevelID}` : '/productIntro';
   
   return (
@@ -57,7 +68,7 @@ export default function index(props: { curProduct: null | IArticleType, classify
           </Breadcrumb>
         </div>
         {
-          props.classifyRes &&  <ProductClassifyComp
+          props.classifyRes && props.curProduct &&  <ProductClassifyComp
            classData={props.classifyRes}
            First={props.curProduct.ProductClass.FirstLevelID}
            Second={props.curProduct.ProductClass.SecondLevelID}
@@ -78,7 +89,7 @@ export default function index(props: { curProduct: null | IArticleType, classify
               {/* <Link href={path}>
                  <a><Button style={{marginRight: 30}}>返回列表</Button></a>
               </Link> */}
-              <Button type='primary'>立即下单</Button>
+              <Button type='primary' onClick={onPlaceOrderClick}>立即下单</Button>
             </footer>
           </section>
           <aside>

@@ -138,16 +138,18 @@ export default function index() {
         </ul>
       </section>
       <div>
-        <section id='opinion'>
-          <header>
-            <h2>意见建议</h2>
-            <h3>{'Opinions and suggestions'.toLocaleUpperCase()}</h3>
-          </header>
-          <div>
-            <OpinionForm user={user} />
+        <div>
+          <section id='opinion'>
+            <header>
+              <h2>意见建议</h2>
+              <h3>{'Opinions and suggestions'.toLocaleUpperCase()}</h3>
+            </header>
+            <div>
+              <OpinionForm user={user} />
+            </div>
+          </section>
+          <div id="map-container" tabIndex="0"></div>
           </div>
-        </section>
-        <div id="map-container" tabIndex="0"></div>
       </div>
     </section>
   )

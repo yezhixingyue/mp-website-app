@@ -288,7 +288,7 @@ table {
 //   content: '' !important;
 // }
 form.opinion-form-wrap input {
-  height: 60px !important;
+  height: 40px !important;
   background-color: #fff !important;
   border-color: #ccc;
   &::placeholder {
@@ -297,8 +297,8 @@ form.opinion-form-wrap input {
   }
 }
 form.opinion-form-wrap textarea {
-  height: 209px !important;
-  line-height: 52px !important;
+  height: 120px !important;
+  line-height: 30px !important;
   border-color: #ccc;
   &::placeholder {
     color: #ccc;
@@ -306,7 +306,7 @@ form.opinion-form-wrap textarea {
   }
 }
 form.opinion-form-wrap .ant-form-item-label {
-  line-height: 58px;
+  line-height: 38px;
 }
 form.opinion-form-wrap button {
   width: 109px;
@@ -470,8 +470,7 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
   } 
 }
 
-.lazyload-wrapper {
-  background-color: #f5f7fa;
+.lazyload-wrapper, .lazyload-show-bg-wrapper {
   position: relative;
   > p.msg {
     position: absolute;
@@ -532,6 +531,10 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
       opacity: 1;
     }
   }
+}
+
+.lazyload-show-bg-wrapper {
+  background-color: #f5f7fa;
 }
 
 .opacity-0 {
@@ -764,4 +767,10 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
 
 h2 {
   margin-bottom: 15px;
+}
+
+// img[src=""],img:not([src]){opacity:0;}
+.ant-input-disabled {
+  color: #cbcbcb !important;
+  background-color: #fff !important;
 }

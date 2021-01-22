@@ -23,12 +23,12 @@
     }
   }
   .intro-part {
-    height: 456px;
+    height: 415px;
     width: 1200px;
     margin: 0 auto;
     overflow: hidden;
     // padding-top: 70px;
-    margin-top: 70px;
+    margin-top: 90px;
     // > header {
     //   text-align: center;
     //   padding-top: 55px;
@@ -106,53 +106,62 @@
     }
   }
   > div {
-    min-height: 910px;
-    width: 100%;
     min-width: 1200px;
     background-color: rgb(245, 245, 245);
-    position: relative;
-    > section {
-      height: 100%;
-      width: calc(50% + 160px);
-      position: absolute;
-      left: 0;
-      top: 0;
-      > header {
-        width: 760px;
+    > div {
+      width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      min-height: 800px;
+      > section {
+        height: 100%;
+        // width: calc(50% + 160px);
+        width: 50%;
         position: absolute;
+        left: 0;
         top: 0;
-        right: 0;
-        margin-top: 82px;
-        margin-bottom: 55px;
-        text-align: center;
-        padding-right: 74px;
-        > h2 {
-          font-weight: bold;
-          color: #333333;
-          line-height: 40px;
-          font-size: 30px;
-          margin-bottom: 15px;
+        > header {
+          width: 600px;
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin-top: 70px;
+          margin-bottom: 55px;
+          text-align: center;
+          padding-right: 60px;
+          // padding-left: 20px;
+          > h2 {
+            font-weight: bold;
+            color: #333333;
+            line-height: 40px;
+            font-size: 30px;
+            margin-bottom: 15px;
+          }
+          > h3 {
+            font-size: 24px;
+            color: #333333;
+            line-height: 31px;
+          }
         }
-        > h3 {
-          font-size: 24px;
-          color: #333333;
-          line-height: 31px;
+        > div {
+          width: 600px;
+          position: absolute;
+          top: 220px;
+          right: 0;
+          padding-right: 60px;
+          // padding-left: 20px;
         }
       }
       > div {
-        width: 760px;
+        height: 700px;
+        // margin-top: 35px;
+        // width: calc(50% - 160px);
+        border: 1px solid #cbcbcb;
+        width: 50%;
         position: absolute;
-        top: 230px;
         right: 0;
-        padding-right: 74px;
+        top: 0;
       }
-    }
-    > div {
-      height: 100%;
-      width: calc(50% - 160px);
-      position: absolute;
-      right: 0;
-      top: 0;
     }
   }
 }

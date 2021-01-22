@@ -129,6 +129,7 @@ class NormalLoginForm extends React.Component<IProps, IState> {
                     className={this.state.isMobileActive ? styles.active : ''}
                     maxLength={11}
                     allowClear
+                    disabled={this.state.isLoading || this.state.isLoginSuccess}
                   />,
                 )}
               </Form.Item>
@@ -146,6 +147,7 @@ class NormalLoginForm extends React.Component<IProps, IState> {
                     className={this.state.isPwdActive ? styles.active : ''}
                     maxLength={16}
                     allowClear
+                    disabled={this.state.isLoading || this.state.isLoginSuccess}
                   />,
                 )}
               </Form.Item>
@@ -157,7 +159,7 @@ class NormalLoginForm extends React.Component<IProps, IState> {
               </Form.Item>
               <Form.Item className={styles.btnBox}>
                 <p className={this.state.isLoginSuccess ? 'is-success' : ''}>{this.state.errMsg}</p>
-                <Button type="primary" htmlType="submit" disabled={this.state.isLoading}>
+                <Button type="primary" htmlType="submit" disabled={this.state.isLoading || this.state.isLoginSuccess}>
                   { this.state.isLoading ? (<><Icon type="loading" />登录中...</>) : this.state.isLoginSuccess ? '登录成功' : '登录' }
                 </Button>
               </Form.Item>

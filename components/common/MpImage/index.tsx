@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 // import { LazyLoadImage } from 'react-lazy-load-image-component';
 // import 'react-lazy-load-image-component/src/effects/blur.css';
 import LazyLoad from 'react-lazyload';
-import styles from './index.module.scss';
 
 interface IProps {
   src: string;
@@ -24,41 +23,12 @@ const MpImage = (props: IProps) => {
     // msg: '加载中...'
     msg: ' '
   })
-  // <LazyLoadImage
-  //   alt={props.alt}
-  //   height={props.height}
-  //   effect="black-and-white"
-  //   src={props.src}
-  //   width={props.width} />
   let style: any = {};
   if (props.width) style.width = props.width;
   if (props.height) style.height = props.height;
   style = { ...style, ...props.style};
-  if (process.browser && !window.btoa) {
-    return <div className='lazyload-wrapper' style={style}>
-      {
-        props.hasModel && <i className='hasmodel-i'></i>
-      }
-      <img
-        className={`${!state.isLoaded && 'opacity-0'} ${props.hasModel && 'animate'}`}
-        alt={props.alt}
-        height={props.height}
-        onLoad={() => {
-          setState({ ...state, isLoaded: true, msg: '' })
-        }}
-        onError={() => {
-          setState({ ...state, isLoaded: true, msg: '加载失败!' })
-        }}
-        src={props.src}
-        width={props.width} />
-      {state.msg && <p className='msg'>{state.msg}</p>}
-      {
-        props.hasModel && <div className='hasmodel-div'></div>
-      }
-      {props.children}
-    </div>
-  }
-  return <LazyLoad offset={100} once style={style}>
+
+  const content = (<>
     {
       props.hasModel && <i className='hasmodel-i'></i>
     }
@@ -72,13 +42,22 @@ const MpImage = (props: IProps) => {
       onError={() => {
         setState({ ...state, isLoaded: true, msg: '加载失败!' })
       }}
-      src={props.src}
+      src={state.msg === '加载失败!' ? '' : props.src}
       width={props.width} />
     {state.msg && <p className='msg'>{state.msg}</p>}
     {
       props.hasModel && <div className='hasmodel-div'></div>
     }
     {props.children}
+  </>)
+
+  if (process.browser && !window.btoa) {
+    return <div className={state.isLoaded && state.msg !== '加载失败!' ? 'lazyload-wrapper' : 'lazyload-show-bg-wrapper'} style={style}>
+      {content}
+    </div>
+  }
+  return <LazyLoad offset={100} once style={style} classNamePrefix={state.isLoaded && state.msg !== '加载失败!' ? 'lazyload' : 'lazyload-show-bg'}>
+    {content}
   </LazyLoad>
 }
 

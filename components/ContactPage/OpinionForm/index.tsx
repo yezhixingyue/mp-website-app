@@ -121,7 +121,8 @@ class RegistrationForm extends React.Component<IProps> {
           {
             !this.props.user ? <>
 
-              <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
+              <Form.Item>
+                {/* <Form.Item label={(<img src='/contact-require.png' className={styles.img} />)} colon={false}> */}
                 {getFieldDecorator('NickName', {
                   rules: [
                     { required: true, message: '请输入姓名', whitespace: false },
@@ -130,7 +131,8 @@ class RegistrationForm extends React.Component<IProps> {
                   ],
                 })(<Input placeholder="请输入姓名" maxLength={5} />)}
               </Form.Item>
-              <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
+              <Form.Item>
+                {/* <Form.Item label={(<img src='/contact-require.png' className={styles.img} />)} colon={false}> */}
                 {getFieldDecorator('Phone', {
                   rules: [{ required: true, message: '请输入电话' }, { pattern: /(^\d{8}$)|(^\d{7}$)|(^1[3456789]\d{9}$)/, message: '电话格式不正确' }],
                 })(<Input placeholder="请输入电话" maxLength={11} />)}
@@ -138,7 +140,8 @@ class RegistrationForm extends React.Component<IProps> {
             </>
             : <div className={styles.tip}>您好，<h2>{this.props.user.CustomerName}</h2> <span>如果您认为名片之家有可以做到更好的地方，请在此输入您的意见和建议吧</span></div>
           }
-          <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
+          <Form.Item>
+            {/* <Form.Item label={(<img src='/contact-require.png' className={styles.img} />)} colon={false}> */}
             {getFieldDecorator('Email', {
               rules: [
                 {
@@ -161,7 +164,8 @@ class RegistrationForm extends React.Component<IProps> {
           </Form.Item>
           {
             !this.props.user &&
-            <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
+            <Form.Item>
+              {/* <Form.Item label={(<img src='/contact-require.png' className={styles.img} />)} colon={false}> */}
               {getFieldDecorator('Captcha', {
                 rules: [
                   { required: true, message: '请输入验证码' },
@@ -180,7 +184,8 @@ class RegistrationForm extends React.Component<IProps> {
               />)}
             </Form.Item>
           }
-          <Form.Item label={(<img src='/contact-require.png' />)} colon={false}>
+          <Form.Item>
+            {/* <Form.Item label={(<img src='/contact-require.png' className={styles.img} />)} colon={false}> */}
             {getFieldDecorator('Content', {
               rules: [
                 {
@@ -196,7 +201,7 @@ class RegistrationForm extends React.Component<IProps> {
                   message: '建议最多输入300个字'
                 },
               ],
-            })(<TextArea rows={4} placeholder="请输入您的建议" />)}
+            })(<TextArea rows={4} placeholder="请输入您的建议" maxLength={300} />)}
           </Form.Item>
           <Form.Item label={(<span></span>)} colon={false}>
             <Button type="primary" htmlType="submit">
