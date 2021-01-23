@@ -3,13 +3,32 @@ import Head from 'next/head';
 import styles from './index.module.scss';
 import { Button } from 'antd';
 import MpImage from '../../components/common/MpImage';
-import { getFileDownLoad } from '../../utils';
+import { extname, getFileDownLoad } from '../../utils';
 import { SetupEnumType } from '../../utils/types4TS';
 
 export default function index() {
-  const onDownLoadCLick = () => {
-    getFileDownLoad(SetupEnumType.downloadUrl);
+  // const onDownLoadCLick = () => {
+  //   getFileDownLoad(SetupEnumType.downloadUrl);
+  // }
+
+  const getfileName = (url: string, fileName?: string) => {
+    const _arr = url.split('/');
+    let _fileName = _arr[_arr.length - 1];
+    if (fileName) {
+      const _name = extname(_fileName);
+      _fileName = fileName + '.' + _name;
+    } else {
+      const _t = _fileName.split(' ');
+      if (_t.length === 2) _fileName = _t[1];
+      else if (_t.length > 2) {
+        const _t2 = _t.slice(1).join(' ');
+        _fileName = _t2;
+      }
+    }
+    return _fileName;
   }
+
+  const fileName = getfileName(SetupEnumType.downloadUrl);
 
   return (
     <div className={styles.wrap}>
@@ -22,7 +41,9 @@ export default function index() {
           <h1>自助下单</h1>
           <h2>为您更高效便捷的提供服务</h2>
           <p>To provide more efficient and convenient services for you</p>
-          <Button shape="round" onClick={onDownLoadCLick}>立即下载</Button>
+          <a href={SetupEnumType.downloadUrl} download={fileName}>
+            <Button shape="round">立即下载</Button>
+          </a>
         </div>
       </div>
       <section className={styles.introPart} id='change-title-style-to-show'>
@@ -152,7 +173,10 @@ export default function index() {
           <li className={styles['last-f']}>
             <h2>自助下单</h2>
             <p>名片之家自助下单客户端已全新上线，自助报价、自助上传、自助查单功能全面开启，升级版体验来袭，线上下单还可享专惠！</p>
-            <Button onClick={onDownLoadCLick}>点击下载</Button>
+            
+            <a href={SetupEnumType.downloadUrl} download={fileName}>
+              <Button>点击下载</Button>
+            </a>
           </li>
           <li>
             <h2>移动端报价</h2>

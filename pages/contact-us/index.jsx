@@ -72,11 +72,11 @@ export default function index() {
         <ul>
           <li className={styles['intro-item-f']}>
             <aside>
-              <img src="/contact-add.png" alt="" />
+              <img src="/contact-phone.png" alt="" />
             </aside>
             <div>
-              <h2>地址</h2>
-              <p style={{ width: 212 }}>郑州花园路与国基路花园SOHO一栋10楼</p>
+              <h2>服务热线</h2>
+              <p>4006363006</p>
             </div>
           </li>
           <li className={styles['intro-item-s']}>
@@ -90,16 +90,16 @@ export default function index() {
           </li>
           <li className={styles['intro-item-l']}>
             <aside>
-              <img src="/contact-website.png" alt="" />
+              <img src="/contact-mobile.png" alt="" />
             </aside>
             <div>
-              <h2>官方网址</h2>
-              <p>www.mpzj.cn</p>
+              <h2>招商热线</h2>
+              <p>18638768191</p>
             </div>
           </li>
         </ul>
         <ul>
-          <li className={styles['intro-item-f']}>
+          <li className={`${styles['intro-item-f']} ${styles['intro-item-qq']}`}>
             <aside>
               <img src="/contact-qq.png" alt="" />
             </aside>
@@ -114,25 +114,32 @@ export default function index() {
                   <i>豫东大区：800131866</i>
                   <i>豫西大区：800131899</i>
                 </span>
+                <span>
+                  <i>豫南大区：800131808</i>
+                  <i>豫北大区：800050507</i>
+                </span>
+                <span>
+                  <i>电商平台：800051513</i>
+                </span>
               </p>
             </div>
           </li>
           <li className={styles['intro-item-s']}>
             <aside>
-              <img src="/contact-phone.png" alt="" />
+              <img src="/contact-add.png" alt="" />
             </aside>
             <div>
-              <h2>服务热线</h2>
-              <p>4006363006</p>
+              <h2>地址</h2>
+              <p style={{ width: 212 }}>郑州花园路与国基路花园SOHO一栋10楼</p>
             </div>
           </li>
           <li className={styles['intro-item-l']}>
             <aside>
-              <img src="/contact-mobile.png" alt="" />
+              <img src="/contact-website.png" alt="" />
             </aside>
             <div>
-              <h2>招商热线</h2>
-              <p>18638768191</p>
+              <h2>官方网址</h2>
+              <p>www.mpzj.cn</p>
             </div>
           </li>
         </ul>

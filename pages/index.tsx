@@ -28,13 +28,15 @@ export default function Home() {
       <Head>
         <title>首页 - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="keywords" content="传统专版,商务合版,PVC制卡,商业包装,数码快印"></meta>
+        <meta name="description" content="郑州名片之家电子商务有限公司创立于 2008 年，是河南印之星集团的全资子公司。专门从事商业印刷及包装印刷。为不断适应市场形势，满足市场的多元化需求，为客户提供超值服务，公司引进了一系列国际领先的专业化印前、印刷、印后等生产加工设备，形成了一站式的综合印刷服务能力。智能时代下，我们旨在构建未来的商务生态系统，做中国文化创意与印刷科技产业生态系统的缔造者。"></meta>
       </Head>
       <SwiperComp swiperData={swiperData} />  {/* 轮播图 */}
       <PlaceAndProductComp />                 {/* 在线报价、软件下载及产品介绍 */}
       <HomeIntro />                           {/* 公司介绍 */}
       <NewsCenter newsDate={newsDate} />      {/* 新闻中心 */}
-      <PartnersComp />                        {/* 合作伙伴 */}
       <ServeWorth />                          {/* 服务价值 */}
+      <PartnersComp />                        {/* 合作伙伴 */}
     </div>
   )
 }
@@ -54,7 +56,7 @@ export async function getServerSideProps() {
     if (swiperResp.data.Status === 1000) swiperData = swiperResp.data.Data;
     if (newsResp.data.Status === 1000) newsDate = newsResp.data.Data;
     if (classifyRes.data.Status === 1000) {
-      lv1Classify =  getFilterClassifyList(classifyRes.data.Data);
+      lv1Classify = getFilterClassifyList(classifyRes.data.Data);
       if (lv1Classify.length > 0) {
         const proResp = await api.getProductsList({
           Page: 1,
@@ -69,7 +71,7 @@ export async function getServerSideProps() {
       }
     }
   }
-  
+
   return {
     props: {
       initialReduxState: {

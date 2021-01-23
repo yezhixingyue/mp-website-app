@@ -37,7 +37,7 @@
   font-size: 29px;
   font-family: PingFang-R;
 }
-.banner > div > button {
+.banner > div > a > button {
   width: 235px;
   height: 63px;
   font-size: 18px;
@@ -48,7 +48,8 @@
 .introPart {
   width: 1200px;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 20px;
+  padding-top: 80px;
   overflow: hidden;
   > ul {
     margin-right: -133px;
@@ -263,7 +264,7 @@
       > img {
         margin-bottom: 13px;
       }
-      > button {
+      > a > button {
         width: 130px;
         height: 43px;
         border: 2px solid #9A73E8;

@@ -1,14 +1,15 @@
 import React from 'react'
 import styles from './index.module.css'
 import { Button } from 'antd'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
+// import { useRouter } from 'next/router'
 
 export default function index() {
-  const router = useRouter();
+  // const router = useRouter();
 
-  const onMoreClick = () => {
-    router.push('/about');
-  }
+  // const onMoreClick = () => {
+  //   router.push('/about');
+  // }
 
   return (
     <div className={styles.wrap}>
@@ -25,7 +26,11 @@ export default function index() {
           <li>名片之家立足中原，与生态伙伴开放合作，聚焦产业链人才培育、技术创新、模式创新等，提供产品规划、设计、研发、制造、交付、配送等一站式综合服务，向全国客户提供行业定制化解决方案，为客户创造非凡价值。</li>
         </ul>
         <footer>
-          <Button type="primary" onClick={onMoreClick}>了解更多</Button>
+          <Link href='/about'>
+            <a target='_blank'>
+              <Button type="primary">了解更多</Button>
+            </a>
+          </Link>
         </footer>
       </section>
     </div>

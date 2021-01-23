@@ -49,7 +49,7 @@
 .news-center-wrap ul li:hover > div > img{
   /* transform: scale(1.05); */
 }
-.news-center-wrap ul li:hover > h2 {
+.news-center-wrap ul li:hover  h2 {
   color: #428dfa;
   opacity: 0.9;
 }

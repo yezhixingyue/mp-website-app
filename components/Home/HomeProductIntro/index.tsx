@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setHomeProductState } from '../../../actions';
 import { IHomePageState, IStore, SetupEnumType } from '../../../utils/types4TS';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const { TabPane } = Tabs;
 
@@ -47,16 +48,20 @@ export default function index() {
 
   const content = products.length > 0
    ? products.map(product => (
-      <div key={product.ID} className={styles['product-item']} onClick={() => onProductClick(product.ID)}>
-        <MpImage src={SetupEnumType.baseUrl + product.Cover} width={330} height={220} hasModel />
-        <section>
-          <header>{product.Name}</header>
-          <div>{product.Introduce}</div>
-          <footer>
-            <span>点击查看</span>
-            <i></i>
-          </footer>
-        </section>
+      <div key={product.ID} className={styles['product-item']}>
+        <Link href={`/product?productID=${product.ID}`}>
+          <a target='_blank'>
+            <MpImage src={SetupEnumType.baseUrl + product.Cover} width={330} height={220} hasModel />
+            <section>
+              <header>{product.Name}</header>
+              <div>{product.Introduce}</div>
+              <footer>
+                <span>点击查看</span>
+                <i></i>
+              </footer>
+            </section>
+          </a>
+        </Link>
       </div>
     ))
    : <Empty description='暂无数据' className={styles.empty} />

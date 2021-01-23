@@ -1,6 +1,6 @@
 import React from 'react'
 import MpImage from '../../common/MpImage'
-import styles from './index.module.css'
+import styles from './index.module.scss'
 // import Image from 'next/image'
 
 export default function index() {
@@ -11,44 +11,37 @@ export default function index() {
         <p>SERVICE VALUE</p>
       </header>
       <div className={styles.content}>
-        <div>
-          <MpImage src='/worth.png' alt='' />
-        </div>
         <ul>
           <li>
             <div>
-              <MpImage src='/qian.png' width={87} height={87} />
-            </div>
-            <div>
-              <p className={styles.f}>千款产品</p>
-              <p>{'Thousands of products'.toLocaleUpperCase()}</p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <MpImage src='/team.png' width={87} height={87} />
-            </div>
-            <div>
-              <p className={styles.f}>专业团队</p>
-              <p>{'Professional team'.toLocaleUpperCase()}</p>
+              <MpImage src='/worth-equ.png' width={52} height={47} />
+              <h2>先进设备</h2>
+              <h3>Advanced equipment</h3>
+              <p>采购行业先进印前、印刷、印后等设备，不断推动产业链持续升级，帮助客户创造价值与回报。</p>
             </div>
           </li>
           <li>
             <div>
-              <MpImage src='/express.png' width={87} height={87} />
-            </div>
-            <div>
-              <p className={styles.f}>自营物流</p>
-              <p>{'Self-support Logistics'.toLocaleUpperCase()}</p>
+              <MpImage src='/worth-color.png' width={50} height={47} />
+              <h2>先进设备</h2>
+              <h3>Advanced equipment</h3>
+              <p>采购行业先进印前、印刷、印后等设备，不断推动产业链持续升级，帮助客户创造价值与回报。</p>
             </div>
           </li>
           <li>
             <div>
-              <MpImage src='/color.png' width={87} height={87} />
+              <MpImage src='/worth-team.png' width={47} height={47} />
+              <h2>先进设备</h2>
+              <h3>Advanced equipment</h3>
+              <p>采购行业先进印前、印刷、印后等设备，不断推动产业链持续升级，帮助客户创造价值与回报。</p>
             </div>
+          </li>
+          <li>
             <div>
-              <p className={styles.f}>色彩管理</p>
-              <p>{'Color Management'.toLocaleUpperCase()}</p>
+              <MpImage src='/worth-pro.png' width={47} height={47} />
+              <h2>先进设备</h2>
+              <h3>Advanced equipment</h3>
+              <p>采购行业先进印前、印刷、印后等设备，不断推动产业链持续升级，帮助客户创造价值与回报。</p>
             </div>
           </li>
         </ul>

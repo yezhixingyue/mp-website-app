@@ -1,30 +1,26 @@
 import { Empty, Icon } from 'antd';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
 import React from 'react'
 import { SetupEnumType } from '../../../utils/types4TS';
 import MpImage from '../../common/MpImage';
 import styles from './newscenter.module.css'
-// import Image from 'next/image';
-
 
 
 export default function index({ newsDate }) {
-  const router = useRouter();
 
   const SingleNewsCode = ({ newsData }) => (
-    <li onClick={() => { router.push(`/newsDetail?id=${newsData.ID}`) }}>
-      <MpImage src={SetupEnumType.baseUrl + newsData.Cover} alt="" width={380} height={185} hasModel/>
-      <h2 className={styles.title}>{newsData.Title}</h2>
-      <p>
-        {newsData.Introduce}
-      </p>
+    <li>
+      <Link href={`/newsDetail?id=${newsData.ID}`}>
+        <a target='_blank'>
+          <MpImage src={SetupEnumType.baseUrl + newsData.Cover} alt="" width={380} height={185} hasModel/>
+          <h2 className={styles.title}>{newsData.Title}</h2>
+          <p>
+            {newsData.Introduce}
+          </p>
+        </a>
+      </Link>
     </li>
   )
-
-  
-  const onMoreClick = () => {
-    router.push('/news');
-  }
 
   return (
     <div>
@@ -33,7 +29,11 @@ export default function index({ newsDate }) {
           <p className='f'>新闻中心</p>
           <p className='s'>
             <span className='s-l'>NEWS CENTER</span>
-            <span className='s-r' onClick={onMoreClick}>查看更多 <Icon type="right" /></span>
+            <Link href='/news'>
+              <a target='_blank'>
+                <span className='s-r'>查看更多 <Icon type="right" /></span>
+              </a>
+            </Link>
           </p>
         </header>
         <ul>

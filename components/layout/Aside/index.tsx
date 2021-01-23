@@ -26,14 +26,14 @@ export default function index() {
         <p>省外大区</p>
         <p>京津冀、河北、山西、陕西、山东、其它</p>
         <p>
-          {/* <a rel="nofollow" target="_blank" href="tencent://message/?uin=4006363006&amp;Site=名片之家&amp;Menu=yes">
-            <span>4006363006</span>
-          </a> */}
-          {/* <span>4006363006</span> */}
+          <a rel="nofollow" target="_blank" href="tencent://message/?uin=4006363006&amp;Site=名片之家&amp;Menu=yes">
+            <span>800051518</span>
+          </a>
+          {/* <span>4006363006</span>
           
-          <Tooltip placement="right" title={<Paragraph copyable={{ text: '4006363006' }} style={{color: '#fff', marginBottom: '-6px', marginTop: '-1px'}}>复制QQ号码：</Paragraph>}>
-            <span>4006363006</span>
-          </Tooltip>
+          {/* <Tooltip placement="right" title={<Paragraph copyable={{ text: '800051518' }} style={{color: '#fff', marginBottom: '-6px', marginTop: '-1px'}}>复制QQ号码：</Paragraph>}>
+            <span>800051518</span>
+          </Tooltip> */}
         </p>
       </li>
       <li>
@@ -67,25 +67,25 @@ export default function index() {
         <p>豫北大区</p>
         <p>安阳、邯郸、邢台、新乡、鹤壁、濮阳</p>
         <p>
-          {/* <a rel="nofollow" target="_blank" href="tencent://message/?uin=800050507&amp;Site=名片之家&amp;Menu=yes">
+          <a rel="nofollow" target="_blank" href="tencent://message/?uin=800050507&amp;Site=名片之家&amp;Menu=yes">
             <span>800050507</span>
-          </a> */}
+          </a>
           {/* <span>800050507</span> */}
-          <Tooltip placement="right" title={<Paragraph copyable={{ text: '800050507' }} style={{color: '#fff', marginBottom: '-6px', marginTop: '-1px'}}>复制QQ号码：</Paragraph>}>
+          {/* <Tooltip placement="right" title={<Paragraph copyable={{ text: '800050507' }} style={{color: '#fff', marginBottom: '-6px', marginTop: '-1px'}}>复制QQ号码：</Paragraph>}>
             <span>800050507</span>
-          </Tooltip>
+          </Tooltip> */}
         </p>
       </li>
       <li>
         <p>电商平台</p>
         <p>
-          {/* <a rel="nofollow" target="_blank" href="tencent://message/?uin=800051513&amp;Site=名片之家&amp;Menu=yes">
+          <a rel="nofollow" target="_blank" href="tencent://message/?uin=800051513&amp;Site=名片之家&amp;Menu=yes">
             <span>800051513</span>
-          </a> */}
+          </a>
           {/* <span>800051513</span> */}
-          <Tooltip placement="right" title={<Paragraph copyable={{ text: '800051513' }} style={{color: '#fff', marginBottom: '-6px', marginTop: '-1px'}}>复制QQ号码：</Paragraph>}>
+          {/* <Tooltip placement="right" title={<Paragraph copyable={{ text: '800051513' }} style={{color: '#fff', marginBottom: '-6px', marginTop: '-1px'}}>复制QQ号码：</Paragraph>}>
             <span>800051513</span>
-          </Tooltip>
+          </Tooltip> */}
         </p>
       </li>
       <li style={{border: 'none'}}>

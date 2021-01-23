@@ -2,16 +2,10 @@ import React from 'react'
 import Panel from '../Panel'
 import HomeProductIntro from '../HomeProductIntro'
 import styles from './index.module.css'
-import { useRouter } from 'next/router'
 import { Icon } from 'antd'
+import Link from 'next/link'
 
 export default function index() {
-  const router = useRouter();
-
-  const onMoreClick = () => {
-    router.push('/productIntro');
-  }
-
   return (
     <section className={styles.wrap} id='change-title-style-to-show'>
       <header>
@@ -21,7 +15,11 @@ export default function index() {
         <p className='f'>产品介绍</p>
         <p className='s'>
           <span className='s-l'>PRODUCT INTRODUCTION</span>
-          <span className='s-r' onClick={onMoreClick}>查看更多 <Icon type="right" /></span>
+          <Link href='/productIntro'>
+            <a target='_blank'>
+              <span className='s-r'>查看更多 <Icon type="right" /></span>
+            </a>
+          </Link>
         </p>
       </div>
       <HomeProductIntro />
