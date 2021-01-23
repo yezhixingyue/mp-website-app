@@ -33,11 +33,16 @@ export default function index(props: IProps) {
 
   const lv2List = getLv2List(props.classData, props.First);
 
+  const setWidth = () => {
+    const w = lv1Ref.current.offsetWidth - 40;
+    setState({
+      ...state,
+      lv1Width: w,
+    })
+  }
+
   useEffect(() => {
-      setState({
-        ...state,
-        lv1Width: lv1Ref.current.offsetWidth - 40,
-      })
+    setWidth();
     }, [])
 
   const onLv1MenuToLeft = () => {
@@ -80,7 +85,7 @@ export default function index(props: IProps) {
   
   return (
     <section className={styles.wrap}>
-      <div style={{ height: 76 }}> {/* 一级产品分类 */}
+      <div style={{ height: 76 }} onMouseEnter={setWidth}> {/* 一级产品分类 */}
         {
           state.lv1Width > 1200 && state.lv1Left < 0 && !state.isAnimate && <div className={`${styles['move-item']} ${styles['move-prev']}`} onClick={onLv1MenuToLeft}>
             <Icon type="left" />
