@@ -14,10 +14,11 @@ export default function index() {
   // };
 
   const createLogoImg = (src: string, title: string, style?: any) => (
-    <MpImage src={src} style={style}>
-      <div className={styles['logo-msg']}>{title}</div>
-    </MpImage>
+    <MpImage src={src} style={style} />
   )
+  // <MpImage src={src} style={style}>
+  //   <div className={styles['logo-msg']}>{title}</div>
+  // </MpImage>
 
   return (
     <section className={styles.wrap}>

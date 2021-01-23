@@ -38,45 +38,10 @@
           transition: 0.2s;
         }
       }
-      &.lv2ul {
-        height: 77px;
-        > li {
-          margin-right: 75px;
-          > span {
-            padding: 0 1px;
-            font-size: 18px;
-            color: #999999;
-            &::after {
-              position: absolute;
-              content: '';
-              width: 100%;
-              height: 2px;
-              background-color: #333;
-              left: 0;
-              bottom: -21px;
-              border-radius: 1px;
-              opacity: 0;
-              transition: opacity 0.2s;
-            }
-            &:hover {
-              color: #428dfa;
-            }
-            &.active {
-              background-color: #fff;
-              color: #333333;
-              font-weight: bold;
-              position: relative;
-              &::after {
-                opacity: 1;
-              }
-            }
-          }
-        }
-      }
     }
     > div.move-item {
       position: absolute;
-      width: 70px;
+      width: 40px;
       height: 57px;
       background-color: #fff;
       opacity: 0;
@@ -93,7 +58,7 @@
       &.move-prev {
         left: 0;
         > i {
-          left: 20px;
+          left: 8px;
         }
       }
       &.move-next {
@@ -109,7 +74,7 @@
       > i {
         position: absolute;
         top: 16px;
-        left: 26px;
+        left: 8px;
       }
     }
     &:hover {

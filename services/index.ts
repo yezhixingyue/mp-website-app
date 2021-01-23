@@ -23,7 +23,7 @@ const api = {
     return instance.post('/api/Product/List', data);
   },
   getProductClassify() { // 获取产品分类
-    return instance.post('/api/Constant/VersionValid', { Key: 6 });
+    return instance.post('/api/Constant/VersionValid', { Key: 6, Page: 10 });
   },
   /* 新闻
   ----------------------------------------------------------------------------------- */
