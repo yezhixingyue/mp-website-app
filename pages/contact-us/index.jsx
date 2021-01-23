@@ -12,11 +12,11 @@ export default function index() {
   const handleMapBringIn = () => {
     if (AMap) {
       const map = new AMap.Map('map-container', {
-        center:[113.684598,34.818867],
-        zoom:13
+        center: [113.684598, 34.818867],
+        zoom: 13
       });
       const marker = new AMap.Marker({
-        position: new AMap.LngLat(113.684598,34.818867),
+        position: new AMap.LngLat(113.684598, 34.818867),
         title: '名片之家',
       });
       map.add(marker);
@@ -50,7 +50,7 @@ export default function index() {
     jsapi.charset = 'utf-8';
     jsapi.src = 'https://webapi.amap.com/maps?v=1.4.15&key=d1de441473f06000bd61463102442b1e&callback=initMap';
     document.head.appendChild(jsapi);
-    
+
   }, [])
 
   return (
@@ -72,16 +72,16 @@ export default function index() {
         <ul>
           <li className={styles['intro-item-f']}>
             <aside>
-              <img src="/contact-add.png" alt=""/>
+              <img src="/contact-add.png" alt="" />
             </aside>
             <div>
               <h2>地址</h2>
-              <p style={{width: 212}}>郑州花园路与国基路花园SOHO一栋10楼</p>
+              <p style={{ width: 212 }}>郑州花园路与国基路花园SOHO一栋10楼</p>
             </div>
           </li>
-          <li  className={styles['intro-item-s']}>
+          <li className={styles['intro-item-s']}>
             <aside>
-              <img src="/contact-service.png" alt=""/>
+              <img src="/contact-service.png" alt="" />
             </aside>
             <div>
               <h2>售后专线</h2>
@@ -90,7 +90,7 @@ export default function index() {
           </li>
           <li className={styles['intro-item-l']}>
             <aside>
-              <img src="/contact-website.png" alt=""/>
+              <img src="/contact-website.png" alt="" />
             </aside>
             <div>
               <h2>官方网址</h2>
@@ -101,7 +101,7 @@ export default function index() {
         <ul>
           <li className={styles['intro-item-f']}>
             <aside>
-              <img src="/contact-qq.png" alt=""/>
+              <img src="/contact-qq.png" alt="" />
             </aside>
             <div>
               <h2>接单QQ</h2>
@@ -119,7 +119,7 @@ export default function index() {
           </li>
           <li className={styles['intro-item-s']}>
             <aside>
-              <img src="/contact-phone.png" alt=""/>
+              <img src="/contact-phone.png" alt="" />
             </aside>
             <div>
               <h2>服务热线</h2>
@@ -128,7 +128,7 @@ export default function index() {
           </li>
           <li className={styles['intro-item-l']}>
             <aside>
-              <img src="/contact-mobile.png" alt=""/>
+              <img src="/contact-mobile.png" alt="" />
             </aside>
             <div>
               <h2>招商热线</h2>
@@ -138,18 +138,14 @@ export default function index() {
         </ul>
       </section>
       <div>
-        <div>
-          <section id='opinion'>
-            <header>
-              <h2>意见建议</h2>
-              <h3>{'Opinions and suggestions'.toLocaleUpperCase()}</h3>
-            </header>
-            <div>
-              <OpinionForm user={user} />
-            </div>
-          </section>
-          <div id="map-container" tabIndex="0"></div>
-          </div>
+        <div id="map-container" tabIndex="0"></div>
+        <section id='opinion'>
+          <header>
+            <span>请写下您的意见或建议</span>
+            <i><em>/</em>Opinion suggestion</i>
+          </header>
+          <OpinionForm user={user} />
+        </section>
       </div>
     </section>
   )

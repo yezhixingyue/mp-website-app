@@ -41,7 +41,7 @@ export default function index(props: IProps) {
     }, [])
 
   const onLv1MenuToLeft = () => {
-    const distance = state.lv1Left < -1200 ? 1200 : -state.lv1Left;
+    const distance = state.lv1Left < -1055 ? 1055 : -state.lv1Left;
     setState({
       ...state,
       isAnimate: true,
@@ -60,7 +60,7 @@ export default function index(props: IProps) {
   }
 
   const onLv1MenuToRight = () => {
-    const distance = state.lv1Width - 1200 + state.lv1Left > 1200 ? 1200 : state.lv1Width - 1200 + state.lv1Left;
+    const distance = state.lv1Width - 1200 + state.lv1Left > 1055 ? 1055 : state.lv1Width - 1200 + state.lv1Left;
     setState({
       ...state,
       isAnimate: true,

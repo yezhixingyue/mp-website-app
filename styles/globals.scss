@@ -290,28 +290,37 @@ table {
 form.opinion-form-wrap input {
   height: 40px !important;
   background-color: #fff !important;
-  border-color: #ccc;
+  border-color: #e5e5e5;
+  font-size: 14px;
   &::placeholder {
-    color: #ccc;
-    font-size: 16px;
+    color: #999;
+    font-size: 14px;
   }
 }
 form.opinion-form-wrap textarea {
-  height: 120px !important;
+  height: 100px !important;
   line-height: 30px !important;
+  width: 890px;
   border-color: #ccc;
+  font-size: 14px;
   &::placeholder {
-    color: #ccc;
-    font-size: 16px;
+    color: #999;
+    font-size: 14px;
   }
 }
 form.opinion-form-wrap .ant-form-item-label {
   line-height: 38px;
 }
+form.opinion-form-wrap .ant-form-item-control {
+  line-height: 30px;
+}
 form.opinion-form-wrap button {
   width: 109px;
   height: 40px;
   margin-top: 25px;
+  display: inline-block;
+  margin: 0;
+  vertical-align: bottom;
 }
 .amap-marker {
   width: 130px;

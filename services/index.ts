@@ -56,7 +56,7 @@ const api = {
   getOpinionSubmit(data: IOpinionSubmitType) { // POST /Api/Suggest/Save  意见提交
     return instance.post('/api/Suggest/Save', data);
   },
-  getApiCaptcha(width = 140, height = 36, fontSize=24) { // GET /Api/Captcha
+  getApiCaptcha(width = 105, height = 36, fontSize=22) { // GET /Api/Captcha
     return instance.get(`/api/Captcha?width=${width}&height=${height}&fontSize=${fontSize}`);
   }
 };

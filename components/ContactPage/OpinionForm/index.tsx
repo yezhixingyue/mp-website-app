@@ -100,119 +100,131 @@ class RegistrationForm extends React.Component<IProps> {
     const { getFieldDecorator } = this.props.form;
     const { autoCompleteResult } = this.state;
 
-    const formItemLayout = {
-      labelCol: {
-        xs: { span: 24 },
-        sm: { span: 1 },
-      },
-      wrapperCol: {
-        xs: { span: 24 },
-        sm: { span: 23 },
-      },
-    };
-
     const emailOptions = autoCompleteResult.map(website => (
       <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
     ));
 
-    return (
-      <Spin spinning={this.state.loading}>
-        <Form {...formItemLayout} onSubmit={this.handleSubmit} hideRequiredMark className='opinion-form-wrap'>
-          {
-            !this.props.user ? <>
+    const userIcon = (<div className={styles.icon}>
+      <img src="/opinion-user.png" alt=""/>
+    </div>)
+    const phoneIcon = (<div className={styles.icon}>
+      <img src="/opinion-phone.png" alt=""/>
+    </div>)
+    const emailIcon = (<div className={styles.icon}>
+      <img src="/opinion-email.png" alt=""/>
+    </div>)
+    const vcodeIcon = (<div className={styles.icon}>
+      <img src="/opinion-vcode.png" alt=""/>
+    </div>)
 
-              <Form.Item>
-                {/* <Form.Item label={(<img src='/contact-require.png' className={styles.img} />)} colon={false}> */}
-                {getFieldDecorator('NickName', {
+    return (
+      <div className={styles['form-wrap']}>
+        <Spin spinning={this.state.loading}>
+          <Form onSubmit={this.handleSubmit} hideRequiredMark className='opinion-form-wrap'>
+            {
+              !this.props.user
+              ? <div className={`${styles['line']} ${styles['first-l']}`}>
+                  <Form.Item style={{marginRight: 90}}>
+                    {getFieldDecorator('NickName', {
+                      rules: [
+                        { required: true, message: '请输入姓名', whitespace: false },
+                        { min: 2, message: '请输入2 - 5个字符', whitespace: false },
+                        { max: 5, message: '请输入2 - 5个字符', whitespace: false },
+                      ],
+                    })(<Input prefix={userIcon} placeholder="请输入姓名 *" maxLength={5} />)}
+                  </Form.Item>
+                  <Form.Item>
+                    {getFieldDecorator('Phone', {
+                      rules: [{ required: true, message: '请输入电话' }, { pattern: /(^\d{8}$)|(^\d{7}$)|(^1[3456789]\d{9}$)/, message: '电话格式不正确' }],
+                    })(<Input prefix={phoneIcon} placeholder="请输入电话 *" maxLength={11} />)}
+                  </Form.Item>
+              </div>
+              : <div className={styles.tip}>
+                  您好，<h2>{this.props.user.CustomerName}</h2>
+                  <span>
+                    如果您认为名片之家有可以做到更好的地方，请在此输入您宝贵的意见和建议吧 ... <img src="/smile.png" alt=""/>
+                  </span>
+              </div>
+            }
+
+            <div className={styles.line}>
+              <Form.Item  style={{marginRight: 90, height: 40}}>
+                {getFieldDecorator('Email', {
                   rules: [
-                    { required: true, message: '请输入姓名', whitespace: false },
-                    { min: 2, message: '请输入2 - 5个字符', whitespace: false },
-                    { max: 5, message: '请输入2 - 5个字符', whitespace: false },
+                    {
+                      type: 'email',
+                      message: '邮箱类型不正确',
+                    },
+                    {
+                      required: true,
+                      message: '请输入邮箱',
+                    },
                   ],
-                })(<Input placeholder="请输入姓名" maxLength={5} />)}
+                })(
+                  <AutoComplete
+                    dataSource={emailOptions}
+                    onChange={this.handleWebsiteChange}
+                  >
+                    <Input prefix={emailIcon} placeholder="请输入邮箱 *" />
+                  </AutoComplete>,
+                )}
               </Form.Item>
-              <Form.Item>
+              {
+                !this.props.user &&
+                <Form.Item>
+                  {getFieldDecorator('Captcha', {
+                    rules: [
+                      { required: true, message: '请输入验证码' },
+                      { min: 2, message: '请输入2个字符', whitespace: false },
+                      { max: 2, message: '请输入2个字符', whitespace: false },
+                    ],
+                  })(<Input
+                    prefix={vcodeIcon}
+                    placeholder="请输入验证码 *"
+                    addonAfter={
+                      <Spin spinning={this.state.CaptchaLoading} indicator={<Icon type="loading" style={{ fontSize: 14 }} spin />}>
+                        <div className={styles.CaptchaBox} onClick={this.getApiCaptcha}>
+                          {this.state.CaptchaData && <img src={this.state.CaptchaData.Image} alt="" />}
+                        </div>
+                      </Spin>
+                    }
+                  />)}
+                </Form.Item>
+              }
+            </div>
+            <div className={styles.last}>
+              <Form.Item style={{height: 100, marginRight: 50}}>
                 {/* <Form.Item label={(<img src='/contact-require.png' className={styles.img} />)} colon={false}> */}
-                {getFieldDecorator('Phone', {
-                  rules: [{ required: true, message: '请输入电话' }, { pattern: /(^\d{8}$)|(^\d{7}$)|(^1[3456789]\d{9}$)/, message: '电话格式不正确' }],
-                })(<Input placeholder="请输入电话" maxLength={11} />)}
+                {getFieldDecorator('Content', {
+                  rules: [
+                    {
+                      required: true,
+                      message: '请输入您的建议',
+                    },
+                    {
+                      min: 10,
+                      message: '建议应至少输入10个字'
+                    },
+                    {
+                      max: 300,
+                      message: '建议最多输入300个字'
+                    },
+                  ],
+                })(<TextArea rows={4} placeholder="请输入您的建议 *" maxLength={300} />)}
               </Form.Item>
-            </>
-            : <div className={styles.tip}>您好，<h2>{this.props.user.CustomerName}</h2> <span>如果您认为名片之家有可以做到更好的地方，请在此输入您的意见和建议吧</span></div>
-          }
-          <Form.Item>
-            {/* <Form.Item label={(<img src='/contact-require.png' className={styles.img} />)} colon={false}> */}
-            {getFieldDecorator('Email', {
-              rules: [
-                {
-                  type: 'email',
-                  message: '邮箱类型不正确',
-                },
-                {
-                  required: true,
-                  message: '请输入邮箱',
-                },
-              ],
-            })(
-              <AutoComplete
-                dataSource={emailOptions}
-                onChange={this.handleWebsiteChange}
-              >
-                <Input placeholder="请输入邮箱" />
-              </AutoComplete>,
-            )}
-          </Form.Item>
-          {
-            !this.props.user &&
-            <Form.Item>
-              {/* <Form.Item label={(<img src='/contact-require.png' className={styles.img} />)} colon={false}> */}
-              {getFieldDecorator('Captcha', {
-                rules: [
-                  { required: true, message: '请输入验证码' },
-                  { min: 2, message: '请输入2个字符', whitespace: false },
-                  { max: 2, message: '请输入2个字符', whitespace: false },
-                ],
-              })(<Input
-                placeholder="请输入验证码"
-                addonAfter={
-                  <Spin spinning={this.state.CaptchaLoading} indicator={<Icon type="loading" style={{ fontSize: 14 }} spin />}>
-                    <div className={styles.CaptchaBox} onClick={this.getApiCaptcha}>
-                      {this.state.CaptchaData && <img src={this.state.CaptchaData.Image} alt="" />}
-                    </div>
-                  </Spin>
-                }
-              />)}
-            </Form.Item>
-          }
-          <Form.Item>
-            {/* <Form.Item label={(<img src='/contact-require.png' className={styles.img} />)} colon={false}> */}
-            {getFieldDecorator('Content', {
-              rules: [
-                {
-                  required: true,
-                  message: '请输入您的建议',
-                },
-                {
-                  min: 10,
-                  message: '建议应至少输入10个字'
-                },
-                {
-                  max: 300,
-                  message: '建议最多输入300个字'
-                },
-              ],
-            })(<TextArea rows={4} placeholder="请输入您的建议" maxLength={300} />)}
-          </Form.Item>
-          <Form.Item label={(<span></span>)} colon={false}>
-            <Button type="primary" htmlType="submit">
-              提交
-          </Button>
-            <Button style={{ marginLeft: 35 }} onClick={this.handleReset}>
-              重置
-          </Button>
-          </Form.Item>
-        </Form>
-      </Spin>
+              <Form.Item label={(<span></span>)} colon={false} style={{width: 260}}>
+                <Button type="primary" htmlType="submit">
+                  提交
+                </Button>
+                <Button style={{ marginLeft: 40 }} onClick={this.handleReset}>
+                  重置
+                </Button>
+              </Form.Item>
+            </div>
+          </Form>
+        </Spin>
+
+      </div>
     );
   }
 }
