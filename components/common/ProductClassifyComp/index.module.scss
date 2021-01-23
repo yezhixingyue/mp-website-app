@@ -92,6 +92,9 @@
       cursor: pointer;
       &.move-prev {
         left: 0;
+        > i {
+          left: 20px;
+        }
       }
       &.move-next {
         right: 0;
@@ -102,6 +105,11 @@
       }
       &:active {
         background-color: mix(#428dfa, #fff, 100%);
+      }
+      > i {
+        position: absolute;
+        top: 16px;
+        left: 26px;
       }
     }
     &:hover {
