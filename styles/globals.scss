@@ -296,6 +296,9 @@ form.opinion-form-wrap input {
     color: #999;
     font-size: 14px;
   }
+  &:focus::placeholder {
+    color: #cbcbcb;
+  }
 }
 form.opinion-form-wrap textarea {
   height: 100px !important;
@@ -306,6 +309,9 @@ form.opinion-form-wrap textarea {
   &::placeholder {
     color: #999;
     font-size: 14px;
+  }
+  &:focus::placeholder {
+    color: #cbcbcb;
   }
 }
 form.opinion-form-wrap .ant-form-item-label {

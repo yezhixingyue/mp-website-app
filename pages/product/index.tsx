@@ -9,6 +9,7 @@ import { BaseClassifyItem, IArticleType, IClassifyItem, IStore, SetupEnumType } 
 import styles from './index.module.scss';
 import ProductClassifyComp from '../../components/common/ProductClassifyComp';
 import { useSelector } from 'react-redux';
+import Head from 'next/head';
 const { Paragraph } = Typography;
 
 export default function index(props: { curProduct: null | IArticleType, classifyRes: IClassifyItem[], lv2List: BaseClassifyItem[] }) {
@@ -55,6 +56,10 @@ export default function index(props: { curProduct: null | IArticleType, classify
   
   return (
     <section className={styles['product-detail-wrap']}>
+      <Head>
+        <title>产品详情 - 郑州名片之家电子商务有限公司</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <header>
         <div>
           <Breadcrumb separator={<Icon type="right" />} className='mp-breadcrumb'>

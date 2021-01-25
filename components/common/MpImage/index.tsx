@@ -16,6 +16,7 @@ interface IProps {
   style?: any;
   tipContent?: string | JSX.Element;
   children?: JSX.Element;
+  title?: string;
 }
 const MpImage = (props: IProps) => {
   const [state, setState] = useState({
@@ -35,6 +36,7 @@ const MpImage = (props: IProps) => {
     <img
       className={`${!state.isLoaded && 'opacity-0'} ${props.hasModel && 'animate'}`}
       alt={props.alt}
+      title={props.title ? props.title : ''}
       height={props.height}
       onLoad={() => {
         setState({ ...state, isLoaded: true, msg: '' })

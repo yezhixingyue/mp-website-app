@@ -66,47 +66,49 @@
           overflow: hidden;
           transition: transform 0.2s;
           cursor: pointer;
-          > div {
-            width: 371px;
-            height: 247.3px;
-          }
-          > section {
-            height: 141px;
-            width: 100%;
-            padding: 4px 13px 1px 17px;
-            background-color: #fff;
-            > header {
-              font-size: 16px;
-              color: #333;
-              line-height: 21px;
-              white-space: normal;
-              overflow: hidden;
-              margin: 14px 0;
-            }
+          > a {
             > div {
-              line-height: 21px;
-              height: 43px;
-              overflow: hidden;
-              color: #999;
-              font-size: 12px;
-              white-space: normal;
+              width: 371px;
+              height: 247.3px;
             }
-            > footer {
-              text-align: right;
-              font-size: 12px;
-              margin: 14px 0;
-              line-height: 16px;
+            > section {
+              height: 141px;
+              width: 100%;
+              padding: 4px 13px 1px 17px;
+              background-color: #fff;
+              > header {
+                font-size: 16px;
+                color: #333;
+                line-height: 21px;
+                white-space: normal;
+                overflow: hidden;
+                margin: 14px 0;
+              }
+              > div {
+                line-height: 21px;
+                height: 43px;
+                overflow: hidden;
+                color: #999;
+                font-size: 12px;
+                white-space: normal;
+              }
+              > footer {
+                text-align: right;
+                font-size: 12px;
+                margin: 14px 0;
+                line-height: 16px;
+              }
             }
           }
           &:hover {
             box-shadow: 0 0px 5px rgba(0,0,0,.08), 0 2px 6px 0 rgba(0,0,0,.08);
             transform: scale(1.02);
-            > section > footer {
+            > a > section > footer {
               color: mix( #428dfa,  #fff, 70%);;
             }
           }
           &:active {
-            > section {
+            > a > section {
               background-color: #f5f5f5;
               transition: background-color 0.2s;
               > footer {

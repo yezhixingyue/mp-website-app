@@ -36,7 +36,7 @@
         vertical-align: top;
         position: relative;
         cursor: pointer;
-        > div.tip {
+        > a > div.tip {
           width: 292px;
           height: 100%;
           position: absolute;
@@ -117,7 +117,7 @@
             transition: 1.2s;
           }
         }
-        &:hover > div.tip > div {
+        &:hover > a > div.tip > div {
           opacity: 1;
         }
       }

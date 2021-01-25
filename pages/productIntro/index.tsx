@@ -59,13 +59,17 @@ export default function index() {
           <ul>
             {
               productState.productList.map(it => (
-                <li key={it.ID} onClick={() => onDetailClick(it.ID)}>
-                  <MpImage src={`${SetupEnumType.baseUrl}${it.Cover}`} alt="" width={371} height={247.3} />
-                  <section>
-                    <header>{it.Name}</header>
-                    <div>{it.Introduce}</div>
-                    <footer className='link-blue'>点击查看 <Icon type="right" /></footer>
-                  </section>
+                <li key={it.ID}>
+                  <Link href={`/product?productID=${it.ID}`}>
+                    <a target='_blank'>
+                      <MpImage src={`${SetupEnumType.baseUrl}${it.Cover}`} alt="" width={371} height={247.3} />
+                      <section>
+                        <header>{it.Name}</header>
+                        <div>{it.Introduce}</div>
+                        <footer className='link-blue'>点击查看 <Icon type="right" /></footer>
+                      </section>
+                    </a>
+                  </Link>
                 </li>
               ))
             }

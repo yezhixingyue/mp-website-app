@@ -1,4 +1,5 @@
 import { Empty, Pagination, Spin } from 'antd';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import api from '../../../services';
@@ -30,9 +31,9 @@ export default function index({ hotList, DataNumber }) {
     }
   }
 
-  const onNewsClick = (id: number) => {
-    router.push(`newsDetail?id=${id}`);
-  }
+  // const onNewsClick = (id: number) => {
+  //   router.push(`newsDetail?id=${id}`);
+  // }
   return (
     <section className={styles['news-hot']}>
       <header>
@@ -44,18 +45,22 @@ export default function index({ hotList, DataNumber }) {
         <ul>
           {
             state.newsList.map(it => (
-              <li key={it.ID} onClick={() => { onNewsClick(it.ID) }}>
-                <MpImage src={`${SetupEnumType.baseUrl}/${it.Cover}`} height={185} width={380} />
-                <div className={styles.tip}>
-                  <div>
-                    <p>{it.Title}</p>
-                    <span>{it.Introduce}</span>
-                  </div>
-                  <p>
-                    <span>{it.Title}</span>
-                    <i></i>
-                  </p>
-                </div>
+              <li key={it.ID} >
+                <Link href={`/newsDetail?id=${it.ID}`}>
+                  <a target='_blank'>
+                    <MpImage src={`${SetupEnumType.baseUrl}/${it.Cover}`} height={185} width={380} />
+                    <div className={styles.tip}>
+                      <div>
+                        <p>{it.Title}</p>
+                        <span>{it.Introduce}</span>
+                      </div>
+                      <p>
+                        <span>{it.Title}</span>
+                        <i></i>
+                      </p>
+                    </div>
+                  </a>
+                </Link>
               </li>
             ))
           }

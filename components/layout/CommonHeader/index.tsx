@@ -101,7 +101,7 @@ export default function index() {
           <li className={styles[router.pathname === '/about' ? 'active' : '']}>
             <Link href='/about'>关于我们</Link>
           </li>
-          <li className={styles[router.pathname === '/help' ? 'active' : '']}>
+          <li className={styles[['/help/[id]', '/help'].includes(router.pathname) ? 'active' : '']}>
             <Link href={`/help`}>帮助中心</Link>
           </li>
         </ul>
