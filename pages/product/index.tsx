@@ -5,11 +5,13 @@ import React, { useEffect } from 'react'
 import MpImage from '../../components/common/MpImage';
 import api from '../../services';
 import { getFilterClassifyList } from '../../utils';
-import { BaseClassifyItem, IArticleType, IClassifyItem, IStore, SetupEnumType } from '../../utils/types4TS';
+import { BaseClassifyItem, IArticleType, IClassifyItem, IStore } from '../../utils/types4TS';
 import styles from './index.module.scss';
 import ProductClassifyComp from '../../components/common/ProductClassifyComp';
 import { useSelector } from 'react-redux';
 import Head from 'next/head';
+import model from '../../utils/model';
+import { SetupEnumType } from '../../setup';
 const { Paragraph } = Typography;
 
 export default function index(props: { curProduct: null | IArticleType, classifyRes: IClassifyItem[], lv2List: BaseClassifyItem[] }) {
@@ -44,12 +46,17 @@ export default function index(props: { curProduct: null | IArticleType, classify
   }
 
   const onPlaceOrderClick = () => {
-    let path = SetupEnumType.placeOrderUrl + '?id=' + props.curProduct.ID;
-    if (user && user.Account.Token) path += `&token=${user.Account.Token}`;
-    console.log('onPlaceOrderClick path', path);
-    // router.push(path);
-    // window.open(path, '_blank');
-    window.open(path);
+    if (!props.curProduct) return;
+    if (props.curProduct.AllowCustomOrder) {
+      let path = SetupEnumType.placeOrderUrl + '?id=' + props.curProduct.ID;
+      if (user && user.Account.Token) path += `&token=${user.Account.Token}`;
+      window.open(path);
+    } else {
+      model.showWarn({
+        title: '跳转失败',
+        msg: '当前产品尚不支持自助下单，请联系客服咨询',
+      })
+    }
   }
 
   const path = props.curProduct ? `/productIntro?First=${props.curProduct.ProductClass.FirstLevelID}&Second=${props.curProduct.ProductClass.SecondLevelID}` : '/productIntro';

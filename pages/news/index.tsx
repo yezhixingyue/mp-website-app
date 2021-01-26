@@ -4,6 +4,8 @@ import styles from './index.module.scss'
 import api from '../../services'
 import MpImage from '../../components/common/MpImage'
 import NewsHot from '../../components/NewsCenter/NewsHot'
+import Link from 'next/link'
+import { SetupEnumType } from '../../setup'
 
 export default function index({ hotList, DataNumber }) {
 
@@ -32,7 +34,9 @@ export default function index({ hotList, DataNumber }) {
               <li>这里为您提供名片之家最新动态、消息，与您分享印刷行业相关资讯，记录印刷历程，致力与热爱印刷的伙伴们一起共筑印刷梦，共享出彩人生！</li>
             </ul>
             <p>
-              <span>点击查看</span><i></i>
+              <Link  href={`/newsDetail?id=${SetupEnumType.newsID}`}>
+                <a target='_blank'><span>点击查看</span><i></i></a>
+              </Link>
             </p>
           </div>
         </section>

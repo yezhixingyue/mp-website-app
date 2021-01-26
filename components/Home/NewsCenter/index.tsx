@@ -1,7 +1,7 @@
 import { Empty, Icon } from 'antd';
 import Link from 'next/link';
 import React from 'react'
-import { SetupEnumType } from '../../../utils/types4TS';
+import { SetupEnumType } from '../../../setup';
 import MpImage from '../../common/MpImage';
 import styles from './newscenter.module.css'
 

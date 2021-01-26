@@ -3,7 +3,7 @@ import model from '../utils/model';
 import { message } from 'antd';
 
 import { isBrower } from '../utils/index';
-import { SetupEnumType } from '../utils/types4TS';
+import { SetupEnumType } from '../setup';
 
 
 message.config({ top: 60, })

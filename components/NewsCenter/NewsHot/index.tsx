@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 import api from '../../../services';
-import { SetupEnumType } from '../../../utils/types4TS'
+import { SetupEnumType } from '../../../setup';
 import MpImage from '../../common/MpImage';
 import styles from './index.module.scss'
 

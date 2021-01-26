@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styles from './index.module.scss';
 import Link from 'next/link';
-import { HelpPageEnumType } from '../../../utils/types4TS';
 import Loading from '../../../utils/loading';
 import { Router } from 'next/router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
+import { SetupEnumType } from '../../../setup';
 
 NProgress.configure({
   trickleSpeed: 30,
@@ -47,10 +47,10 @@ export default function index() {
                 <Link href='/contact-us/#contact-top' ><a>联系我们</a></Link>
               </li>
               <li>
-                <Link href={`/help?type=72`} ><a>用户协议</a></Link>
+                <Link href={`/help?type=${SetupEnumType.agreementID}`} ><a>用户协议</a></Link>
               </li>
               <li>
-                <Link href={`/help?type=73`} ><a>权责声明</a></Link>
+                <Link href={`/help?type=${SetupEnumType.accrualID}`} ><a>权责声明</a></Link>
                 {/* <Link href='/statement' >权责声明</Link> */}
               </li>
               <li>

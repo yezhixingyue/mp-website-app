@@ -6,9 +6,10 @@ import { isBrower } from '../../../utils';
 import MpImage from '../../common/MpImage';
 import { useSelector, useDispatch } from 'react-redux';
 import { setHomeProductState } from '../../../actions';
-import { IHomePageState, IStore, SetupEnumType } from '../../../utils/types4TS';
+import { IHomePageState, IStore } from '../../../utils/types4TS';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import { SetupEnumType } from '../../../setup';
 
 const { TabPane } = Tabs;
 

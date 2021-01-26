@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 import api from '../../services'
-import { IClassifyItem, ICondtion4ProList, IStore, SetupEnumType } from '../../utils/types4TS';
+import { IClassifyItem, ICondtion4ProList, IStore } from '../../utils/types4TS';
 import { getFilterClassifyList } from '../../utils';
 import styles from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +11,7 @@ import { changeCurLv1Class, changeCurLv2Class, changeCurPage, clearCurProduct } 
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import ProductClassifyComp from '../../components/common/ProductClassifyComp'
+import { SetupEnumType } from '../../setup';
 
 export default function index() {
   const productState = useSelector((state: IStore) => state.product);

@@ -36,6 +36,7 @@
   width: 600px;
   font-size: 29px;
   font-family: PingFang-R;
+  line-height: 41px;
 }
 .banner > div > a > button {
   width: 235px;
@@ -275,7 +276,7 @@
           border: 2px solid #7a3afc;
           color: #7a3afc;
           background-color: #c4a7ff25;
-          font-size: 17px;
+          // font-size: 17px;
         }
         &:active {
           background-color: #7b3afc5b;

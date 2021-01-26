@@ -3,7 +3,7 @@ import { Carousel } from 'antd';
 // import 'antd/es/carousel/style'<HTMLUListElement | undefined>
 import styles from './index.module.scss';
 import MpImage from '../../common/MpImage';
-import { SetupEnumType } from '../../../utils/types4TS';
+import { SetupEnumType } from '../../../setup';
 
 export default function index({ swiperData }) {
   const ref = useRef<Carousel | undefined>();

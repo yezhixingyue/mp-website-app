@@ -1,5 +1,5 @@
 import { createProxyMiddleware } from "http-proxy-middleware";
-import { SetupEnumType } from "../../utils/types4TS";
+import { SetupEnumType } from "../../setup";
 
 const cookieName = "token";
 const maxAge = 24 * 60 * 60;

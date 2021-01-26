@@ -4,7 +4,7 @@ import styles from './index.module.scss';
 import { Button } from 'antd';
 import MpImage from '../../components/common/MpImage';
 import { extname, getFileDownLoad } from '../../utils';
-import { SetupEnumType } from '../../utils/types4TS';
+import { SetupEnumType } from '../../setup';
 
 export default function index() {
   // const onDownLoadCLick = () => {

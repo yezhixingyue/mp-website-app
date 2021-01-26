@@ -116,6 +116,7 @@ export interface IArticleType {
     SecondLevelName: string;
   };
   Content: string;
+  AllowCustomOrder: boolean;
   AboutList: IProductType[];
 }
 
@@ -235,15 +236,6 @@ export interface IStore {
   home: IHomePageState;
   user: null | User;
   product: IProductPageState;
-}
-
-
-/* SETUP
------------------------------------------------------------------------------------ */
-export enum SetupEnumType {
-  baseUrl = 'http://192.168.1.92:8055/',
-  downloadUrl = 'https://www.mpzj.cn/Private/Files/6373284376831804391773893001.rar',
-  placeOrderUrl = 'http://192.168.3.85:8080/#/placeOrder',
 }
 
 /* OPINION

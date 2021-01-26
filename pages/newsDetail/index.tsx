@@ -5,9 +5,10 @@ import React from 'react'
 import MpImage from '../../components/common/MpImage';
 import api from '../../services';
 import { formatDateOnlyYear } from '../../utils';
-import { IArticleClassType, INewsHelpsArticleType, SetupEnumType } from '../../utils/types4TS';
+import { IArticleClassType, INewsHelpsArticleType } from '../../utils/types4TS';
 import styles from './index.module.scss';
 import Head from 'next/head';
+import { SetupEnumType } from '../../setup';
 
 const { Paragraph } = Typography;
 
