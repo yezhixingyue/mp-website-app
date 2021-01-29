@@ -5,20 +5,26 @@ import { useRouter } from 'next/router';
 import Anchor from '../Anchor';
 import { Cookie } from '../../../utils/cookie';
 import { useSelector, useDispatch } from 'react-redux'
-import { HelpPageEnumType, IStore } from '../../../utils/types4TS';
+import { IStore } from '../../../utils/types4TS';
 import { setUserState, fetchUserState, removeUserState } from '../../../actions';
 import { Icon, Popconfirm, Popover } from 'antd';
-import { showConfirmWithoutMsg } from '../../../utils/model';
+import { SetupEnumType } from '../../../setup';
 
 export default function index() {
   const router = useRouter();
   const user = useSelector((state: IStore) => state.user);
   const dispatch = useDispatch();
 
-  const whoAmI = async () => {
-    const userStr = sessionStorage.getItem('user');
+  const whoAmI = async (token: string) => {
+    // const userStr = sessionStorage.getItem('user');
+    const userStr = Cookie.getCookie('customerInfo');
+    let user = null;
     if (userStr) {
-      dispatch(setUserState(JSON.parse(userStr)));
+      user = JSON.parse(userStr);
+      if (user.Account.Token !== token) user = null;
+    }
+    if (user) {
+      dispatch(setUserState(user));
     } else {
       const res = await dispatch(fetchUserState());
       if (!res) {
@@ -32,7 +38,7 @@ export default function index() {
     if (user) return;
     const token = Cookie.getCookie('token');
     if (token) {
-      whoAmI();
+      whoAmI(token);
     }
   }, [])
 
@@ -58,21 +64,14 @@ export default function index() {
   }
 
   const onLoginClick = () => {
-    if (!user) router.push('/login');
+    if (!user) router.push(SetupEnumType.loginUrl + '?source=home');
   };
-
-  const onLoginoutClick = () => {
-    showConfirmWithoutMsg({
-      title: '确定退出登录吗?',
-      onOk: loginOut
-    })
-  }
 
   const loginOut = () => {
     dispatch(removeUserState());
     Cookie.removeCookie('token');
     sessionStorage.clear();
-    router.push('/login');
+    router.push(SetupEnumType.loginUrl + '?source=home');
   };
 
   const onLogoClick = () => {
@@ -121,7 +120,7 @@ export default function index() {
               </Popconfirm>
               // <div className={styles['loginout-box']} onClick={onLoginoutClick}><Icon type="poweroff" /> 注销登录</div>
             } >
-              <div className={styles.right} onClick={onLoginClick}>
+              <div className={styles.right}>
                 <i></i>
                 <span>{user.CustomerName}</span>
               </div>

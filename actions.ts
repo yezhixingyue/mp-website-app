@@ -4,6 +4,7 @@ import * as UserTypes from './types/user'
 import * as ProductTypes from './types/product'
 import api from './services'
 import { IClassifyItem, IProductClass } from './utils/types4TS'
+import { Cookie } from './utils/cookie'
 
 // INITIALIZES CLOCK ON SERVER
 export const serverRenderClock = () => (dispatch) =>
@@ -44,7 +45,8 @@ export const fetchUserState = () => {
     if (key && res && res.data.Status === 1000) {
       const user = res.data.Data;
       dispatch(setUserState(user));
-      if (process.browser) sessionStorage.setItem('user', JSON.stringify(user));
+      // if (process.browser) sessionStorage.setItem('user', JSON.stringify(user));
+      if (process.browser) Cookie.setCookie('customerInfo', JSON.stringify(user), 'Session');
       return true;
     } else {
       dispatch(removeUserState());

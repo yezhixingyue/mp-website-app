@@ -49,12 +49,12 @@ export default function index(props: { curProduct: null | IArticleType, classify
     if (!props.curProduct) return;
     if (props.curProduct.AllowCustomOrder) {
       let path = SetupEnumType.placeOrderUrl + '?id=' + props.curProduct.ID;
-      if (user && user.Account.Token) path += `&token=${user.Account.Token}`;
+      // if (user && user.Account.Token) path += `&token=${user.Account.Token}`;
       window.open(path);
     } else {
       model.showWarn({
         title: '跳转失败',
-        msg: '当前产品尚不支持自助下单，请联系客服咨询',
+        msg: '当前产品尚不支持自助下单，请联系客服咨询人工下单',
       })
     }
   }

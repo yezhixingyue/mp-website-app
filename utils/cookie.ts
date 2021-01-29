@@ -1,3 +1,5 @@
+import { SetupEnumType } from "../setup";
+
 export const Cookie = {
   /**
    * 设置cookie的方法
@@ -7,7 +9,8 @@ export const Cookie = {
    * @param {*} t 设置cookie的有效期时间： 单位为秒，如小时应为: 60 * 60 * 1，该时间为GMT标准时间，显示上会比北京时间早8个小时，但不影响使用
    */
   setCookie(key, value, t) {
-    document.cookie = `${key}=${value};max-age=${t}; path=/`;
+    // document.cookie = `${key}=${value};max-age=${t}; path=/`;
+    document.cookie = `${key}=${value};max-age=${t};domain=${SetupEnumType.domain};path=/;`;
   },
   removeCookie(name) {
     this.setCookie(name, '', -1);
