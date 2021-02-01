@@ -29,6 +29,7 @@ export default function index({ swiperData }) {
             <div key={it.ID}>
               <a href={it.Url} target='_blank' >
                 <MpImage src={SetupEnumType.baseUrl + it.Pic} alt={it.Title} title={it.Title} />
+                {SetupEnumType.baseUrl + '' + it.Pic}
               </a>
             </div>
           ))

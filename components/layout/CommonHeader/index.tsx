@@ -89,7 +89,7 @@ export default function index() {
             <Link href='/'>首页</Link>
           </li>
           <li>
-            <a href='http://order.mpzj.cn:8156/pc/#/placeOrder' target='_blank'>快捷下单</a>
+            <a href={SetupEnumType.placeOrderUrl} target='_blank'>快捷下单</a>
           </li>
           <li className={styles[['/productIntro', '/product'].includes(router.pathname) ? 'active' : '']}>
             <Link href='/productIntro'>产品介绍</Link>

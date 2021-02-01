@@ -8,6 +8,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { useStore } from '../store';
 import { useRouter } from 'next/router';
+if (process.browser) { window.history.replaceState = window.history.replaceState || function () {} }
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 

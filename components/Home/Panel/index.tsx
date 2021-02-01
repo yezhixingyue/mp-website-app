@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from './index.module.css'
 import Link from 'next/link';
+import { SetupEnumType } from '../../../setup';
 
 export default function index() {
 
   return (
     <div className={styles.wrap}>
-      <Link href="http://order.mpzj.cn:8156/pc/#/placeOrder">
+      <Link href={SetupEnumType.placeOrderUrl}>
         <a target='_blank'>
           <ul className={`${styles['panel-wrap']} ${styles.left}`}>
             <li className={styles.left}>

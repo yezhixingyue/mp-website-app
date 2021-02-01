@@ -11,11 +11,11 @@ export default function index() {
     <ul className={styles['phone-list']}>
       <li>
         <div>服务热线</div>
-        <div><Paragraph copyable><span>4006363006</span></Paragraph></div>
+        <div><Paragraph copyable={{ text: '4006363006' }}><span>4006363006</span></Paragraph></div>
       </li>
       <li style={{border: 'none', paddingTop: 15, paddingBottom: 4}}>
         <div>售后专线</div>
-        <div><Paragraph copyable><span>4006363500</span></Paragraph></div>
+        <div><Paragraph copyable={{ text: '4006363500' }}><span>4006363500</span></Paragraph></div>
       </li>
     </ul>
   )
