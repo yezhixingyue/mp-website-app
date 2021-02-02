@@ -4,7 +4,7 @@ import '../styles/quill.snow.css';
 import Header from '../components/layout/CommonHeader';
 import Footer from '../components/layout/CommonFooter';
 import Aside from '../components/layout/Aside';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { useStore } from '../store';
 import { useRouter } from 'next/router';
@@ -16,6 +16,10 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const store = useStore(pageProps.initialReduxState);
 
+  const [state, setState] = useState({
+    class: '',
+  })
+
 
   if (router.pathname === '/login') {
     return (
@@ -25,19 +29,19 @@ function MyApp({ Component, pageProps }) {
     )
   }
 
-  // useEffect(() => {
-  //   const key = process.browser && !window.btoa;
-  //   if (key) {
-  //     document.body.className.push
-  //   }
-  // }, [])
-
-  const key = process.browser && !window.btoa;
-  const _class = key ? 'ie9-less' : '';
+  useEffect(() => {
+    const key = process.browser && !window.btoa;
+    if (key) {
+      setState({
+        ...state,
+        class: 'ieless',
+      })
+    }
+  }, [])
 
   return (
     <Provider store={store}>
-      <div style={{ position: 'relative' }} className={_class}>
+      <div style={{ position: 'relative' }} className={state.class}>
         <Header {...pageProps} />
         <Component {...pageProps} />
         <Aside {...pageProps} />

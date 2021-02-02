@@ -23,7 +23,7 @@
     > div {
       width: 1200px;
       margin: 0 auto;
-      overflow: hidden;
+      // overflow: hidden;
       position: relative;
       &:hover {
         > div.move-item {
@@ -31,12 +31,19 @@
           z-index: 99;
         }
       }
+      > div {
+        width: 1220px;
+        padding-left: 10px;
+        margin-left: -10px;
+      }
     }
   }
   div.content {
     padding-top: 5px;
     // height: 1370px;
-    min-height: 460px;
+    min-height: calc(100vh - 649px);
+    box-sizing: border-box;
+    padding-bottom: 10px;
     width: 100%;
     background-color: #f5f5f5;
     > div {
@@ -46,14 +53,16 @@
       padding-top: 130px;
     }
     > section {
-      width: 1200px;
-      margin: 0 auto;
-      overflow: hidden;
+      width: 1210px;
+      // margin: 0 auto;
+      // padding-left: 10px;
+      // margin-left: -10px;
+      // overflow: hidden;
       > ul {
         // margin-right: -43px;
         margin-left: -21.5px;
         text-align: left;
-        width: 1243px;
+        width: 1251px;
         margin: 0;
         > li {
           margin-top: 43px;
