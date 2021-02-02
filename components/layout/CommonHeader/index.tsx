@@ -14,6 +14,15 @@ export default function index() {
   const router = useRouter();
   const user = useSelector((state: IStore) => state.user);
   const dispatch = useDispatch();
+  
+  const [state, setState] = useState({
+    showBlueBg: false,
+    offsetTop: 0,
+    opacity: 0,
+  });
+
+  let offsetTop = 0;
+  let opacity = 0;
 
   const whoAmI = async (token: string) => {
     // const userStr = sessionStorage.getItem('user');
@@ -34,19 +43,53 @@ export default function index() {
     }
   }
 
+  const handleListenScroll = () => {
+    const t = offsetTop;
+    if (document.documentElement.scrollTop > t) {
+      if (opacity < 1) {
+        setState({
+          ...state,
+          opacity: 1,
+        })
+      }
+      return;
+    }
+    const _opacity = document.documentElement.scrollTop / t;
+    setState({
+      ...state,
+      opacity: _opacity,
+    })
+    opacity = _opacity;
+  };
+
+  useEffect(() => {
+    const tDom = document.getElementById('change-title-style-to-show');
+    if (!tDom) return;
+    const _offsetTop = tDom.offsetTop;
+    offsetTop = _offsetTop;
+    setState({
+      ...state,
+      offsetTop: _offsetTop,
+    })
+    window.addEventListener('scroll', handleListenScroll);
+    return () => {
+      window.removeEventListener('scroll',handleListenScroll);
+    }
+  }, [router.asPath])
+
   useEffect(() => {
     if (user) return;
     const token = Cookie.getCookie('token');
     if (token) {
       whoAmI(token);
     }
+    return () => {
+
+    }
   }, [])
 
   const needShowBlueList = ['/help/[id]', '/help', '/productIntro', '/product', '/newsDetail']; // 需要顶部展示蓝色背景的页面地址， 目前只有主页需要
   const key = needShowBlueList.indexOf(router.pathname) > -1;
-  const [state, setState] = useState({
-    showBlueBg: false,
-  });
 
   const handleAnchorChange = (link) => {
     if (link && link === '#change-title-style-to-show') {
@@ -79,7 +122,7 @@ export default function index() {
   }
 
   return (
-    <div className={`${styles['mp-common-header-wrap']} ${(state.showBlueBg || key) && styles['show-blue']}`}>
+    <div style={{backgroundColor: `rgba(66, 141, 250, ${(state.showBlueBg || key)  ? '1' : state.opacity})`}} className={`${styles['mp-common-header-wrap']} ${(state.showBlueBg || key) && styles['show-blue']}`}>
       <div className={styles.content}>
         <div className={styles.left}>
           <div className={styles.logo} onClick={onLogoClick}></div>

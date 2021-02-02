@@ -26,8 +26,8 @@ export default function index({ newsDate }) {
     <div>
       <section className={styles['news-center-wrap']}>
         <header className='home-page-part-title'>
-          <p className='f'>新闻中心</p>
-          <p className='s'>
+          <p className='f part-title'>新闻中心</p>
+          <p className='s part-title-2'>
             <span className='s-l'>NEWS CENTER</span>
             <Link href='/news'>
               <a target='_blank'>

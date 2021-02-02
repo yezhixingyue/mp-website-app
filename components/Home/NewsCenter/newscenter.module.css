@@ -7,6 +7,7 @@
 .news-center-wrap ul {
   margin: 0 -15px;
   min-height: 220px;
+  padding-top: 12px;
 }
 .news-center-wrap ul li {
   display: inline-block;

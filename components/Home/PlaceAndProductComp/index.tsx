@@ -12,8 +12,8 @@ export default function index() {
         <Panel />
       </header>
       <div className='home-page-part-title'>
-        <p className='f'>产品介绍</p>
-        <p className='s'>
+        <p className='f part-title'>产品介绍</p>
+        <p className='s part-title-2'>
           <span className='s-l'>PRODUCT INTRODUCTION</span>
           <Link href='/productIntro'>
             <a target='_blank'>

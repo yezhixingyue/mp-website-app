@@ -48,8 +48,8 @@ export default function index() {
       </div>
       <section className={styles.introPart} id='change-title-style-to-show'>
         <header>
-          <h2>功能介绍</h2>
-          <p>{'Function introduction'.toLocaleUpperCase()}</p>
+          <h2 className='part-title'>功能介绍</h2>
+          <p className='part-title-2'>{'Function introduction'.toLocaleUpperCase()}</p>
         </header>
         <ul>
           <li>
@@ -98,8 +98,8 @@ export default function index() {
       </section>
       <section className={styles.specialityPart}>
         <header>
-          <h2>软件特性</h2>
-          <p>{'Software Specification'.toLocaleUpperCase()}</p>
+          <h2 className='part-title'>软件特性</h2>
+          <p className='part-title-2'>{'Software Specification'.toLocaleUpperCase()}</p>
         </header>
         <div>
           <aside style={{textAlign: 'right'}}>

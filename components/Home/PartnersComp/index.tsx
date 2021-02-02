@@ -23,8 +23,8 @@ export default function index() {
   return (
     <section className={styles.wrap}>
       <header>
-        <p className={styles.f}>合作伙伴</p>
-        <p>COOPERATIVE PARTNER</p>
+        <p className={`${styles.f} part-title`}>合作伙伴</p>
+        <p className='part-title-2'>COOPERATIVE PARTNER</p>
       </header>
       {/* <Carousel autoplay slidesToScroll={0.25} dots={false} pauseOnHover={false}> */}
         {/* <div className={styles.item} style={{background: '#f40'}}>1</div>
@@ -33,15 +33,15 @@ export default function index() {
       </Carousel> */}
       <ul>
         <li className={styles.item}>
-          {createLogoImg('/logo1.png', 'MBO印刷设备')}
+          {createLogoImg('/logo5.png', '海德堡')}
           {createLogoImg('/logo2.png', '爱普生')}
           {createLogoImg('/logo10.png', '小森')}
           {createLogoImg('/logo3.png', '方正')}
           {createLogoImg('/logo4.png', '富士胶片', {marginRight: 0})}
         </li>
         <li className={styles.item}>
-          {createLogoImg('/logo5.png', '海德堡')}
-          {createLogoImg('/logo6.png', '惠普')}
+          {createLogoImg('/logo6.png', '博星')}
+          {createLogoImg('/logo1.png', 'MBO印刷设备')}
           {createLogoImg('/logo8.png', '柯尼卡美能达')}
           {createLogoImg('/logo7.png', '柯达')}
           {createLogoImg('/logo9.png', '马天尼', {marginRight: 0})}

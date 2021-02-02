@@ -25,9 +25,19 @@ function MyApp({ Component, pageProps }) {
     )
   }
 
+  // useEffect(() => {
+  //   const key = process.browser && !window.btoa;
+  //   if (key) {
+  //     document.body.className.push
+  //   }
+  // }, [])
+
+  const key = process.browser && !window.btoa;
+  const _class = key ? 'ie9-less' : '';
+
   return (
     <Provider store={store}>
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: 'relative' }} className={_class}>
         <Header {...pageProps} />
         <Component {...pageProps} />
         <Aside {...pageProps} />

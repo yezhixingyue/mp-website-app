@@ -1,7 +1,7 @@
 .foot-wrap {
   height: 197px;
   width: 100%;
-  background-color: #22284C;
+  background-color: #222;
   min-width: 1200px;
   padding: 10px 0;
   .content {
@@ -22,11 +22,12 @@
         padding-top: 31px;
         padding-bottom: 30px;
         > .logo {
-          width: 143px;
-          height: 34px;
+          width: 147px;
+          height: 32px;
           display: inline-block;
           margin-right: 65px;
-          background: url(../../../public/logo.png) no-repeat center center/143px 34px;
+          opacity: 0.8;
+          background: url(../../../public/logo.png) no-repeat center center/147px 32px;
         }
         > ul {
           display: inline-block;
@@ -37,7 +38,7 @@
             margin: 0 30px;
             > a {
               cursor: pointer;
-              color: #fff;
+              color: #aaa;
               &:hover {
                 color: #ddd;
               }
@@ -49,11 +50,11 @@
         }
       }
       .bottom {
-        border-top: 1px solid #131A45;
+        border-top: 1px solid rgba(238, 238, 238, 0.05);
         width: 100%;
         height: 82px;
         font-size: 14px;
-        color: #AAA8B5;
+        color: #585858;
         line-height: 20px;
         padding: 31px 0;
         > span {
@@ -61,7 +62,10 @@
           &.last-span {
             margin: 0;
             > a {
-              color: #AAA8B5;
+              color: #585858;
+              &:hover {
+                text-decoration: underline;
+              }
             }
           }
         }
@@ -78,7 +82,7 @@
         background: url(../../../public/code.png) no-repeat center center/100% 100%;
       }
       p {
-        color: #918EA3;
+        color: #585858;
         font-size: 12px;
         margin-top: 10px;
         line-height: 16px;

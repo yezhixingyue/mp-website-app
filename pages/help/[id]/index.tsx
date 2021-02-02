@@ -7,6 +7,7 @@ import styles from './index.module.scss';
 import AsideComp from '../../../components/Help/Aside'
 import { Icon } from 'antd';
 import { useRouter } from 'next/router';
+import { changeRichContentImgUrl } from '../../../utils';
 
 interface IProps {
   helpDetailData: IHelpDetailType | null;
@@ -37,7 +38,7 @@ export default function index(props: IProps) {
           <div>
             {
               props.helpDetailData
-               ? <div className='rich-edit-content ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: props.helpDetailData.Content }}></div>
+               ? <div className='rich-edit-content ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: changeRichContentImgUrl(props.helpDetailData.Content) }}></div>
                : null
             }
           </div>

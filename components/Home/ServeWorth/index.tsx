@@ -9,8 +9,8 @@ export default function index() {
   return (
     <section className={styles.wrap}>
       <header>
-        <p className={styles.f}>服务价值</p>
-        <p>SERVICE VALUE</p>
+        <p className={`${styles.f} part-title`}>服务价值</p>
+        <p className='part-title-2'>SERVICE VALUE</p>
       </header>
       <div className={styles.content}>
         <ul>

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import MpImage from '../../components/common/MpImage';
 import api from '../../services';
-import { getFilterClassifyList } from '../../utils';
+import { changeRichContentImgUrl, getFilterClassifyList } from '../../utils';
 import { BaseClassifyItem, IArticleType, IClassifyItem, IStore } from '../../utils/types4TS';
 import styles from './index.module.scss';
 import ProductClassifyComp from '../../components/common/ProductClassifyComp';
@@ -96,7 +96,7 @@ export default function index(props: { curProduct: null | IArticleType, classify
             <header>
               <span>{`${props.curProduct.ProductClass.SecondLevelName}-${props.curProduct.Name}`}</span>
             </header>
-            <div className='rich-edit-content ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: props.curProduct.Content }}></div>
+            <div className='rich-edit-content ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: changeRichContentImgUrl(props.curProduct.Content) }}></div>
             <footer>
               {/* <Link href={path}>
                  <a><Button style={{marginRight: 30}}>返回列表</Button></a>

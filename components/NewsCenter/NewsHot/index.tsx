@@ -37,8 +37,8 @@ export default function index({ hotList, DataNumber }) {
   return (
     <section className={styles['news-hot']}>
       <header>
-        <h2>新闻热议</h2>
-        <h3>{'News hot discussion'.toLocaleUpperCase()}</h3>
+        <h2 className='part-title'>新闻热议</h2>
+        <h3 className='part-title-2'>{'News hot discussion'.toLocaleUpperCase()}</h3>
       </header>
 
       <Spin spinning={state.loading}>

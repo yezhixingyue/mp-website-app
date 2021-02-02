@@ -102,7 +102,7 @@ export default function index() {
   return (
     <div className={styles['mp-layout-aside-comp-wrap']}>
       <ul>
-        <li style={{bottom: 415}}>
+        <li style={{bottom: 407}}>
           <Popover placement="left" content={PhoneList}>
             <div className={styles.phone}></div>
           </Popover>
@@ -112,7 +112,7 @@ export default function index() {
             <div className={styles.qq}></div>
           </Popover>
         </li>
-        <li style={{bottom: 245}}>
+        <li style={{bottom: 253}}>
           <Popover placement="left" content={(
             <div className={styles['code-box']}>
               <img src="/code-big.png" alt=""/>

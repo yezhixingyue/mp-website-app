@@ -36,7 +36,7 @@
   line-height: 26px;
   margin-bottom: 32px;
 }
-.intro-content > div {
+.intro-content > div.img {
   width: 447px;
   height: 376px;
   /* overflow: hidden; */
@@ -45,7 +45,7 @@
   top: 28px;
   background: url(../../public/about-intro.png) no-repeat center center/100% 100%;
 }
-.intro-content > div::before {
+.intro-content > div.img::before {
   position: absolute;
   content: '';
   left: -39px;
@@ -54,19 +54,18 @@
   width: 40px;
   background-color: rgb(73, 195, 53);
 }
-.intro-content > div::after {
+.intro-content > div.blue {
   position: absolute;
-  content: '';
-  right: -38px;
-  top: -30px;
+  /* content: ''; */
+  right: 0px;
+  top: 0px;
   height: 230px;
   width: 267px;
   background-color: rgb(66, 141, 250);
-  z-index: -1;
 }
 
 .item-header {
-  margin-top: 60px;
+  margin-top: 75px;
   text-align: center;
   font-family: MicrosoftYaHei;
 }
@@ -177,7 +176,87 @@
   background-color: #fff;
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1);
   margin: 10px;
-  transition: background-color 0.2s;
+  transition: background-color 0.35s ease-in-out;
+  &:hover {
+    > ul {
+      opacity: 1;
+      z-index: 9;
+      // height: auto;
+      pointer-events: all;
+    }
+  }
+  > ul {
+    position: absolute;
+    width: 220px;
+    background-color: #fff;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 9;
+    box-shadow: 0 0px 10px rgb(0, 0, 0, 12%), 0 2px 6px 0 rgb(0, 0, 0, 12%);
+    opacity: 0;
+    // height: 0;
+    transition: opacity 0.35s ease-in-out;
+    pointer-events: none;
+    z-index: -1\9\0;
+    > li {
+      text-align: left;
+      > h2 {
+        font-size: 14px;
+        font-weight: bold;
+        color: #333333;
+        line-height: 16px;
+        margin-bottom: 6px;
+        margin-top: 4px;
+      }
+      > span {
+        color: #999999;
+        line-height: 17px;
+        font-size: 12px;
+        margin-bottom: 12px;
+        display: block;
+      }
+    }
+    &::before {
+      position: absolute;
+      content: '';
+      width: 0px;
+      height: 0px;
+      z-index: 8;
+      border: 12px solid;
+    }
+    &::after {
+      position: absolute;
+      content: '';
+      width: 0px;
+      height: 0px;
+      z-index: 8;
+      border: 12px solid;
+    }
+    &.top {
+      &::before {
+        bottom: -24px;
+        left: -1px;
+        border-color: rgb(0, 0, 0, 6%) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0)  rgb(0, 0, 0, 6%);
+      }
+      &::after {
+        bottom: -22px;
+        left: 0px;
+        border-color:#fff rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #fff;
+      }
+    }
+    &.bottom {
+      &::before {
+        top: -24px;
+        right: -1px;
+        border-color: rgb(0, 0, 0, 0) rgba(0, 0, 0, 6%) rgba(0, 0, 0, 6%)  rgb(0, 0, 0, 0);
+      }
+      &::after {
+        top: -22px;
+        right: 0px;
+        border-color:rgba(0, 0, 0, 0) #fff  #fff  rgba(0, 0, 0, 0);
+      }
+    }
+  }
 }
 .course .course-content > ul > li > div:hover {
   background-color: rgb(111, 167, 252);

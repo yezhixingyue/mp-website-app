@@ -25,10 +25,9 @@
   .intro-part {
     height: 415px;
     width: 1200px;
-    margin: 0 auto;
+    margin: 30px auto;
     overflow: hidden;
     padding-top: 60px;
-    margin-top: 30px;
     // > header {
     //   text-align: center;
     //   padding-top: 55px;
@@ -62,10 +61,10 @@
           vertical-align: top;
           margin-right: 23px;
           > img {
-            transition: 0.35s;
-            &:hover {
-              transform: scale(1.15);
-            }
+            // transition: 0.35s;
+            // &:hover {
+            //   transform: scale(1.15);
+            // }
           }
         }
         > div {

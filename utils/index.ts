@@ -1,3 +1,4 @@
+import { SetupEnumType } from "../setup";
 import { IClassifyItem } from "./types4TS";
 
 export const isBrower = () => {
@@ -176,4 +177,9 @@ export const getFileDownLoad = (url: string, fileName?: string) => {
   link.onload = () => {
     window.URL.revokeObjectURL(url);
   };
+}
+
+export const changeRichContentImgUrl = (content: string) => {
+  if (!content || typeof content !== 'string') return '';
+  return content.replace('<img src="/', `<img src="${SetupEnumType.richContentImgSrc}/`);
 }

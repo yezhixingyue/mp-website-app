@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import React from 'react'
 import MpImage from '../../components/common/MpImage';
 import api from '../../services';
-import { formatDateOnlyYear } from '../../utils';
+import { changeRichContentImgUrl, formatDateOnlyYear } from '../../utils';
 import { IArticleClassType, INewsHelpsArticleType } from '../../utils/types4TS';
 import styles from './index.module.scss';
 import Head from 'next/head';
@@ -43,7 +43,7 @@ export default function index(props: IProps) {
       </p>
     </header>
     <div>
-      <div className='rich-edit-content ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: props.data.Content }}></div>
+      <div className='rich-edit-content ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: changeRichContentImgUrl(props.data.Content) }}></div>
       <aside>
         <header>相关新闻推荐</header>
         <ul>

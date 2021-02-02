@@ -1,14 +1,14 @@
 .wrap {
   width: 100%;
-  margin-top: 120px;
-  margin-bottom: 100px;
+  margin-top: 80px;
+  margin-bottom: 85px;
   overflow: hidden;
 }
 .wrap > header {
   text-align: center;
   user-select: none;
   color: #333;
-  margin-bottom: 80px;
+  margin-bottom: 70px;
 }
 .wrap > header p {
   margin-bottom: 17px;
@@ -51,18 +51,21 @@
           text-overflow: ellipsis;
           white-space: nowrap;
           line-height: 24px;
+          font-size: 14px;
         }
         > h2 {
           font-size: 16px;
           color: #777;
           font-weight: 400;
           margin-bottom: 5px;
+          line-height: 24px;
         }
         > h3 {
           font-size: 14px;
           font-weight: 400;
           color: #999;
           margin-bottom: 10px;
+          line-height: 21px;
         }
       }
       > section {

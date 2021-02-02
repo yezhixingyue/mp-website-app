@@ -245,9 +245,11 @@ table {
 
 .home-page-part-title {
   color: #333;
-  margin-bottom: 45px;
+  margin-bottom: 48px;
+  padding-top: 20px;
   > p {
     margin: 0;
+    text-align: center;
     &.f {
       font-size: 30px;
       font-weight: 700;
@@ -260,8 +262,8 @@ table {
       position: relative;
       .s-l {
         font-size: 24px;
-        position: absolute;
-        left: 0;
+        // position: absolute;
+        // left: 0;
       }
       .s-r {
         font-size: 16px;
@@ -342,10 +344,13 @@ form.opinion-form-wrap button {
 }
 
 .ant-back-top.mp-back-top {
-  width: 60px;
-  height: 60px;
+  width: 52px;
+  height: 52px;
   right: 60px;
-  bottom: 100px;
+  bottom: 126px;
+}
+.ie9-less .ant-tabs-content {
+  margin-left: 0\9\0 !important;
 }
 
 .ant-popover-placement-left .ant-popover-inner {
@@ -558,9 +563,11 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
 
 .mp-home-tab-wrap {
   > .ant-tabs-bar {
-    .ant-tabs-tab-active.ant-tabs-tab {
+    .ant-tabs-tab {
       font-size: 16px;
-      color: #428dfa;
+      &.ant-tabs-tab-active {
+        color: #428dfa;
+      }
     }
     .ant-tabs-ink-bar {
       background-color: #428dfa
@@ -597,7 +604,8 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
 .rich-edit-content {
   border-bottom: 1px solid #eee;
   padding-bottom: 15px;
-  color: #333;
+  font-size: 14px;
+  color: #525252;
   /* font
   -------------------------*/
   .ql-font-SimSun {
@@ -812,4 +820,14 @@ body {
   .ant-breadcrumb a:hover {
     color: mix(#428dfa, #fff, 85%);
   }
+}
+
+.part-title {
+  font-size: 28px !important;
+  line-height: 40px !important;
+  margin-bottom: 5px !important;
+}
+.part-title-2 {
+  font-size: 20px !important;
+  line-height: 30px !important;
 }

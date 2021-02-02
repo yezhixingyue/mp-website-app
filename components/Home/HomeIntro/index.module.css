@@ -1,6 +1,11 @@
-.wrap {
+.bgwrap {
   width: 100%;
   height: 666px;
+  background-color: rgb(80, 90, 112);
+}
+.wrap {
+  width: 100%;
+  height: 100%;
   background: url(../../../public/home-intro.png) no-repeat center center/cover;
 }
 .wrap section {
