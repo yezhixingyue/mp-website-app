@@ -1,9 +1,9 @@
 .foot-wrap {
-  height: 197px;
+  height: 160px;
   width: 100%;
-  background-color: #222;
+  background-color: #252525;
   min-width: 1200px;
-  padding: 10px 0;
+  // padding: 10px 0;
   .content {
     width: 1200px;
     margin: 0 auto;
@@ -38,9 +38,9 @@
             margin: 0 30px;
             > a {
               cursor: pointer;
-              color: #aaa;
+              color: #ccc;
               &:hover {
-                color: #ddd;
+                color: #eee;
               }
               &:active {
                 color: #aaa;
@@ -50,19 +50,20 @@
         }
       }
       .bottom {
-        border-top: 1px solid rgba(238, 238, 238, 0.05);
+        // border-top: 1px solid rgba(238, 238, 238, 0.05);
         width: 100%;
-        height: 82px;
+        height: 60px;
         font-size: 14px;
-        color: #585858;
+        color: #888;
         line-height: 20px;
-        padding: 31px 0;
+        // padding: 31px 0;
+        padding-top: 5px;
         > span {
           margin-right: 47px;
           &.last-span {
             margin: 0;
             > a {
-              color: #585858;
+              color: #888;
               &:hover {
                 text-decoration: underline;
               }
@@ -75,14 +76,14 @@
       position: absolute;
       top: 0;
       right: 0;
-      padding-top: 32px;
+      padding-top: 27px;
       .official-account {
         width: 86px;
         height: 86px;
         background: url(../../../public/code.png) no-repeat center center/100% 100%;
       }
       p {
-        color: #585858;
+        color: #888;
         font-size: 12px;
         margin-top: 10px;
         line-height: 16px;

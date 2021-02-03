@@ -72,6 +72,7 @@ export default function index() {
       offsetTop: _offsetTop,
     })
     window.addEventListener('scroll', handleListenScroll);
+    handleListenScroll();
     return () => {
       window.removeEventListener('scroll',handleListenScroll);
     }
