@@ -41,7 +41,7 @@ export default function index() {
   }
 
   const onTabClick = (tabID) => {
-    console.log(tabID, 'onTabClick - tabID', productState.curLv2Class);
+    // console.log(tabID, 'onTabClick - tabID', productState.curLv2Class);
     if (+tabID !== productState.curLv2Class) return;
     dispatch(clearCurProduct());
   }
@@ -158,8 +158,9 @@ export async function getServerSideProps({ query }) {
       productList = proResp.data.Data;
       DataNumber = proResp.data.DataNumber;
     }
-
   }
+  // console.log(classifyRes);
+
   return {
     props: {
       initialReduxState: {

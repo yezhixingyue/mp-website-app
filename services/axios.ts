@@ -15,6 +15,7 @@ axios.interceptors.request.use(
     if (!isBrower()) {
       curConfig.baseURL = SetupEnumType.baseUrl;
     }
+    // console.log(curConfig.baseURL);
     return curConfig;
   },
   (error) => {

@@ -20,6 +20,8 @@ export default createProxyMiddleware({
     // }
   },
   onProxyReq(proxyReq, req: any, res) {
+    // console.log(proxyReq, 'proxyReq');
+    // console.log(req, 'req');
     const token = req.cookies[cookieName];
     if (token) {
       proxyReq.setHeader("Authorization", `Bearer ${token}`);
