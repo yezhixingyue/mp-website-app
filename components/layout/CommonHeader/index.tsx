@@ -45,7 +45,8 @@ export default function index() {
 
   const handleListenScroll = () => {
     const t = offsetTop;
-    if (document.documentElement.scrollTop > t) {
+    const scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+    if (scrollTop > t) {
       if (opacity < 1) {
         setState({
           ...state,
@@ -54,7 +55,7 @@ export default function index() {
       }
       return;
     }
-    const _opacity = document.documentElement.scrollTop / t;
+    const _opacity = scrollTop / t;
     setState({
       ...state,
       opacity: _opacity,

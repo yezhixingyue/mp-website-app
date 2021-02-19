@@ -119,12 +119,18 @@ export default function index(props: { curProduct: null | IArticleType, classify
                   </section>
                 </li>
               ))}
+              {
+                props.curProduct.AboutList.length === 0 && <li style={{color: '#888', cursor: 'text'}}>暂无推荐产品</li>
+              }
             </ul>
-            <footer>
-              <Link href={path}>
-                 <a style={{color: '#'}}>查看更多</a>
-              </Link>
-            </footer>
+            {
+              props.curProduct.AboutList.length > 0 && 
+              <footer>
+                <Link href={path}>
+                    <a style={{color: '#'}}>查看更多</a>
+                </Link>
+              </footer>
+            }
           </aside>
         </article>
       }
