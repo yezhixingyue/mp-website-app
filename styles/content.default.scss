@@ -1,0 +1,129 @@
+/**
+ * Copyright (c) Tiny Technologies, Inc. All rights reserved.
+ * Licensed under the LGPL or a commercial license.
+ * For LGPL see License.txt in the project root for license information.
+ * For commercial licenses see https://www.tiny.cloud/
+ */
+.mce-content-body {
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+  line-height: 1.4;
+  /* margin: 1rem; */
+}
+.mce-content-body table {
+  border-collapse: collapse;
+}
+/* Apply a default padding if legacy cellpadding attribute is missing */
+.mce-content-body table:not([cellpadding]) th,
+.mce-content-body table:not([cellpadding]) td {
+  padding: 0.4rem;
+}
+/* Set default table styles if a table has a positive border attribute
+   and no inline css */
+.mce-content-body table[border]:not([border="0"]):not([style*="border-width"]) th,
+.mce-content-body table[border]:not([border="0"]):not([style*="border-width"]) td {
+  border-width: 1px;
+}
+/* Set default table styles if a table has a positive border attribute
+   and no inline css */
+.mce-content-body table[border]:not([border="0"]):not([style*="border-style"]) th,
+.mce-content-body table[border]:not([border="0"]):not([style*="border-style"]) td {
+  border-style: solid;
+}
+/* Set default table styles if a table has a positive border attribute
+   and no inline css */
+.mce-content-body table[border]:not([border="0"]):not([style*="border-color"]) th,
+.mce-content-body table[border]:not([border="0"]):not([style*="border-color"]) td {
+  border-color: #ccc;
+}
+.mce-content-body figure {
+  display: table;
+  margin: 1rem auto;
+}
+.mce-content-body figure figcaption {
+  color: #999;
+  display: block;
+  margin-top: 0.25rem;
+  text-align: center;
+}
+.mce-content-body hr {
+  border-color: #ccc;
+  border-style: solid;
+  border-width: 1px 0 0 0;
+}
+.mce-content-body code {
+  background-color: #e8e8e8;
+  border-radius: 3px;
+  padding: 0.1rem 0.2rem;
+}
+.mce-content-body blockquote {
+  border-left: 2px solid #ccc;
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+}
+.mce-content-body:not([dir=rtl]) blockquote {
+  border-left: 2px solid #ccc;
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+}
+.mce-content-body[dir=rtl] blockquote {
+  border-right: 2px solid #ccc;
+  margin-right: 1.5rem;
+  padding-right: 1rem;
+}
+.mce-content-body {
+  html, body, div, span, applet, object, iframe,
+  h1, h2, h3, h4, h5, h6, p, pre,
+  a, abbr, acronym, address, big, cite, code,
+  del, dfn, em, img, ins, kbd, q, s, samp,
+  small, strike, sub, sup, tt, var,
+  b, u, i, center,
+  dl, dt, dd, ol, ul, li,
+  fieldset, form, label, legend,
+  table, caption, tbody, tfoot, thead, tr, th, td,
+  article, aside, canvas, details, embed, 
+  figure, figcaption, footer, header, hgroup, 
+  menu, nav, output, ruby, section, summary,
+  time, mark, audio, video {
+    margin: initial;
+    padding: initial;
+    // border: initial;
+    font-size: initial;
+    /* font: initial; */
+    font-style: initial;
+      font-variant-ligatures: initial;
+      font-variant-caps: initial;
+      font-variant-numeric: initial;
+      font-variant-east-asian: initial;
+      font-weight: initial;
+      font-stretch: initial;
+      font-size: 100%;
+      line-height: initial;
+    vertical-align: initial;
+  }
+}
+.mce-content-body {
+  p {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  ol {
+    list-style-type: decimal;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-left: 40px;
+  }
+  ul {
+    display: block;
+    list-style-type: disc;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-left: 40px;
+  }
+  h1 {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+  }
+}

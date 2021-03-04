@@ -38,7 +38,7 @@ export default function index(props: IProps) {
           <div>
             {
               props.helpDetailData
-               ? <div className='rich-edit-content ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: changeRichContentImgUrl(props.helpDetailData.Content) }}></div>
+               ? <div className='rich-edit-content mce-content-body ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: changeRichContentImgUrl(props.helpDetailData.Content) }}></div>
                : null
             }
           </div>

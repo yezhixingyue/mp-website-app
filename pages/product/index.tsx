@@ -96,7 +96,7 @@ export default function index(props: { curProduct: null | IArticleType, classify
             <header>
               <span>{`${props.curProduct.ProductClass.SecondLevelName}-${props.curProduct.Name}`}</span>
             </header>
-            <div className='rich-edit-content ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: changeRichContentImgUrl(props.curProduct.Content) }}></div>
+            <div className='rich-edit-content mce-content-body ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: changeRichContentImgUrl(props.curProduct.Content) }}></div>
             <footer>
               {/* <Link href={path}>
                  <a><Button style={{marginRight: 30}}>返回列表</Button></a>

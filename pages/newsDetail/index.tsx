@@ -43,7 +43,7 @@ export default function index(props: IProps) {
       </p>
     </header>
     <div>
-      <div className='rich-edit-content ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: changeRichContentImgUrl(props.data.Content) }}></div>
+      <div className='rich-edit-content mce-content-body ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: changeRichContentImgUrl(props.data.Content) }}></div>
       <aside>
         <header>相关新闻推荐</header>
         <ul>
