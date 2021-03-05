@@ -181,5 +181,6 @@ export const getFileDownLoad = (url: string, fileName?: string) => {
 
 export const changeRichContentImgUrl = (content: string) => {
   if (!content || typeof content !== 'string') return '';
-  return content.replace('<img src="/', `<img src="${SetupEnumType.richContentImgSrc}/`);
+  // console.log(content);
+  return content.replace(/<img src="\//g, `<img src="${SetupEnumType.richContentImgSrc}/`).replace(/src="\/Image/g, `src="${SetupEnumType.richContentImgSrc}/Image`);
 }
