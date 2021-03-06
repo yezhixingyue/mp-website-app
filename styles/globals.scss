@@ -737,13 +737,13 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
 .fixed-model {
   opacity: 0;
   transition: opacity 0.35s ease-in-out;
-  z-index: -1 !important;
+  // z-index: -1 !important;
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  right: 100%;
   bottom: 0;
-  z-index: 999;
+  z-index: 9999;
   background-color: rgba(0, 0, 0, 0.5);
   > div {
     position: absolute;
@@ -759,7 +759,8 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
   // animation: global-loading-opacity-animal 0.4s reverse;
   &.loading {
     opacity: 1;
-    z-index: 999 !important;
+    z-index: 9999 !important;
+    right: 0;
     // animation: global-loading-opacity-animal 0.4s;
   }
   // &.mp-loading-enter {

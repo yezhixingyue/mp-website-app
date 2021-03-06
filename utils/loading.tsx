@@ -25,7 +25,7 @@ const Loading = (props) => (
         </Container> : <></>
     } */}
     <div className={props.loading ? 'loading fixed-model' : 'fixed-model'}>
-      <Spin tip="请稍后，加载中..." wrapperClassName='spinning-style' size="large" />
+      { props.loading && <Spin tip="请稍后，加载中..." wrapperClassName='spinning-style' size="large" />}
     </div>
   </>
   // <Container className={props.loading ? 'loading fixed-model' : 'fixed-model'}>
