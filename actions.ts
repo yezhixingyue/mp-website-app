@@ -108,6 +108,8 @@ export const changeCurLv2Class = ({ curLv1Class, lv2ClassID }: { curLv1Class: nu
       productList = resp.data.Data;
       DataNumber = resp.data.DataNumber;
       dispatch(handleClassChange({ productList, DataNumber }))
+    } else {
+      dispatch(handleClassChange({ productList: [] }))
     }
     dispatch(handleClassChange({ Loading: false }))
   }
@@ -125,6 +127,8 @@ export const changeCurPage = ({ curLv1Class, lv2ClassID, Page }: { curLv1Class: 
       productList = resp.data.Data;
       DataNumber = resp.data.DataNumber;
       dispatch(handleClassChange({ productList, DataNumber, Page }))
+    } else {
+      dispatch(handleClassChange({ productList: [] }))
     }
     dispatch(handleClassChange({ Loading: false }))
   }

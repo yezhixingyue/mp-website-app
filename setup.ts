@@ -32,14 +32,14 @@ if (mode === 'test') {
  * 正式 ---- 生产环境
  */
 if (mode === 'prod') {
-  _baseUrl = 'http://order.mpzj.cn:8156/';
+  _baseUrl = 'https://order.mpzj.cn:8157/';
   _placeOrderUrl = 'https://order.mpzj.cn/#/';
   _loginUrl = 'https://order.mpzj.cn/#/login';
   _agreementID = '71';
   _accrualID = '61';
   _newsID = '69';
   _domain = 'mpzj.cn';
-  _richContentImgSrc = 'https://order.mpzj.cn:8156/';
+  _richContentImgSrc = 'https://order.mpzj.cn:8157/';
 }
 
 /* SETUP

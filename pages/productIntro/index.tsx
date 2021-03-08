@@ -57,7 +57,7 @@ export default function index() {
       }
       {
         !productState.curProduct && <section>
-          <ul>
+          <ul style={{opacity: productState.Loading ? 0 : 1}}>
             {
               productState.productList.map(it => (
                 <li key={it.ID}>
