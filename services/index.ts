@@ -16,7 +16,7 @@ const api = {
   getSwiperData() { // GET /api/Banner/List
     return instance.get('/api/Banner/List?useIndex=true&page=1&pageSize=4');
   },
-  getNewsArticleList(data = { Page: 1, pageSize: 6 }) { // POST /api/Article/ArticleList 获取新闻列表
+  getNewsArticleList(data = { Page: 1, pageSize: 3 }) { // POST /api/Article/ArticleList 获取新闻列表
     return instance.post('/api/Article/ArticleList', data);
   },
   getProductsList(data:ICondtion4ProList = { Page: 1, PageSize: 3 }) { // POST /api/Product/List 获取产品介绍列表

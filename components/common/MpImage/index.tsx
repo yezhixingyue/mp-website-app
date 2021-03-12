@@ -30,9 +30,9 @@ const MpImage = (props: IProps) => {
   style = { ...style, ...props.style};
 
   const content = (<>
-    {
+    {/* {
       props.hasModel && <i className='hasmodel-i'></i>
-    }
+    } */}
     <img
       className={`${!state.isLoaded && 'opacity-0'} ${props.hasModel && 'animate'}`}
       alt={props.alt}
@@ -47,9 +47,9 @@ const MpImage = (props: IProps) => {
       src={state.msg === '加载失败!' ? '' : props.src}
       width={props.width} />
     {state.msg && <p className='msg'>{state.msg}</p>}
-    {
+    {/* {
       props.hasModel && <div className='hasmodel-div'></div>
-    }
+    } */}
     {props.children}
   </>)
 

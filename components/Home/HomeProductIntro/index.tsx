@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './index.module.css'
-import { Empty, Spin, Tabs } from 'antd';
+import { Empty, Icon, Spin, Tabs } from 'antd';
 import api from '../../../services';
 import { isBrower } from '../../../utils';
 import MpImage from '../../common/MpImage';
@@ -27,7 +27,7 @@ export default function index() {
     let key = true;
     const resp = await api.getProductsList({
       Page: 1,
-      PageSize: 3,
+      PageSize: 8,
       ProductClass: {
         First: ID
       }
@@ -43,23 +43,23 @@ export default function index() {
     setState({ ...state, loading: false, err: errMsg });
   }
 
-  const onProductClick = (id: string) => {
-    router.push(`/product?productID=${id}`);
-  }
+  // const onProductClick = (id: string) => {
+  //   router.push(`/product?productID=${id}`);
+  // }
 
   const content = products.length > 0
    ? products.map(product => (
       <div key={product.ID} className={styles['product-item']}>
         <Link href={`/product?productID=${product.ID}`}>
           <a target='_blank'>
-            <MpImage src={SetupEnumType.baseUrl + product.Cover} width={330} height={220} hasModel />
+            <MpImage src={SetupEnumType.baseUrl + product.Cover} width={280} height={210} hasModel />
             <section>
               <header>{product.Name}</header>
               <div>{product.Introduce}</div>
-              <footer>
+              {/* <footer>
                 <span>点击查看</span>
                 <i></i>
-              </footer>
+              </footer> */}
             </section>
           </a>
         </Link>
@@ -69,8 +69,8 @@ export default function index() {
 
   return (
     <section className={styles['intro-wrap']}>
-      <Spin spinning={state.loading} delay={100}>
-        <Tabs style={{ height: 525 }}  onChange={(activeKey) => onTabChange && onTabChange(activeKey)} className='mp-home-tab-wrap'>
+      {/* <Spin spinning={state.loading} delay={100}>
+        <Tabs style={{ minHeight: 525 }}  onChange={(activeKey) => onTabChange && onTabChange(activeKey)} className='mp-home-tab-wrap'>
           {lv1Classify.map(it => (
             <TabPane tab={it.ClassName} key={`${it.ID}`}>
                 {!state.loading && !state.err && content}
@@ -78,7 +78,16 @@ export default function index() {
             </TabPane>
           ))}
         </Tabs>
-      </Spin>
+      </Spin> */}
+      {!state.loading && !state.err && content}
+      {!state.loading && state.err && <div className={styles.showItem}>{state.err}</div>}
+      <footer>
+        <Link href='/productIntro'>
+          <a target='_blank'>
+            <span className='s-r mp-link-style'>查看更多 <Icon type="right" /></span>
+          </a>
+        </Link>
+      </footer>
     </section>
   )
 }

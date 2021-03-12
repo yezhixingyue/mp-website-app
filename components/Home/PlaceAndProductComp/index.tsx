@@ -15,11 +15,11 @@ export default function index() {
         <p className='f part-title'>产品介绍</p>
         <p className='s part-title-2'>
           <span className='s-l'>PRODUCT INTRODUCTION</span>
-          <Link href='/productIntro'>
+          {/* <Link href='/productIntro'>
             <a target='_blank'>
               <span className='s-r'>查看更多 <Icon type="right" /></span>
             </a>
-          </Link>
+          </Link> */}
         </p>
       </div>
       <HomeProductIntro />

@@ -1,18 +1,31 @@
-.intro-wrap > header {
-  padding-bottom: 50px;
+.intro-wrap {
+  margin-left: -26.5px;
+}
+.intro-wrap > footer {
+  margin-top: -50px;
+  padding-bottom: 36px;
+  text-align: right;
 }
 .product-item {
-  padding-top: 45px;
+  margin-bottom: 75px;
   display: inline-block;
-  width: 330px;
+  width: 280px;
   cursor: pointer;
+  margin-left: 26.5px;
+}
+/* .product-item:hover {
+  box-shadow: 0 0 5px rgb(0, 0, 0, 0.08), 0 2px 6px 0 rgb(0, 0, 0, 0.08);
+} */
+.product-item > a > div {
+  border-radius: 5px;
+  overflow: hidden;
 }
 .product-item + .product-item {
-  margin-left: 105px;
+  /* margin-left: 105px; */
 }
 .product-item > a > img {
-  width: 330px;
-  height: 220px;
+  width: 280px;
+  height: 210px;
 }
 .product-item > a > section {
   /* padding: 0 14px; */

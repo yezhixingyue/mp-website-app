@@ -60,7 +60,7 @@ export async function getServerSideProps() {
       if (lv1Classify.length > 0) {
         const proResp = await api.getProductsList({
           Page: 1,
-          PageSize: 3,
+          PageSize: 8,
           ProductClass: {
             First: lv1Classify[0].ID
           }
