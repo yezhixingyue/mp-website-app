@@ -59,12 +59,18 @@ export default function index(props: { curProduct: null | IArticleType, classify
     }
   }
 
+  const getPageTitle = () => {
+    let title = '产品详情';
+    if (props.curProduct && props.curProduct.Name) title = props.curProduct.Name;
+    return title;
+  };
+
   const path = props.curProduct ? `/productIntro?First=${props.curProduct.ProductClass.FirstLevelID}&Second=${props.curProduct.ProductClass.SecondLevelID}` : '/productIntro';
   
   return (
     <section className={styles['product-detail-wrap']}>
       <Head>
-        <title>产品详情 - 郑州名片之家电子商务有限公司</title>
+        <title>{getPageTitle()} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
@@ -108,15 +114,19 @@ export default function index(props: { curProduct: null | IArticleType, classify
             <header>相关推荐</header>
             <ul>
               {props.curProduct.AboutList.map(it => (
-                <li key={it.ID} onClick={() => onAsideClick(it.ID)}>
-                  <div>
-                    <MpImage src={SetupEnumType.baseUrl + it.Cover} alt="" height={87} width={87} />
-                  </div>
-                  <section>
-                    <header>{it.Name}</header>
-                    {/* <div>{it.Introduce}</div> */}
-                    <Paragraph ellipsis={{ rows: 2, expandable: false }}>{it.Introduce}</Paragraph>
-                  </section>
+                <li key={it.ID}>
+                  <Link href={`/product?productID=${it.ID}`}>
+                    <a title={it.Name}>
+                      <div>
+                        <MpImage src={SetupEnumType.baseUrl + it.Cover} alt="" height={87} width={87} />
+                      </div>
+                      <section>
+                        <header>{it.Name}</header>
+                        {/* <div>{it.Introduce}</div> */}
+                        <Paragraph ellipsis={{ rows: 2, expandable: false }}>{it.Introduce}</Paragraph>
+                      </section>
+                    </a>
+                  </Link>
                 </li>
               ))}
               {

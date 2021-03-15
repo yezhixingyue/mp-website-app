@@ -81,7 +81,7 @@ export const changeCurLv1Class = ({ classID, productClassify }: { classID: numbe
         curProduct,
         Loading: true,
       }));
-      const resp = await api.getProductsList({ Page, PageSize: 9, ProductClass: { First: curLv1Class } }).catch(() => { key = false });
+      const resp = await api.getProductsList({ Page, PageSize: 12, ProductClass: { First: curLv1Class } }).catch(() => { key = false });
       if (key && resp && resp.data.Status === 1000) {
         productList = resp.data.Data;
         DataNumber = resp.data.DataNumber;
@@ -103,7 +103,7 @@ export const changeCurLv2Class = ({ curLv1Class, lv2ClassID }: { curLv1Class: nu
     dispatch(handleClassChange({ curLv2Class: lv2ClassID, Page, DataNumber, Loading, curProduct }))
     const ProductClass: IProductClass = { First: curLv1Class };
     if (lv2ClassID) ProductClass.Second = lv2ClassID;
-    const resp = await api.getProductsList({ Page, PageSize: 9, ProductClass }).catch(() => { key = false });
+    const resp = await api.getProductsList({ Page, PageSize: 12, ProductClass }).catch(() => { key = false });
     if (key && resp && resp.data.Status === 1000) {
       productList = resp.data.Data;
       DataNumber = resp.data.DataNumber;
@@ -122,7 +122,7 @@ export const changeCurPage = ({ curLv1Class, lv2ClassID, Page }: { curLv1Class: 
     dispatch(handleClassChange({ Loading: true }));
     const ProductClass: IProductClass = { First: curLv1Class };
     if (lv2ClassID) ProductClass.Second = lv2ClassID;
-    const resp = await api.getProductsList({ Page, PageSize: 9, ProductClass }).catch(() => { key = false });
+    const resp = await api.getProductsList({ Page, PageSize: 12, ProductClass }).catch(() => { key = false });
     if (key && resp && resp.data.Status === 1000) {
       productList = resp.data.Data;
       DataNumber = resp.data.DataNumber;

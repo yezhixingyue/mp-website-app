@@ -19,12 +19,13 @@
   }
   
   > div > div > section {
-    background: linear-gradient(to bottom,#fff 0px, #fff 152px, #f5f5f5 153px, #f5f5f5 100%);
+    // background: linear-gradient(to bottom,#fff 0px, #fff 152px, #f5f5f5 153px, #f5f5f5 100%);
     > div {
       width: 1200px;
       margin: 0 auto;
       // overflow: hidden;
       position: relative;
+      // border-bottom: 1px dashed #eee;
       &:hover {
         > div.move-item {
           opacity: 0.98;
@@ -32,9 +33,9 @@
         }
       }
       > div {
-        width: 1220px;
-        padding-left: 10px;
-        margin-left: -10px;
+        width: 1200px;
+        // padding-left: 10px;
+        // margin-left: -10px;
       }
     }
   }
@@ -45,7 +46,7 @@
     box-sizing: border-box;
     padding-bottom: 10px;
     width: 100%;
-    background-color: #f5f5f5;
+    // background-color: #f5f5f5;
     > div {
       text-align: center;
       width: 100%;
@@ -53,53 +54,67 @@
       padding-top: 130px;
     }
     > section {
-      width: 1210px;
+      width: 1200px;
       // margin: 0 auto;
       // padding-left: 10px;
       // margin-left: -10px;
       // overflow: hidden;
       > ul {
         // margin-right: -43px;
-        margin-left: -21.5px;
+        // margin-left: -21.5px;
         text-align: left;
-        width: 1251px;
+        width: 1226.5px;
         margin: 0;
+        padding-top: 24px;
         > li {
-          margin-top: 43px;
-          margin-right: 43px;
+          margin-top: 30px;
+          margin-right: 26.5px;
           display: inline-block;
           vertical-align: top;
-          width: 371px;
-          height: 388.3px;
-          border-radius: 10px;
+          width: 280px;
+          height: 320px;
+          // border-radius: 10px;
           overflow: hidden;
-          transition: transform 0.2s;
+          // transition: border 0.2s;
           cursor: pointer;
           > a {
             > div {
-              width: 371px;
-              height: 247.3px;
+              width: 280px;
+              height: 210px;
+              border-radius: 5px;
+              overflow: hidden;
+              &:hover {
+                > img {
+                  transform: scale(1.05);
+                }
+              }
             }
             > section {
-              height: 141px;
+              height: 115px;
               width: 100%;
-              padding: 4px 13px 1px 17px;
+              padding: 4px 4px 1px 0px;
               background-color: #fff;
               > header {
-                font-size: 16px;
+                font-size: 15px;
                 color: #333;
                 line-height: 21px;
                 white-space: normal;
                 overflow: hidden;
-                margin: 14px 0;
+                margin: 15px 0 13px;
+                transition: color 0.1s ease-in-out;
               }
               > div {
                 line-height: 21px;
                 height: 43px;
                 overflow: hidden;
-                color: #999;
                 font-size: 12px;
                 white-space: normal;
+                // > img {
+                //   transition: transform 0.3s ease-in-out !important;
+                // }
+                > div {
+                  color: #999;
+                }
               }
               > footer {
                 text-align: right;
@@ -110,27 +125,33 @@
             }
           }
           &:hover {
-            box-shadow: 0 0px 5px rgba(0,0,0,.08), 0 2px 6px 0 rgba(0,0,0,.08);
-            transform: scale(1.02);
-            > a > section > footer {
-              color: mix( #428dfa,  #fff, 70%);;
-            }
-          }
-          &:active {
-            > a > section {
-              background-color: #f5f5f5;
-              transition: background-color 0.2s;
-              > footer {
-                color: mix( #428dfa,  #fff, 100%);;
+            // box-shadow: 0 0px 5px rgba(0,0,0,.08), 0 2px 6px 0 rgba(0,0,0,.08);
+            border-bottom: 1px solid #eee;
+            // transform: scale(1.02);
+            > a {
+              > section > header {
+                // color: mix( #428dfa,  #fff, 70%);
+                color: #428dfa;
               }
             }
+
+          }
+          &:active {
+            border-bottom: 1px solid #428dfa;
+            // > a > section {
+            //   background-color: #f5f5f5;
+            //   transition: background-color 0.2s;
+            //   > footer {
+            //     color: mix( #428dfa,  #fff, 100%);;
+            //   }
+            // }
           }
         }
       }
     }
   }
   > div > div > footer {
-    background-color: #f5f5f5;
+    // background-color: #f5f5f5;
     text-align: center;
     padding-top: 66px;
     padding-bottom: 74px;

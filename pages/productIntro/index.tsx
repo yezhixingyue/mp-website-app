@@ -1,37 +1,52 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import api from '../../services'
 import { IClassifyItem, ICondtion4ProList, IStore } from '../../utils/types4TS';
 import { getFilterClassifyList } from '../../utils';
 import styles from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { Breadcrumb, Empty, Icon, Pagination, Spin, Tabs } from 'antd';
+import { Breadcrumb, Empty, Icon, Pagination, Spin, Tabs, Typography } from 'antd';
 import MpImage from '../../components/common/MpImage';
 import { changeCurLv1Class, changeCurLv2Class, changeCurPage, clearCurProduct } from '../../actions';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import ProductClassifyComp from '../../components/common/ProductClassifyComp'
 import { SetupEnumType } from '../../setup';
+const { Paragraph } = Typography;
 
 export default function index() {
   const productState = useSelector((state: IStore) => state.product);
   const dispatch = useDispatch();
   const router = useRouter();
 
+  useEffect(() => {
+    const { First, Second, Page } = router.query;
+    if (First && Second && Page) return;
+    router.push(`?First=${First?First:productState.curLv1Class}&Second=${Second?Second:productState.curLv2Class}&Page=${Page?Page:productState.Page}`, '', {shallow: true});
+  }, [])
 
   const onLv1ClassChange = (classID: number) => {
     if (classID === productState.curLv1Class) return;
     const productClassify = productState.productClassify;
+    // console.log(classID, router.query);
+    // const { Second } = router.query;
+    router.push(`?First=${classID}&Second=0&Page=1`,'', {shallow: true})
     dispatch(changeCurLv1Class({ classID, productClassify }));
+    // router.query.First = `${classID}`;
+    // console.log(location.search = `?First=${classID}&Second=0&Page=1`);
   }
 
   const onLv2ClassChange = (lv2ClassID: number) => {
     if (lv2ClassID === productState.curLv2Class) return;
+    const { First } = router.query;
+    router.push(`?First=${First?First:productState.curLv1Class}&Second=${lv2ClassID}&Page=1`, '', {shallow: true})
     dispatch(changeCurLv2Class({ curLv1Class: productState.curLv1Class, lv2ClassID }));
   }
 
   const onPageChange = (Page: number) => {
     if (Page === productState.Page) return;
+    const { First, Second } = router.query;
+    router.push(`?First=${First?First:productState.curLv1Class}&Second=${Second?Second:productState.curLv2Class}&Page=${Page}`, '', {shallow: true});
     dispatch(changeCurPage({ curLv1Class: productState.curLv1Class, lv2ClassID: productState.curLv2Class, Page }));
   }
 
@@ -63,11 +78,11 @@ export default function index() {
                 <li key={it.ID}>
                   <Link href={`/product?productID=${it.ID}`}>
                     <a target='_blank'>
-                      <MpImage src={`${SetupEnumType.baseUrl}${it.Cover}`} alt="" width={371} height={247.3} />
+                      <MpImage src={`${SetupEnumType.baseUrl}${it.Cover}`} alt="" width={280} height={210} />
                       <section>
                         <header>{it.Name}</header>
-                        <div>{it.Introduce}</div>
-                        <footer className='link-blue'>点击查看 <Icon type="right" /></footer>
+                        <div><Paragraph ellipsis={{ rows: 2, expandable: false }}>{it.Introduce}</Paragraph></div>
+                        {/* <footer className='link-blue'>点击查看 <Icon type="right" /></footer> */}
                       </section>
                     </a>
                   </Link>
@@ -80,10 +95,39 @@ export default function index() {
     </div>
   )
 
+  const getTitle = () => {
+    let title = '产品介绍';
+    if (productState) {
+      if (productState.productClassify) {
+        const f = productState.productClassify.find(it => it.ID === productState.curLv1Class);
+        if (f) {
+          title = f.ClassName
+          const s = f.children.find(it => it.ID === productState.curLv2Class);
+          if(s) {
+            title = s.ClassName;
+          }
+        }
+      }
+    }
+    return title;
+  };
+
+  // console.log(router);
+  const getTtemRender = (page, type, originalElement) => {
+    const { First, Second, Page } = router.query;
+    // const el = { ...originalElement, props: { ...originalElement.props } };
+    // el.props.title = page;
+    const bool = page === +Page || page === 0 ? true : false;
+    if (bool) return originalElement;
+    return <Link href={`/productIntro?First=${First?First:productState.curLv1Class}&Second=${Second?Second:productState.curLv2Class}&Page=${page}`}>
+      {originalElement}
+    </Link>
+  }
+
   return (
     <section className={styles['mp-product-intro-list-page-wrap']}>
       <Head>
-        <title>产品介绍 - 郑州名片之家电子商务有限公司</title>
+        <title>{getTitle()} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
@@ -113,8 +157,9 @@ export default function index() {
         <footer>
           <Pagination
             current={productState.Page}
-            onChange={onPageChange}
-            pageSize={9}
+            // onChange={onPageChange}
+            pageSize={12}
+            itemRender={getTtemRender}
             total={productState.DataNumber}
             className={productState.DataNumber === 0 ? 'opacity-0' : ''}
           />
@@ -125,7 +170,7 @@ export default function index() {
 }
 
 export async function getServerSideProps({ query }) {
-  const { First, Second } = query;
+  const { First, Second, Page } = query;
   let key = true;
   const handleErrCatch = () => {
     key = false;
@@ -151,7 +196,7 @@ export async function getServerSideProps({ query }) {
     } else {
       lv2List = productClassify[0].children;
     }
-    const _temp: ICondtion4ProList = { Page: 1, PageSize: 9, ProductClass: { First: curLv1Class } };
+    const _temp: ICondtion4ProList = { Page: Page && +Page ? +Page : 1, PageSize: 12, ProductClass: { First: curLv1Class } };
     if (curLv2Class) _temp.ProductClass.Second = curLv2Class;
     const proResp = await api.getProductsList(_temp).catch(handleErrCatch);
     if (key && proResp && proResp.data.Status === 1000) {
@@ -171,7 +216,7 @@ export async function getServerSideProps({ query }) {
           curLv1Class,
           curLv2Class,
           // curProduct,
-          Page: 1,
+          Page: Page && +Page ? +Page : 1,
           lv2List,
           Loading: false,
         }

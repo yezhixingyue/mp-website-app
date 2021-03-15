@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import styles from './index.module.scss'
 import { useRouter } from 'next/router';
@@ -7,6 +7,7 @@ import api from '../../services'
 import { formatDateOnlyYear } from '../../utils'
 import { Empty, Pagination } from 'antd'
 import AsideComp from '../../components/Help/Aside'
+import Link from 'next/link';
 
 interface IProps {
   helpClassData: IHelpClassItemType[];
@@ -21,8 +22,20 @@ const pageSize = 12;
 export default function index(props: IProps) {
   const router = useRouter();
 
-  const onPageChange = (page: number) => {
-    router.push(`?type=${props.curClass.ID}&Page=${page}`);
+  useEffect(() => {
+    router.push(`/help?type=${props.curClass.ID}&Page=${props.Page}`, '', {shallow: true});
+  }, [])
+
+  // const onPageChange = (page: number) => {
+  //   router.push(`?type=${props.curClass.ID}&Page=${page}`);
+  // }
+  const getTtemRender = (page, type, originalElement) => {
+    const { Page } = router.query;
+    const bool = page === +Page || page === 0 ? true : false;
+    if (bool) return originalElement;
+    return <Link href={`/help?type=${props.curClass.ID}&Page=${page}`}>
+      {originalElement}
+    </Link>
   }
 
   const listContent = props.helpListCount > 0 && props.helpListData.map(it => (
@@ -38,8 +51,9 @@ export default function index(props: IProps) {
 
   const pagination = props.helpListCount > pageSize && <Pagination
     current={props.Page}
-    onChange={onPageChange}
+    // onChange={onPageChange}
     pageSize={pageSize}
+    itemRender={getTtemRender}
     total={props.helpListCount}
     className={props.helpListCount === 0 ? 'opacity-0' : ''}
   />
@@ -47,7 +61,7 @@ export default function index(props: IProps) {
   return (
     <section className={styles['mp-help-page-wrap']}>
       <Head>
-        <title>帮助中心 - 郑州名片之家电子商务有限公司</title>
+        <title>{props.curClass ? props.curClass.Name : '帮助中心'} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>

@@ -1,34 +1,26 @@
 import { Empty, Pagination, Spin } from 'antd';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import api from '../../../services';
 import { SetupEnumType } from '../../../setup';
 import MpImage from '../../common/MpImage';
 import styles from './index.module.scss'
 
-export default function index({ hotList, DataNumber }) {
+export default function index({ hotList, DataNumber, Page }) {
   const router = useRouter();
 
-  const [state, setState] = useState({
-    newsList: hotList,
-    page: 1,
-    pageSize: 6,
-    DataNumber: DataNumber,
-    loading: false,
-  })
+  // const [state, setstate] = useState({
+  //   page: Page ? +Page : 1,
+  // })
 
-  const onPageChange = async (page: number) => {
-    setState({ ...state, loading: true });
-    let key = true;
-    const resp = await api.getNewsHotList({ Page: page, pageSize: state.pageSize }).catch(() => { key = false });
-
-    if (key && resp && resp.data.Status === 1000) {
-      const { Data, DataNumber } = resp.data;
-      setState({ ...state, loading: false, page, newsList: Data, DataNumber });
-    } else {
-      setState({ ...state, loading: false });
-    }
+  const getTtemRender = (page, type, originalElement) => {
+    const { Page } = router.query;
+    const bool = page === +Page || page === 0 ? true : false;
+    if (bool) return originalElement;
+    return <Link href={`/news?Page=${page}`} scroll={false}>
+      {originalElement}
+    </Link>
   }
 
   // const onNewsClick = (id: number) => {
@@ -41,43 +33,42 @@ export default function index({ hotList, DataNumber }) {
         <h3 className='part-title-2'>{'News hot discussion'.toLocaleUpperCase()}</h3>
       </header>
 
-      <Spin spinning={state.loading}>
-        <ul>
-          {
-            state.newsList.map(it => (
-              <li key={it.ID} >
-                <Link href={`/newsDetail?id=${it.ID}`}>
-                  <a target='_blank'>
-                    <MpImage src={`${SetupEnumType.baseUrl}/${it.Cover}`} height={185} width={380} />
-                    <div className={styles.tip}>
-                      <div>
-                        <p>{it.Title}</p>
-                        <span>{it.Introduce}</span>
-                      </div>
-                      <p>
-                        <span>{it.Title}</span>
-                        <i></i>
-                      </p>
+      <ul>
+        {
+          hotList.map(it => (
+            <li key={it.ID} >
+              <Link href={`/newsDetail?id=${it.ID}`}>
+                <a target='_blank'>
+                  <MpImage src={`${SetupEnumType.baseUrl}/${it.Cover}`} height={185} width={380} />
+                  <div className={styles.tip}>
+                    <div>
+                      <p>{it.Title}</p>
+                      <span>{it.Introduce}</span>
                     </div>
-                  </a>
-                </Link>
-              </li>
-            ))
-          }
-          {
-            state.newsList.length === 0 && <Empty description='暂无新闻，可能由于通信原因未获取到，请刷新重试' />
-          }
-        </ul>
-        <footer>
-          <Pagination
-            current={state.page}
-            onChange={onPageChange}
-            pageSize={state.pageSize}
-            total={state.DataNumber}
-            className={state.DataNumber === 0 ? 'opacity-0' : ''}
-          />
-        </footer>
-      </Spin>
+                    <p>
+                      <span>{it.Title}</span>
+                      <i></i>
+                    </p>
+                  </div>
+                </a>
+              </Link>
+            </li>
+          ))
+        }
+        {
+          hotList.length === 0 && <Empty description='暂无新闻，可能由于通信原因未获取到，请刷新重试' />
+        }
+      </ul>
+      <footer>
+        <Pagination
+          current={Page}
+          // onChange={onPageChange}
+          itemRender={getTtemRender}
+          pageSize={6}
+          total={DataNumber}
+          className={DataNumber === 0 ? 'opacity-0' : ''}
+        />
+      </footer>
     </section>
   )
 }

@@ -14,8 +14,8 @@ export default function index(props: IProps) {
   const createMenu = (type: number, title: string, key: string) => {
     return (
       <div className={props.classID && props.classID === type ? styles.active : ''} key={key}>
-        <Link href={`/help?type=${type}`}>
-          <a>{title}</a>
+        <Link href={`/help?type=${type}&Page=1`}>
+          <a title={title}>{title}</a>
         </Link>
       </div>
     )

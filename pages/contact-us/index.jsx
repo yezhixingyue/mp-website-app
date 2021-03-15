@@ -56,7 +56,7 @@ export default function index() {
   return (
     <section className={styles['mp-contact-page-wrap']}>
       <Head>
-        <title>联系我们 - 郑州名片之家电子商务有限公司</title>
+        <title>联系我们 | 意见建议 - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
         {/* <script src={mapUrl}></script> */}
       </Head>

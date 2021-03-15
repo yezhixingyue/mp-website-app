@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <div className={styles['home-page-wrap']}>
       <Head>
-        <title>首页 - 郑州名片之家电子商务有限公司</title>
+        <title>郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
         <meta name="keywords" content="传统专版,商务合版,PVC制卡,商业包装,数码快印"></meta>
         <meta name="description" content="郑州名片之家电子商务有限公司创立于 2008 年，是河南印之星集团的全资子公司。专门从事商业印刷及包装印刷。为不断适应市场形势，满足市场的多元化需求，为客户提供超值服务，公司引进了一系列国际领先的专业化印前、印刷、印后等生产加工设备，形成了一站式的综合印刷服务能力。智能时代下，我们旨在构建未来的商务生态系统，做中国文化创意与印刷科技产业生态系统的缔造者。"></meta>

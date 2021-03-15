@@ -85,7 +85,7 @@ export default function index(props: IProps) {
   
   return (
     <section className={`${styles.wrap} pro-wrap`}>
-      <div style={{ height: 76 }} onMouseEnter={setWidth}> {/* 一级产品分类 */}
+      <div style={{ height: 76, borderBottom: '1px dashed #eee' }} onMouseEnter={setWidth}> {/* 一级产品分类 */}
         {
           state.lv1Width > 1200 && state.lv1Left < 0 && !state.isAnimate && <div className={`${styles['move-item']} ${styles['move-prev']}`} onClick={onLv1MenuToLeft}>
             <Icon type="left" />

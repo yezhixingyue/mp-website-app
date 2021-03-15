@@ -61,46 +61,51 @@
         > li {
           margin-bottom: 19px;
           cursor: pointer;
-          > div {
-            width: 87px;
-            height: 87px;
-            display: inline-block;
-            vertical-align: top;
-            overflow: hidden;
-            img {
-              object-fit: cover;
-              transition: transform 0.3s;
-              height: 87px\0 !important;
-              width: auto\0 !important;
-            }
-          }
-          > section {
-            display: inline-block;
-            width: 199px;
-            white-space: normal;
-            height: 87px;
-            overflow: hidden;
-            padding-left: 16px;
-            > header {
-              font-size: 16px;
-              color: #333333;
-              line-height: 21px;
-              padding: 8px 0;
-              transition: color 0.25s;
-            }
+          > a {
+            display: block;
+            width: 100%;
+            height: 100%;
             > div {
-              height: 44px;
-              font-size: 14px;
-              color: #999999;
-              line-height: 22px;
+              width: 87px;
+              height: 87px;
+              display: inline-block;
+              vertical-align: top;
               overflow: hidden;
+              img {
+                object-fit: cover;
+                transition: transform 0.3s;
+                height: 87px\0 !important;
+                width: auto\0 !important;
+              }
+            }
+            > section {
+              display: inline-block;
+              width: 199px;
+              white-space: normal;
+              height: 87px;
+              overflow: hidden;
+              padding-left: 16px;
+              > header {
+                font-size: 16px;
+                color: #333333;
+                line-height: 21px;
+                padding: 8px 0;
+                transition: color 0.25s;
+              }
+              > div {
+                height: 44px;
+                font-size: 14px;
+                color: #999999;
+                line-height: 22px;
+                overflow: hidden;
+              }
             }
           }
           &:hover {
-            > section > header {
+            > a > section > header {
               color: mix(#428dfa, #fff, 75%);
             }
-            > div > div > img {
+            > a > div > div > img {
               // transform: scale(1.05);
             }
           }

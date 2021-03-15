@@ -85,10 +85,11 @@ export default function index(props: IProps) {
     </footer>
   </section>)
   
+
   return (
     <section className={styles['mp-news-detail-page']}>
       <Head>
-        <title>新闻详情 - 郑州名片之家电子商务有限公司</title>
+        <title>{props && props.data && props.data.Title ? props.data.Title : '新闻详情'} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>

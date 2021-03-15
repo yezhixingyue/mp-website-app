@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './index.module.css'
-import { Empty, Icon, Spin, Tabs } from 'antd';
+import { Empty, Icon, Spin, Tabs, Typography } from 'antd';
 import api from '../../../services';
 import { isBrower } from '../../../utils';
 import MpImage from '../../common/MpImage';
@@ -10,6 +10,7 @@ import { IHomePageState, IStore } from '../../../utils/types4TS';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { SetupEnumType } from '../../../setup';
+const { Paragraph } = Typography;
 
 const { TabPane } = Tabs;
 
@@ -55,7 +56,10 @@ export default function index() {
             <MpImage src={SetupEnumType.baseUrl + product.Cover} width={280} height={210} hasModel />
             <section>
               <header>{product.Name}</header>
-              <div>{product.Introduce}</div>
+              <div>
+                <Paragraph ellipsis={{ rows: 2, expandable: false }}>{product.Introduce}</Paragraph>
+                {/* {product.Introduce} */}
+              </div>
               {/* <footer>
                 <span>点击查看</span>
                 <i></i>

@@ -27,7 +27,7 @@ export default function index(props: IProps) {
   return (
     <section className={styles['mp-help-detail-page-wrap']}>
       <Head>
-        <title>帮助中心 - 郑州名片之家电子商务有限公司</title>
+        <title>{props.helpDetailData ? props.helpDetailData.Title : '帮助中心'} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>

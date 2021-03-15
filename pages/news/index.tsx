@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import styles from './index.module.scss'
 import api from '../../services'
@@ -6,9 +6,15 @@ import MpImage from '../../components/common/MpImage'
 import NewsHot from '../../components/NewsCenter/NewsHot'
 import Link from 'next/link'
 import { SetupEnumType } from '../../setup'
+import { useRouter } from 'next/router'
 
-export default function index({ hotList, DataNumber }) {
-
+export default function index({ hotList, DataNumber, Page }) {
+  const router = useRouter();
+  useEffect(() => {
+    const p = router.query.Page;
+    if (p) return;
+    router.push(`?Page=${Page}`, '', {shallow: true});
+  }, [])
   return (
     <div>
       <Head>
@@ -84,15 +90,16 @@ export default function index({ hotList, DataNumber }) {
           </div>
         </div>
         {/* hot */}
-        <NewsHot hotList={hotList} DataNumber={DataNumber} />
+        <NewsHot hotList={hotList} DataNumber={DataNumber} Page={Page} />
       </section>
     </div>
   )
 }
 
-export async function getServerSideProps () {
+export async function getServerSideProps ({ query }) {
+  const { Page } = query;
   let key = true;
-  const resp = await api.getNewsHotList({ Page: 1, pageSize: 6 }).catch(() => { key = false });
+  const resp = await api.getNewsHotList({ Page: Page ? +Page : 1, pageSize: 6 }).catch(() => { key = false });
   let hotList = [];
   let DataNumber = 0;
   if (key && resp && resp.data.Status === 1000) {
@@ -103,6 +110,7 @@ export async function getServerSideProps () {
     props: {
       hotList,
       DataNumber,
+      Page: Page ? +Page : 1,
     }
   };
 }
