@@ -118,7 +118,7 @@ export default function index(props: { curProduct: null | IArticleType, classify
                   <Link href={`/product?productID=${it.ID}`}>
                     <a title={it.Name}>
                       <div>
-                        <MpImage src={SetupEnumType.baseUrl + it.Cover} alt="" height={87} width={87} />
+                        <MpImage src={SetupEnumType.baseUrl + it.Cover} alt={it.Name} title={it.Name} height={87} width={87} />
                       </div>
                       <section>
                         <header>{it.Name}</header>

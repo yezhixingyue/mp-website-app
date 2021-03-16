@@ -38,8 +38,8 @@ export default function index({ hotList, DataNumber, Page }) {
           hotList.map(it => (
             <li key={it.ID} >
               <Link href={`/newsDetail?id=${it.ID}`}>
-                <a target='_blank'>
-                  <MpImage src={`${SetupEnumType.baseUrl}/${it.Cover}`} height={185} width={380} />
+                <a target='_blank' title={it.Title}>
+                  <MpImage src={`${SetupEnumType.baseUrl}/${it.Cover}`} title={it.Title} alt={it.Title} height={185} width={380} />
                   <div className={styles.tip}>
                     <div>
                       <p>{it.Title}</p>

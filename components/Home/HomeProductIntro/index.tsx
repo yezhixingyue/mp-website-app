@@ -52,8 +52,8 @@ export default function index() {
    ? products.map(product => (
       <div key={product.ID} className={styles['product-item']}>
         <Link href={`/product?productID=${product.ID}`}>
-          <a target='_blank'>
-            <MpImage src={SetupEnumType.baseUrl + product.Cover} width={280} height={210} hasModel />
+          <a target='_blank' title={product.Name}>
+            <MpImage src={SetupEnumType.baseUrl + product.Cover} width={280} height={210} hasModel alt={product.Name} title={product.Name} />
             <section>
               <header>{product.Name}</header>
               <div>

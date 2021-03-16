@@ -15,7 +15,7 @@ export default function index(props: IProps) {
     return (
       <div className={props.classID && props.classID === type ? styles.active : ''} key={key}>
         <Link href={`/help?type=${type}&Page=1`}>
-          <a title={title}>{title}</a>
+          <a>{title}</a>
         </Link>
       </div>
     )

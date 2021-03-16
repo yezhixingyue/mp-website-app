@@ -23,6 +23,7 @@ export default function index(props: IProps) {
   const router = useRouter();
 
   useEffect(() => {
+    if (!props.curClass) return;
     router.push(`/help?type=${props.curClass.ID}&Page=${props.Page}`, '', {shallow: true});
   }, [])
 
@@ -39,9 +40,13 @@ export default function index(props: IProps) {
   }
 
   const listContent = props.helpListCount > 0 && props.helpListData.map(it => (
-    <li key={it.ID} className={styles.listItem} onClick={() => { router.push('/help/' + it.ID) }}>
-      <div>{it.Title}</div>
-      <span>{formatDateOnlyYear(it.CreateTime)}</span>
+    <li key={it.ID} className={styles.listItem}>
+      <Link href={'/help/' + it.ID}>
+        <a title={it.Title}>
+          <div>{it.Title}</div>
+          <span>{formatDateOnlyYear(it.CreateTime)}</span>
+        </a>
+      </Link>
     </li>
   ))
 
@@ -94,7 +99,8 @@ export const getServerSideProps = async ({ query }) => {
   }
   if (helpClassData.length > 0) {
     const { type } = query;
-    const _type = (type || type === 0) ? type : helpClassData[0].ID;
+    const _type = (type || type === 0) ? type : helpClassData.length > 0 ? helpClassData[0].ID : null;
+    if (!_type) return;
     const t = helpClassData.find(it => it.ID === +_type);
     if (t) {
       curClass = t;

@@ -12,8 +12,8 @@ export default function index({ newsDate }) {
   const SingleNewsCode = ({ newsData }) => (
     <li>
       <Link href={`/newsDetail?id=${newsData.ID}`}>
-        <a target='_blank'>
-          <MpImage src={SetupEnumType.baseUrl + newsData.Cover} alt="" width={380} height={185} hasModel/>
+        <a target='_blank' title={newsData.Title}>
+          <MpImage src={SetupEnumType.baseUrl + newsData.Cover} alt={newsData.Title} width={380} height={185} hasModel title={newsData.Title} />
           <h2 className={styles.title}>{newsData.Title}</h2>
           <div className={styles.content}>
             <Paragraph ellipsis={{ rows: 2, expandable: false }}>{newsData.Introduce}</Paragraph>

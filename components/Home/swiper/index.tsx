@@ -27,8 +27,8 @@ export default function index({ swiperData }) {
         {
           swiperData.map(it => (
             <div key={it.ID}>
-              <a href={it.Url} target='_blank' >
-                <MpImage src={SetupEnumType.baseUrl + it.Pic} alt={it.Title} title={it.Title} />
+              <a href={it.Url} target='_blank' title={it.Title}>
+                <MpImage src={SetupEnumType.baseUrl + it.Pic} alt={it.Title} />
               </a>
             </div>
           ))

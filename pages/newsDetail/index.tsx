@@ -48,17 +48,17 @@ export default function index(props: IProps) {
         <header>相关新闻推荐</header>
         <ul>
           {props.data.AboutList.map(it => (
-            <li key={it.ID} onClick={() => onAsideClick(it.ID)}>
-              <div>
-                <MpImage src={SetupEnumType.baseUrl + it.Cover} alt="" height={65} width={65} />
-              </div>
-              <section>
-                {/* {it.Title} */}
-                <Paragraph ellipsis={{ rows: 2, expandable: false }}>{it.Title}</Paragraph>
-              </section>
-              {/* <p>
-                {it.Title}
-              </p> */}
+            <li key={it.ID}>
+              <Link href={`/newsDetail?id=${it.ID}`}>
+                <a title={it.Title}>
+                  <div>
+                    <MpImage src={SetupEnumType.baseUrl + it.Cover} alt={it.Title} title={it.Title} height={65} width={65} />
+                  </div>
+                  <section>
+                    <Paragraph ellipsis={{ rows: 2, expandable: false }}>{it.Title}</Paragraph>
+                  </section>
+                </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -70,16 +70,27 @@ export default function index(props: IProps) {
       </aside>
     </div>
     <footer>
-      <div style={{left: 0}} onClick={() => { props.data.PreArticle && router.push(`?id=${props.data.PreArticle.ID}`) }}>
+      <div style={{left: 0}}>
         <h2>上一篇</h2>
-        {
+        {/* {
           <p>{props.data.PreArticle ? props.data.PreArticle.Title : '没有了'}</p>
+        } */}
+        {
+          <p>{
+            props.data.PreArticle
+            ? (<Link href={`/newsDetail?id=${props.data.PreArticle.ID}`}><a title={props.data.PreArticle.Title}>{props.data.PreArticle.Title}</a></Link>)
+            : '没有了'}
+          </p>
         }
       </div>
-      <div style={{right: 0, textAlign: 'right'}} onClick={() => { props.data.NextArticle && router.push(`?id=${props.data.NextArticle.ID}`) }}>
+      <div style={{right: 0, textAlign: 'right'}}>
         <h2>下一篇</h2>
         {
-          <p style={{textAlign: 'right'}}>{props.data.NextArticle ? props.data.NextArticle.Title : '没有了'}</p>
+          <p style={{textAlign: 'right'}}>{
+            props.data.NextArticle
+            ? (<Link href={`/newsDetail?id=${props.data.NextArticle.ID}`}><a title={props.data.NextArticle.Title}>{props.data.NextArticle.Title}</a></Link>)
+            : '没有了'}
+          </p>
         }
       </div>
     </footer>

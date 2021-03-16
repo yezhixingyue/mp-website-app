@@ -59,41 +59,43 @@
           > li {
             margin-bottom: 19px;
             cursor: pointer;
-            > div {
-              width: 65px;
-              height: 65px;
-              display: inline-block;
-              vertical-align: top;
-              overflow: hidden;
-              img {
-                object-fit: cover;
-                width: auto\0;
-                height: 65px\0;
-                position: relative\0;
-                left: -30px\0;
-              }
-            }
-            > section {
-              display: inline-block;
+            > a {
               > div {
-                width: 199px;
-                white-space: normal;
-                height: 58px;
+                width: 65px;
+                height: 65px;
+                display: inline-block;
+                vertical-align: top;
                 overflow: hidden;
-                font-size: 14px;
-                color: #333333;
-                line-height: 21px;
-                transition: color 0.2s;
-                padding-top: 4px;
-                padding-left: 10px;
-                line-height: 29px;
-                overflow: hidden;
-                white-space: normal;
-                margin: 0;
+                img {
+                  object-fit: cover;
+                  width: auto\0;
+                  height: 65px\0;
+                  position: relative\0;
+                  left: -30px\0;
+                }
+              }
+              > section {
+                display: inline-block;
+                > div {
+                  width: 199px;
+                  white-space: normal;
+                  height: 58px;
+                  overflow: hidden;
+                  font-size: 14px;
+                  color: #333333;
+                  line-height: 21px;
+                  transition: color 0.2s;
+                  padding-top: 4px;
+                  padding-left: 10px;
+                  line-height: 29px;
+                  overflow: hidden;
+                  white-space: normal;
+                  margin: 0;
+                }
               }
             }
             &:hover {
-              > section > div {
+              > a > section > div {
                 color: mix(#428dfa, #fff, 75%);
               }
             }
@@ -136,22 +138,30 @@
         position: absolute;
         max-width: 380px;
         overflow: hidden;
-        cursor: pointer;
         > h2 {
           font-size: 16px;
           font-weight: bold;
           color: #333333;
-          margin-bottom: 15px;
+          margin-bottom: 13px;
         }
         > p {
           text-align: left;
-          font-size: 16px;
+          font-size: 15px;
           color: #999999;
+          cursor: pointer;
           margin: 0;
           transition: color 0.2s;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+          > a {
+            display: inline-block;
+            min-width: 48px;
+            max-width: 380px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
         }
         &:hover {
           > p {

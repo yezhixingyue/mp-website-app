@@ -77,8 +77,8 @@ export default function index() {
               productState.productList.map(it => (
                 <li key={it.ID}>
                   <Link href={`/product?productID=${it.ID}`}>
-                    <a target='_blank'>
-                      <MpImage src={`${SetupEnumType.baseUrl}${it.Cover}`} alt="" width={280} height={210} />
+                    <a target='_blank' title={it.Name}>
+                      <MpImage src={`${SetupEnumType.baseUrl}${it.Cover}`} alt={it.Name} title={it.Name} width={280} height={210} />
                       <section>
                         <header>{it.Name}</header>
                         <div><Paragraph ellipsis={{ rows: 2, expandable: false }}>{it.Introduce}</Paragraph></div>

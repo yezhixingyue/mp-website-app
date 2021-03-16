@@ -131,22 +131,26 @@ export default function index() {
         </div>
         <ul className={styles.menus}>
           <li className={styles[router.pathname === '/' ? 'active' : '']}>
-            <Link href='/'>首页</Link>
+            <Link href='/'>
+              <a>首页</a>
+            </Link>
           </li>
           <li>
             <a href={SetupEnumType.placeOrderUrl} target='_blank'>快捷下单</a>
           </li>
           <li className={styles[['/productIntro', '/product'].includes(router.pathname) ? 'active' : '']}>
-            <Link href='/productIntro'>产品介绍</Link>
+            <Link href='/productIntro'>
+              <a>产品介绍</a>
+            </Link>
           </li>
           <li className={styles[['/news', '/newsDetail'].includes(router.pathname) ? 'active' : '']}>
-            <Link href='/news'>新闻中心</Link>
+            <Link href='/news'><a >新闻中心</a></Link>
           </li>
           <li className={styles[router.pathname === '/about' ? 'active' : '']}>
-            <Link href='/about'>关于我们</Link>
+            <Link href='/about'><a>关于我们</a></Link>
           </li>
           <li className={styles[['/help/[id]', '/help'].includes(router.pathname) ? 'active' : '']}>
-            <Link href={`/help`}>帮助中心</Link>
+            <Link href={`/help`}><a>帮助中心</a></Link>
           </li>
         </ul>
         {
