@@ -35,9 +35,9 @@ if (mode === 'prod') {
   _baseUrl = 'https://order.mpzj.cn:8157/';
   _placeOrderUrl = 'https://order.mpzj.cn/#/';
   _loginUrl = 'https://order.mpzj.cn/#/login';
-  _agreementID = '71';
-  _accrualID = '61';
-  _newsID = '69';
+  _agreementID = '3';
+  _accrualID = '4';
+  _newsID = '3';
   _domain = 'mpzj.cn';
   _richContentImgSrc = 'https://order.mpzj.cn:8157/';
 }
