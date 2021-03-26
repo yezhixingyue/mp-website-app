@@ -8,7 +8,9 @@ let _baseUrl = 'http://192.168.1.92:8055/';
 let _placeOrderUrl = 'http://192.168.3.85:8055/#/';
 let _loginUrl = 'http://192.168.3.85:8055/#/login';
 let _agreementID = '71';
+let _agreementLv2Type = '72';
 let _accrualID = '61';
+let _accrualLv2Type = '73';
 let _newsID = '69';
 let _domain = '';
 let _richContentImgSrc = 'http://192.168.1.92:8055/';
@@ -35,9 +37,15 @@ if (mode === 'prod') {
   _baseUrl = 'https://order.mpzj.cn:8157/';
   _placeOrderUrl = 'https://order.mpzj.cn/#/';
   _loginUrl = 'https://order.mpzj.cn/#/login';
+
   _agreementID = '3';
+  _agreementLv2Type = '4';
+
   _accrualID = '4';
+  _accrualLv2Type = '5';
+
   _newsID = '3';
+  
   _domain = 'mpzj.cn';
   _richContentImgSrc = 'https://order.mpzj.cn:8157/';
 }
@@ -55,7 +63,11 @@ export const SetupEnumType = {
 
   agreementID: _agreementID, // 用户协议对应分类ID -- 文章ID
 
+  agreementLv2Type: _agreementLv2Type, // 用户协议对应分类2级分类Type -- 文章列表
+
   accrualID: _accrualID , // 权责声明对应分类ID -- 文章ID
+
+  accrualLv2Type: _accrualLv2Type, // 用户协议对应分类2级分类Type -- 文章列表
 
   newsID: _newsID, // 新闻中心主推新闻文章ID
 

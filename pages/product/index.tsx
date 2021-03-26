@@ -64,6 +64,14 @@ export default function index(props: { curProduct: null | IArticleType, classify
     if (props.curProduct && props.curProduct.Name) title = props.curProduct.Name;
     return title;
   };
+  const getPageKeyWords = () => {
+    let title = '产品详情';
+    // console.log(props);
+    if (props.curProduct && props.curProduct.ProductClass) {
+      title = props.curProduct.ProductClass.FirstLevelName + '产品,' + props.curProduct.ProductClass.SecondLevelName + '产品,' + props.curProduct.Name;
+    }
+    return title;
+  };
 
   const path = props.curProduct ? `/productIntro?First=${props.curProduct.ProductClass.FirstLevelID}&Second=${props.curProduct.ProductClass.SecondLevelID}` : '/productIntro';
   
@@ -72,6 +80,8 @@ export default function index(props: { curProduct: null | IArticleType, classify
       <Head>
         <title>{getPageTitle()} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="keywords" content={`${getPageKeyWords()},传统专版,商务合版,PVC制卡,商业包装,数码快印`}></meta>
+        <meta name="description" content={`${getPageTitle()} - 郑州名片之家电子商务有限公司`}></meta>
       </Head>
       <header>
         <div>

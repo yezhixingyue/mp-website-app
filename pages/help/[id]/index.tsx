@@ -8,6 +8,7 @@ import AsideComp from '../../../components/Help/Aside'
 import { Icon } from 'antd';
 import { useRouter } from 'next/router';
 import { changeRichContentImgUrl } from '../../../utils';
+import { SetupEnumType } from '../../../setup';
 
 interface IProps {
   helpDetailData: IHelpDetailType | null;
@@ -19,7 +20,10 @@ export default function index(props: IProps) {
 
   const header = props.helpDetailData
    ? <header>
-      <span onClick={() => { router.push(`/help?type=${props.helpDetailData.Class.ID}`) }}> <Icon type="left" /> {props.helpDetailData.Class.Name}<em>/</em></span>
+      {
+        props.helpDetailData.Class.ID !== +SetupEnumType.accrualLv2Type && props.helpDetailData.Class.ID !== +SetupEnumType.agreementLv2Type &&
+        <span onClick={() => { router.push(`/help?type=${props.helpDetailData.Class.ID}`) }}> <Icon type="left" /> {props.helpDetailData.Class.Name}<em>/</em></span>
+      }
       <i>{props.helpDetailData.Title}</i>
     </header>
    : null
@@ -29,6 +33,8 @@ export default function index(props: IProps) {
       <Head>
         <title>{props.helpDetailData ? props.helpDetailData.Title : '帮助中心'} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="keywords" content={`帮助,帮助中心,传统专版,商务合版,PVC制卡,商业包装,数码快印`}></meta>
+        <meta name="description" content={`${props.helpDetailData ? props.helpDetailData.Title : '帮助详情'} - 郑州名片之家电子商务有限公司`}></meta>
       </Head>
       <div>
         <AsideComp helpClassData={props.helpClassData} classID={props.helpDetailData ? props.helpDetailData.Class.ID : null} />

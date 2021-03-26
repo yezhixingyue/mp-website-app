@@ -95,16 +95,16 @@ export default function index() {
     </div>
   )
 
-  const getTitle = () => {
+  const getTitle = (bool = false) => {
     let title = '产品介绍';
     if (productState) {
       if (productState.productClassify) {
         const f = productState.productClassify.find(it => it.ID === productState.curLv1Class);
         if (f) {
-          title = f.ClassName
+          title = bool ? f.ClassName + '产品' : f.ClassName
           const s = f.children.find(it => it.ID === productState.curLv2Class);
           if(s) {
-            title = s.ClassName;
+            title = bool ? title + ','  + s.ClassName + '产品' : s.ClassName;
           }
         }
       }
@@ -129,6 +129,8 @@ export default function index() {
       <Head>
         <title>{getTitle()} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="keywords" content={`${getTitle(true)},传统专版,商务合版,PVC制卡,商业包装,数码快印`}></meta>
+        <meta name="description" content={`${getTitle()} - 郑州名片之家电子商务有限公司`}></meta>
       </Head>
       <header>
         <section>

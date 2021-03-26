@@ -102,6 +102,8 @@ export default function index(props: IProps) {
       <Head>
         <title>{props && props.data && props.data.Title ? props.data.Title : '新闻详情'} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="keywords" content={`新闻详情,行业资讯,公司动态,产品上新,展会活动,传统专版,商务合版,PVC制卡,商业包装,数码快印`}></meta>
+        <meta name="description" content={`${props && props.data && props.data.Title && (props.data.Title + ',' )} - 郑州名片之家电子商务有限公司`}></meta>
       </Head>
       <header>
         <Breadcrumb separator={<Icon type="right" />} className={`mp-breadcrumb ${styles.breadcrumb}`}>

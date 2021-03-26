@@ -68,6 +68,8 @@ export default function index(props: IProps) {
       <Head>
         <title>{props.curClass ? props.curClass.Name : '帮助中心'} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta name="keywords" content={`${props.curClass && (props.curClass.Name + ',' )}帮助中心,传统专版,商务合版,PVC制卡,商业包装,数码快印`}></meta>
+        <meta name="description" content={`${props.curClass ? props.curClass.Name : '帮助中心'} - 帮助中心 - 郑州名片之家电子商务有限公司`}></meta>
       </Head>
       <div>
         <AsideComp helpClassData={props.helpClassData} classID={props.curClass ? props.curClass.ID : null} />
