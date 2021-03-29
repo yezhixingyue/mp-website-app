@@ -30,13 +30,24 @@
     overflow: hidden;
     width: 1200px;
     margin: 0 auto;
-    > section > header, > aside > header {
-      font-size: 18px;
-      color: #333333;
-      font-weight: 700;
-      line-height: 21px;
-      font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
-      margin-bottom: 18px;
+    > section > header {
+      > h2 {
+        font-size: 28px;
+        color: #333333;
+        // font-weight: 700;
+        line-height: 36px;
+        font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+        margin-bottom: 43px;
+        margin-top: 63px;
+      }
+      > a {
+        display: block;
+        height: 120px;
+        > img {
+          height: 100%;
+          width: 100%;
+        }
+      }
     }
     > section {
       width: 850px;
@@ -57,6 +68,14 @@
       width: 286px;
       float: right;
       margin-bottom: 30px;
+      > header {
+        font-size: 18px;
+        color: #333333;
+        font-weight: 700;
+        line-height: 18px;
+        font-family: MicrosoftYaHei-Bold, MicrosoftYaHei;
+        margin-bottom:20px;
+      }
       > ul {
         > li {
           margin-bottom: 19px;

@@ -110,7 +110,12 @@ export default function index(props: { curProduct: null | IArticleType, classify
         props.curProduct && <article>
           <section>
             <header>
-              <span>{`${props.curProduct.ProductClass.SecondLevelName}-${props.curProduct.Name}`}</span>
+              <Link href={`/newsDetail?id=${SetupEnumType.ADPathID}`}>
+                <a target='_blank' title='误活免单说明'>
+                  <img src="/AD.png" alt=""/>
+                </a>
+              </Link>
+              <h2>{`${props.curProduct.ProductClass.SecondLevelName}-${props.curProduct.Name}`}</h2>
             </header>
             <div className='rich-edit-content mce-content-body ql-editor ql-snow' dangerouslySetInnerHTML={{ __html: changeRichContentImgUrl(props.curProduct.Content) }}></div>
             <footer>

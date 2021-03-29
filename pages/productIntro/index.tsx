@@ -104,7 +104,7 @@ export default function index() {
           title = bool ? f.ClassName + '产品' : f.ClassName
           const s = f.children.find(it => it.ID === productState.curLv2Class);
           if(s) {
-            title = bool ? title + ','  + s.ClassName + '产品' : s.ClassName;
+            title = bool ? title + ','  + s.ClassName + '产品' : title + '-' + s.ClassName;
           }
         }
       }

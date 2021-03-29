@@ -7,11 +7,12 @@ if (mode === 'local' && process.env.NODE_ENV === 'production') mode = 'prod';
 let _baseUrl = 'http://192.168.1.92:8055/';
 let _placeOrderUrl = 'http://192.168.3.85:8055/#/';
 let _loginUrl = 'http://192.168.3.85:8055/#/login';
-let _agreementID = '71';
-let _agreementLv2Type = '72';
-let _accrualID = '61';
-let _accrualLv2Type = '73';
-let _newsID = '69';
+let _agreementID = '71'; // 用户协议 - 帮助中心
+let _agreementLv2Type = '72'; // 用户协议2级分类ID
+let _accrualID = '61'; // 权责声明 - 帮助中心
+let _accrualLv2Type = '73'; // 权责声明2级分类ID
+let _newsID = '69';　// 新闻中心页面 - 新闻推荐链接
+let _ADPathID = '69'; // 产品详情页面 - 广告图 - 推荐新闻ID　－ 新闻中心
 let _domain = '';
 let _richContentImgSrc = 'http://192.168.1.92:8055/';
 
@@ -45,6 +46,8 @@ if (mode === 'prod') {
   _accrualLv2Type = '5';
 
   _newsID = '3';
+
+  _ADPathID = '4';
   
   _domain = 'mpzj.cn';
   _richContentImgSrc = 'https://order.mpzj.cn:8157/';
@@ -70,6 +73,8 @@ export const SetupEnumType = {
   accrualLv2Type: _accrualLv2Type, // 用户协议对应分类2级分类Type -- 文章列表
 
   newsID: _newsID, // 新闻中心主推新闻文章ID
+
+  ADPathID: _ADPathID, // 产品详情页面 - 广告位链接 - 链接内容为新闻
 
   domain: _domain,
 
