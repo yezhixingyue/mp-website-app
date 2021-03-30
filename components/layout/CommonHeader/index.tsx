@@ -165,13 +165,17 @@ export default function index() {
                 cancelText="取消"
                 className='mp-pop-confirm-wrap'
               >
-                <div className={styles['loginout-box']}><Icon type="poweroff" /> 注销登录</div>
+                <div className={styles['loginout-box']}><Icon type="poweroff" /> 退出登录</div>
               </Popconfirm>
               // <div className={styles['loginout-box']} onClick={onLoginoutClick}><Icon type="poweroff" /> 注销登录</div>
             } >
               <div className={styles.right}>
                 <i></i>
-                <span>{user.CustomerName}</span>
+                <Link href={SetupEnumType.placeOrderUrl + 'mySetting/account'}>
+                  <a target='_blank'>
+                    <span>{user.CustomerName}</span>
+                  </a>
+                </Link>
               </div>
             </Popover>
           :

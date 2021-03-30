@@ -726,6 +726,19 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
     object-fit: cover;
     height: auto;
   }
+
+  a {
+    color: #0000ee;
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+      color: #0000ee;
+      opacity: 0.88;
+    }
+    &:active {
+      opacity: 1;
+    }
+  }
 }
 
 .ant-breadcrumb.mp-breadcrumb {

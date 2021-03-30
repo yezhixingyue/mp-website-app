@@ -46,13 +46,21 @@
           margin-right: 9px;
           background: url(../../../public/avator.png) no-repeat left center/18px 21px;
         }
-        > span {
+        > a {
           vertical-align: top;
           display: inline-block;
           max-width: 150px;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+          &:hover {
+            text-decoration: underline;
+            color: #fff;
+          }
+        }
+        > span {
+          vertical-align: top;
+          display: inline-block;
         }
       }
     }
