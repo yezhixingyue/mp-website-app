@@ -6,7 +6,7 @@
   height: 165px;
   background-color: #fff;
   border-radius: 2px;
-  box-shadow: 0 0px 5px rgba(0,0,0,.08), 0 2px 6px 0 rgba(0,0,0,.08);
+  /* box-shadow: 0 0px 5px rgba(0,0,0,.08), 0 2px 6px 0 rgba(0,0,0,.08); */
   padding: 32px 43px;
   cursor: pointer;
   /* transition: 0.3s; */
@@ -18,10 +18,14 @@
   margin-right: 60px;
 }
 .panel-wrap:hover {
-  box-shadow: 0 0px 10px rgba(0,0,0,.18), 0 2px 6px 0 rgba(0,0,0,.18);
+  box-shadow: 0 0px 20px rgba(238,238,238,.8);
+  /* box-shadow: 0 0px 5px rgba(0,0,0,.08), 0 2px 6px 0 rgba(0,0,0,.08); */
 }
-.panel-wrap:hover li.right i {
-  opacity: 0.75;
+.panel-wrap:hover li.right > i {
+  /* opacity: 0.75; */
+  /* background-color: #428dfa;
+  color: #fff; */
+  /* animation: toBlue 0.2s; */
 }
 .panel-wrap:active {
   background: rgb(252, 252, 252);
@@ -34,7 +38,7 @@
   vertical-align: top;
 }
 .panel-wrap li.left {
-  margin-right: 28px;
+  margin-right: 27px;
 }
 .panel-wrap li.center {
   width: 352px;
@@ -43,7 +47,8 @@
 .panel-wrap li.center p {
   line-height: 26px;
   font-size: 20px;
-  color: #438DFA;
+  /* color: #438DFA; */
+  color: #333;
   margin-bottom: 14px;
   user-select: none;
 }
@@ -56,10 +61,67 @@
 .panel-wrap li.right {
   height: 80px;
 }
-.panel-wrap li.right i{
+.panel-wrap li.right > i{
   display: block;
-  height: 100%;
-  width: 29px;
-  transition: 0.22s;
-  background: url(../../../public/to-right.png) no-repeat center center/29px 29px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  /* background-color: #f5f5f5; */
+  margin-top: 26px;
+  /* color: #c9c9c9; */
+  /* transition: background-color 0.4s ease-in-out; */
+  /* animation: toBlue 0.2s reverse; */
+  /* background: url(../../../public/to-right.png) no-repeat center center/29px 29px; */
+}
+.panel-wrap li.right > i.leave {
+  animation: toW 0.3s;
+  color: #c9c9c9;
+  background-color: #f5f5f5;
+}
+
+.panel-wrap li.right > i.enter {
+  animation: toBlue 0.3s;
+  color: #fff;
+  background-color: #428dfa;
+  opacity: 0.8;
+}
+
+.panel-wrap li.right > i i {
+  transition: none;
+}
+@keyframes toW {
+  0% {
+    color: #fff;
+    background-color: #428dfa;
+    opacity: 0.8;
+  }
+  60% {
+    color: #fff;
+    background-color: #f5f5f5;
+    opacity: 0.5;
+  }
+  100% {
+    color: #c9c9c9;
+    background-color: #f5f5f5;
+    opacity: 1;
+  }
+}
+@keyframes toBlue {
+  0% {
+    color: #c9c9c9;
+    background-color: #f5f5f5;
+    opacity: 1;
+  }
+  20% {
+    color: #fff;
+    background-color: #428dfa;
+    opacity: 0.5;
+  }
+  100% {
+    color: #fff;
+    background-color: #428dfa;
+    opacity: 0.8;
+  }
 }

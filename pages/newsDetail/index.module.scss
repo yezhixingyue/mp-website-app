@@ -134,39 +134,32 @@
       border-top: 1px solid #eee;
       padding-top: 17px;
       margin-bottom: 60px;
+      font-size: 14px;
       > div {
         position: absolute;
         max-width: 380px;
         overflow: hidden;
-        > h2 {
-          font-size: 16px;
-          font-weight: bold;
-          color: #333333;
-          margin-bottom: 13px;
-        }
-        > p {
-          text-align: left;
-          font-size: 15px;
-          color: #999999;
-          cursor: pointer;
-          margin: 0;
-          transition: color 0.2s;
+        a {
+          display: inline-block;
+          min-width: 48px;
+          max-width: 380px;
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
-          > a {
-            display: inline-block;
-            min-width: 48px;
-            max-width: 380px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+          &:hover span {
+            color: #40a9ff;
+          }
+          &:active span {
+            color: #096dd9;
           }
         }
-        &:hover {
-          > p {
-            color: mix(#428dfa, #fff, 85%);
-          }
+        span {
+          color: #999;
+        }
+        h2 {
+          user-select: none;
+          font-weight: 700;
+          font-size: 15px;
         }
       }
     }

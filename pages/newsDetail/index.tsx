@@ -71,26 +71,36 @@ export default function index(props: IProps) {
     </div>
     <footer>
       <div style={{left: 0}}>
-        <h2>上一篇</h2>
         {/* {
           <p>{props.data.PreArticle ? props.data.PreArticle.Title : '没有了'}</p>
         } */}
         {
-          <p>{
-            props.data.PreArticle
-            ? (<Link href={`/newsDetail?id=${props.data.PreArticle.ID}`}><a title={props.data.PreArticle.Title}>{props.data.PreArticle.Title}</a></Link>)
-            : '没有了'}
-          </p>
+          props.data.PreArticle
+          ? (<Link href={`/newsDetail?id=${props.data.PreArticle.ID}`}>
+              <a title={props.data.PreArticle.Title}>
+                <h2>上一篇</h2>
+                <span>{props.data.PreArticle.Title}</span>
+              </a>
+            </Link>)
+          : <>
+              <h2>上一篇</h2>
+              <span>没有了</span>
+            </>
         }
       </div>
       <div style={{right: 0, textAlign: 'right'}}>
-        <h2>下一篇</h2>
         {
-          <p style={{textAlign: 'right'}}>{
-            props.data.NextArticle
-            ? (<Link href={`/newsDetail?id=${props.data.NextArticle.ID}`}><a title={props.data.NextArticle.Title}>{props.data.NextArticle.Title}</a></Link>)
-            : '没有了'}
-          </p>
+          props.data.NextArticle
+          ? (<Link href={`/newsDetail?id=${props.data.NextArticle.ID}`}>
+              <a title={props.data.NextArticle.Title}>
+                <h2>下一篇</h2>
+                <span>{props.data.NextArticle.Title}</span>
+              </a>
+            </Link>)
+            : <>
+                <h2>下一篇</h2>
+                <span>没有了</span>
+              </>
         }
       </div>
     </footer>

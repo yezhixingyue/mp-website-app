@@ -20,9 +20,22 @@ export default function index({ swiperData }) {
     }
   }
 
+  const onMouseEnter = () => {
+    if (ref && ref.current) {
+      ref.current.innerSlider.pause()
+    }
+  }
+
+  // const onMouseLeave = () => {
+  //   if (ref && ref.current) {
+  //     // ref.current.innerSlider.slickPause()
+  //     console.log(ref.current);
+  //   }
+  // }
+
   return (
     <section className={styles.wrap}>
-      <div className={styles.prev} onClick={onPrevClick}><i></i></div>
+      <div className={styles.prev} onClick={onPrevClick} onMouseEnter={onMouseEnter}><i></i></div>
       <Carousel autoplay className={styles.carousel} ref={ref}>
         {
           swiperData.map(it => (
@@ -34,7 +47,7 @@ export default function index({ swiperData }) {
           ))
         }
       </Carousel>
-      <div className={styles.next} onClick={onNextClick}><i></i></div>
+      <div className={styles.next} onClick={onNextClick} onMouseEnter={onMouseEnter}><i></i></div>
     </section>
   )
 }
