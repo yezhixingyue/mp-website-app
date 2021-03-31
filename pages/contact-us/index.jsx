@@ -2,6 +2,7 @@ import Head from 'next/head'
 import React, { useEffect } from 'react'
 import styles from './index.module.scss'
 import OpinionForm from '../../components/ContactPage/OpinionForm'
+import { Tooltip } from 'antd';
 // import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 
@@ -109,19 +110,33 @@ export default function index() {
               <h2>接单QQ</h2>
               <p>
                 <span>
-                  <i>郑州大区：800065607</i>
-                  <i>省外大区：800051518</i>
+                  <Tooltip mouseEnterDelay={0} mouseLeaveDelay={0} placement="topLeft" title={'郑州大区'}>
+                    <i>郑州大区：800065607</i>
+                  </Tooltip>
+                  <Tooltip mouseEnterDelay={0} mouseLeaveDelay={0} placement="topLeft" title={'北京、天津、河北、山西、陕西、山东、其它'}>
+                    <i>省外大区：800051518</i>
+                  </Tooltip>
                 </span>
                 <span>
-                  <i>豫东大区：800131866</i>
-                  <i>豫西大区：800131899</i>
+                  <Tooltip mouseEnterDelay={0} mouseLeaveDelay={0} placement="topLeft" title={'开封、周口、商丘、安徽'}>
+                    <i>豫东大区：800131866</i>
+                  </Tooltip>
+                  <Tooltip mouseEnterDelay={0} mouseLeaveDelay={0} placement="topLeft" title={'焦作、洛阳、济源、长治、晋城、运城、临汾、三门峡'}>
+                    <i>豫西大区：800131899</i>
+                  </Tooltip>
                 </span>
                 <span>
-                  <i>豫南大区：800131808</i>
-                  <i>豫北大区：800050507</i>
+                  <Tooltip mouseEnterDelay={0} mouseLeaveDelay={0} placement="topLeft" title={'许昌、漯河、驻马店、南阳、信阳、平顶山'}>
+                    <i>豫南大区：800131808</i>
+                  </Tooltip>
+                  <Tooltip mouseEnterDelay={0} mouseLeaveDelay={0} placement="topLeft" title={'安阳、邯郸、邢台、新乡、鹤壁、濮阳'}>
+                    <i>豫北大区：800050507</i>
+                  </Tooltip>
                 </span>
                 <span>
-                  <i>电商平台：800051513</i>
+                  <Tooltip mouseEnterDelay={0} mouseLeaveDelay={0} placement="topLeft" title={'电商客户'}>
+                    <i>电商平台：800051513</i>
+                  </Tooltip>
                 </span>
               </p>
             </div>

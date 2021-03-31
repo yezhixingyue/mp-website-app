@@ -24,7 +24,7 @@ export default function index() {
     <ul className={styles['qq-list']}>
       <li>
         <p>省外大区</p>
-        <p>京津冀、河北、山西、陕西、山东、其它</p>
+        <p>北京、天津、河北、山西、陕西、山东、其它</p>
         <p>
           <a rel="nofollow" target="_blank" href="tencent://message/?uin=800051518&amp;Site=名片之家&amp;Menu=yes">
             <span>800051518</span>

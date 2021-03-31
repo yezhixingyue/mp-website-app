@@ -48,6 +48,40 @@ export default function index(props: IProps) {
                : null
             }
           </div>
+          {
+            (props.helpDetailData.PreArticle || props.helpDetailData.NextArticle) && <footer>
+              <div style={{left: 0}}>
+                {
+                  props.helpDetailData.PreArticle
+                  ? (<Link href={`/help/${props.helpDetailData.PreArticle.ID}`}>
+                      <a title={props.helpDetailData.PreArticle.Title}>
+                        <h2>上一篇</h2>
+                        <span>{props.helpDetailData.PreArticle.Title}</span>
+                      </a>
+                    </Link>)
+                  : <>
+                      <h2>上一篇</h2>
+                      <span>没有了</span>
+                    </>
+                }
+              </div>
+              <div style={{right: 0, textAlign: 'right'}}>
+                {
+                  props.helpDetailData.NextArticle
+                  ? (<Link href={`/help/${props.helpDetailData.NextArticle.ID}`}>
+                      <a title={props.helpDetailData.NextArticle.Title}>
+                        <h2>下一篇</h2>
+                        <span>{props.helpDetailData.NextArticle.Title}</span>
+                      </a>
+                    </Link>)
+                    : <>
+                        <h2>下一篇</h2>
+                        <span>没有了</span>
+                      </>
+                }
+              </div>
+            </footer>
+          }
         </section>
       </div>
     </section>

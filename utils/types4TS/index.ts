@@ -218,6 +218,11 @@ export interface IArticleListItemType {
   Title: string;
 }
 
+export interface IBesideArticleType {
+  Title: string;
+  ID: Number;
+}
+
 export interface IHelpDetailType {
   Class: {
     ID: number;
@@ -228,6 +233,8 @@ export interface IHelpDetailType {
   ID: number;
   ReadCount: number;
   Title: string;
+  NextArticle?: null | IBesideArticleType;
+  PreArticle?: null | IBesideArticleType;
 }
 /* COMPLETE STORE TYPE
 ----------------------------------------------------------------------------------- */
