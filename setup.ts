@@ -51,6 +51,10 @@ if (mode === 'prod') {
   
   _domain = 'mpzj.cn';
   _richContentImgSrc = 'https://order.mpzj.cn:8157/';
+
+  // if (window.__REACT_DEVTOOLS_GLOBAL_HOOK__ && typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === 'object') {
+  //     __REACT_DEVTOOLS_GLOBAL_HOOK__.inject = function() {};
+  // }
 }
 
 /* SETUP
