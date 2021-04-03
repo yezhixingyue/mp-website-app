@@ -46,30 +46,25 @@ export async function getServerSideProps() {
   const handleErrCatch = () => {
     key = false;
   }
-  const res = await Promise.all([api.getSwiperData().catch(handleErrCatch), api.getNewsArticleList().catch(handleErrCatch), api.getProductClassify().catch(handleErrCatch)]);
-  const [swiperResp, newsResp, classifyRes] = res;
+  const res = await Promise.all([api.getSwiperData().catch(handleErrCatch), api.getNewsArticleList().catch(handleErrCatch), api.getProductsList({ Page: 1, PageSize: 8 }).catch(handleErrCatch)]);
+  const [swiperResp, newsResp, productRes] = res;
   let swiperData = [];
   let newsDate = [];
-  let lv1Classify = [];
+  // let lv1Classify = [];
   let products = [];
-  if (key && swiperResp && newsResp && classifyRes) {
+  if (key && swiperResp && newsResp && productRes) {
     if (swiperResp.data.Status === 1000) swiperData = swiperResp.data.Data;
     if (newsResp.data.Status === 1000) newsDate = newsResp.data.Data;
-    if (classifyRes.data.Status === 1000) {
-      lv1Classify = getFilterClassifyList(classifyRes.data.Data);
-      if (lv1Classify.length > 0) {
-        const proResp = await api.getProductsList({
-          Page: 1,
-          PageSize: 8,
-          ProductClass: {
-            First: lv1Classify[0].ID
-          }
-        }).catch(handleErrCatch)
-        if (key && proResp && proResp.data.Status === 1000) {
-          products = proResp.data.Data;
-        }
-      }
-    }
+    if (productRes.data.Status === 1000) products = productRes.data.Data;
+    // if (classifyRes.data.Status === 1000) {
+    //   lv1Classify = getFilterClassifyList(classifyRes.data.Data);
+    //   if (lv1Classify.length > 0) {
+    //     const proResp = await api.getProductsList({ Page: 1, PageSize: 8 }).catch(handleErrCatch)
+    //     if (key && proResp && proResp.data.Status === 1000) {
+    //       products = proResp.data.Data;
+    //     }
+    //   }
+    // }
   }
 
   return {
@@ -78,7 +73,7 @@ export async function getServerSideProps() {
         home: {
           swiperData,
           newsDate,
-          lv1Classify,
+          // lv1Classify,
           products,
         }
       }

@@ -28,12 +28,8 @@ export default function index() {
   const onLv1ClassChange = (classID: number) => {
     if (classID === productState.curLv1Class) return;
     const productClassify = productState.productClassify;
-    // console.log(classID, router.query);
-    // const { Second } = router.query;
     router.push(`?First=${classID}&Second=0&Page=1`,'', {shallow: true})
     dispatch(changeCurLv1Class({ classID, productClassify }));
-    // router.query.First = `${classID}`;
-    // console.log(location.search = `?First=${classID}&Second=0&Page=1`);
   }
 
   const onLv2ClassChange = (lv2ClassID: number) => {
