@@ -7,7 +7,7 @@ import styles from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { Breadcrumb, Empty, Icon, Pagination, Spin, Tabs, Typography } from 'antd';
 import MpImage from '../../components/common/MpImage';
-import { changeCurLv1Class, changeCurLv2Class, changeCurPage, clearCurProduct } from '../../actions';
+// import { changeCurLv1Class, changeCurLv2Class, changeCurPage, clearCurProduct } from '../../actions';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import ProductClassifyComp from '../../components/common/ProductClassifyComp'
@@ -16,7 +16,7 @@ const { Paragraph } = Typography;
 
 export default function index() {
   const productState = useSelector((state: IStore) => state.product);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const router = useRouter();
 
   useEffect(() => {
@@ -25,37 +25,35 @@ export default function index() {
     router.push(`?First=${First?First:productState.curLv1Class}&Second=${Second?Second:productState.curLv2Class}&Page=${Page?Page:productState.Page}`, '', {shallow: true});
   }, [])
 
-  const onLv1ClassChange = (classID: number) => {
-    if (classID === productState.curLv1Class) return;
-    const productClassify = productState.productClassify;
-    router.push(`?First=${classID}&Second=0&Page=1`,'', {shallow: true})
-    dispatch(changeCurLv1Class({ classID, productClassify }));
-  }
+  // const onLv1ClassChange = (classID: number) => {
+  //   if (classID === productState.curLv1Class) return;
+  //   const productClassify = productState.productClassify;
+  //   router.push(`?First=${classID}&Second=0&Page=1`,'', {shallow: true})
+  //   dispatch(changeCurLv1Class({ classID, productClassify }));
+  // }
 
-  const onLv2ClassChange = (lv2ClassID: number) => {
-    if (lv2ClassID === productState.curLv2Class) return;
-    const { First } = router.query;
-    router.push(`?First=${First?First:productState.curLv1Class}&Second=${lv2ClassID}&Page=1`, '', {shallow: true})
-    dispatch(changeCurLv2Class({ curLv1Class: productState.curLv1Class, lv2ClassID }));
-  }
+  // const onLv2ClassChange = (lv2ClassID: number) => {
+  //   if (lv2ClassID === productState.curLv2Class) return;
+  //   const { First } = router.query;
+  //   router.push(`?First=${First?First:productState.curLv1Class}&Second=${lv2ClassID}&Page=1`, '', {shallow: true})
+  //   dispatch(changeCurLv2Class({ curLv1Class: productState.curLv1Class, lv2ClassID }));
+  // }
 
-  const onPageChange = (Page: number) => {
-    if (Page === productState.Page) return;
-    const { First, Second } = router.query;
-    router.push(`?First=${First?First:productState.curLv1Class}&Second=${Second?Second:productState.curLv2Class}&Page=${Page}`, '', {shallow: true});
-    dispatch(changeCurPage({ curLv1Class: productState.curLv1Class, lv2ClassID: productState.curLv2Class, Page }));
-  }
+  // const onPageChange = (Page: number) => {
+  //   if (Page === productState.Page) return;
+  //   const { First, Second } = router.query;
+  //   router.push(`?First=${First?First:productState.curLv1Class}&Second=${Second?Second:productState.curLv2Class}&Page=${Page}`, '', {shallow: true});
+  //   dispatch(changeCurPage({ curLv1Class: productState.curLv1Class, lv2ClassID: productState.curLv2Class, Page }));
+  // }
 
-  const onDetailClick = (id: string) => {
-    router.push(`/product?productID=${id}`)
-    // router.push(`?productID=${id}`)
-  }
+  // const onDetailClick = (id: string) => {
+  //   router.push(`/product?productID=${id}`)
+  // }
 
-  const onTabClick = (tabID) => {
-    // console.log(tabID, 'onTabClick - tabID', productState.curLv2Class);
-    if (+tabID !== productState.curLv2Class) return;
-    dispatch(clearCurProduct());
-  }
+  // const onTabClick = (tabID) => {
+  //   if (+tabID !== productState.curLv2Class) return;
+  //   dispatch(clearCurProduct());
+  // }
 
   const Content = (
     <div className={styles.content}>
@@ -146,8 +144,8 @@ export default function index() {
             classData={productState.productClassify}
             First={productState.curLv1Class}
             Second={productState.curLv2Class}
-            onLv1ClassChange={onLv1ClassChange}
-            onLv2ClassChange={onLv2ClassChange}
+            // onLv1ClassChange={onLv1ClassChange}
+            // onLv2ClassChange={onLv2ClassChange}
           >
             {Content}
           </ProductClassifyComp>

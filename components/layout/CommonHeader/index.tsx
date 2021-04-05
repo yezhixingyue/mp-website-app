@@ -144,7 +144,7 @@ export default function index() {
             </Link>
           </li>
           <li className={styles[['/news', '/newsDetail'].includes(router.pathname) ? 'active' : '']}>
-            <Link href='/news'><a >新闻中心</a></Link>
+            <Link href='/news?Page=1'><a >新闻中心</a></Link>
           </li>
           <li className={styles[router.pathname === '/about' ? 'active' : '']}>
             <Link href='/about'><a>关于我们</a></Link>

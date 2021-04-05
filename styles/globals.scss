@@ -605,15 +605,20 @@ body .ant-popover-placement-left > .ant-popover-content > .ant-popover-arrow{
       // border-bottom: 1px dashed #eee;
       > div.ant-tabs-nav-wrap {
         .ant-tabs-tab {
-          height: 77px;
-          padding: 28px 24px;
-          font-size: 14px;
-          margin-right: 27px;
           color: #585858;
+          height: 77px;
+          padding: 0;
+          margin-right: 27px;
           &.ant-tabs-tab-active {
             color: #428dfa;
             font-size: 16px;
             // font-weight: 700;
+          }
+          > a {
+            height: 77px;
+            padding: 28px 24px;
+            font-size: 14px;
+            display: block;
           }
         }
         .ant-tabs-ink-bar {

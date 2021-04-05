@@ -19,9 +19,9 @@ export default function index(props: { curProduct: null | IArticleType, classify
   // const dispatch = useDispatch();
   const user = useSelector((state: IStore) => state.user);
 
-  const onAsideClick = (productID) => {
-    router.push(`/product?productID=${productID}`)
-  }
+  // const onAsideClick = (productID) => {
+  //   router.push(`/product?productID=${productID}`)
+  // }
 
   useEffect(() => {
     if (props.curProduct) {
@@ -30,20 +30,18 @@ export default function index(props: { curProduct: null | IArticleType, classify
     }
   }, [])
 
-  const onLv1ClassChange = (id) => {
-    // console.log(id, 'onLv1ClassChange');
-    router.push(`/productIntro?First=${id}`);
-  }
+  // const onLv1ClassChange = (id) => {
+  //   router.push(`/productIntro?First=${id}`);
+  // }
 
 
   // const onLv2ClassChange = (id) => {
   //   console.log('onLv2ClassChange', id);
   // }
 
-  const onTabClick = (id) => {
-    // console.log('onTabClick', id);
-    router.push(`/productIntro?First=${props.curProduct.ProductClass.FirstLevelID}&Second=${id}`);
-  }
+  // const onTabClick = (id) => {
+  //   router.push(`/productIntro?First=${props.curProduct.ProductClass.FirstLevelID}&Second=${id}`);
+  // }
 
   const onPlaceOrderClick = () => {
     if (!props.curProduct) return;
@@ -66,7 +64,6 @@ export default function index(props: { curProduct: null | IArticleType, classify
   };
   const getPageKeyWords = () => {
     let title = '产品详情';
-    // console.log(props);
     if (props.curProduct && props.curProduct.ProductClass) {
       title = props.curProduct.ProductClass.FirstLevelName + '产品,' + props.curProduct.ProductClass.SecondLevelName + '产品,' + props.curProduct.Name;
     }
@@ -100,9 +97,9 @@ export default function index(props: { curProduct: null | IArticleType, classify
            classData={props.classifyRes}
            First={props.curProduct.ProductClass.FirstLevelID}
            Second={props.curProduct.ProductClass.SecondLevelID}
-           onLv1ClassChange={onLv1ClassChange}
+          //  onLv1ClassChange={onLv1ClassChange}
           //  onLv2ClassChange={onLv2ClassChange}
-           onTabClick={onTabClick}
+          //  onTabClick={onTabClick}
            />
         }
       </header>
