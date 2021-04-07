@@ -15,7 +15,6 @@ axios.interceptors.request.use(
     if (!isBrower()) {
       curConfig.baseURL = SetupEnumType.baseUrl;
     }
-    // console.log(curConfig.baseURL);
     return curConfig;
   },
   (error) => {
@@ -34,8 +33,6 @@ axios.interceptors.response.use(
 
     if ([7025, 8037].includes(response.data.Status)) {
       message.error(response.data.Message);
-      // router.replace('/login');
-      // sessionStorage.removeItem('loginAuth');
       return response;
     }
     if (!_statusList2NotNeed2Toast.includes(response.data.Status) && !_list2NotNeed2Toast.includes(_url) && (!closeTip) && isBrower()) {
@@ -62,14 +59,9 @@ axios.interceptors.response.use(
 
       const _url = error.response.config.url.split('?')[0];
       let _msg = '操作失败';
-      // if (_url === '/Api/Staff/Login') _msg = '登录失败';
-      // if (_url === '/Api/Staff/Detail') _msg = '获取用户信息失败';
-      // if (_url === '/Api/ExpressWaybill/OrderInfo') _msg = '获取订单信息失败';
 
       switch (error.response.status) {
         case 401:
-          // router.replace('/login');
-          // sessionStorage.removeItem('loginAuth');
           key = true;
           break;
         default:

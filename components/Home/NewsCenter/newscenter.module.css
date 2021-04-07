@@ -22,6 +22,7 @@
 }
 .news-center-wrap ul li > a > div {
   overflow: hidden;
+  border-radius: 2px;
 }
 .news-center-wrap ul li h2 {
   height: 19px;
@@ -48,18 +49,9 @@
 .news-center-wrap ul li .content > div {
   color: #999;
 }
-/* .news-center-wrap ul li > div{
-  width: 380px;
-  height: 185px;
-  overflow: hidden;
-} */
 .news-center-wrap ul li > div > img{
-  /* transition: transform 0.2s; */
   width: 380px;
   height: 185px;
-}
-.news-center-wrap ul li:hover > div > img{
-  /* transform: scale(1.05); */
 }
 .news-center-wrap ul li:hover  h2 {
   color: #428dfa;
