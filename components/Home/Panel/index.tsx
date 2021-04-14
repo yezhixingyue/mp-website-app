@@ -48,7 +48,7 @@ export default function index() {
               <img src='/place.png' alt="" width={58} height={58}/>
             </li>
             <li className={styles.center}>
-              <p>报价下单</p>
+              <p>快捷下单</p>
               <div>网页版省去下载环节，不占电脑内存，打开网页即可登录，轻巧便捷，实现24小时极速下单，全程零等待；登录账号、上线产品类目及下单步骤，均与自助下单客户端相同。</div>
             </li>
             <li className={styles.right}>

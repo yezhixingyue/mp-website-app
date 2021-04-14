@@ -19,18 +19,18 @@
         height: 100%;
         width: 255px;
         .logo {
-          width: 162px;
-          height: 40px;
-          margin-top: 10px;
+          width: 157px;
+          height: 38px;
+          margin-top: 12px;
           cursor: pointer;
-          background: url(../../../public/logo.png) no-repeat left center/147px 32px;
+          background: url(../../../public/logo.png) no-repeat left center/157px 38px;
         }
       }
       &.right {
         height: 100%;
         position: absolute;
         right: 0;
-        padding-top: 18px;
+        padding-top: 19px;
         line-height: 24px;
         height: 42px;
         cursor: pointer;
@@ -41,10 +41,10 @@
         }
         > i {
           display: inline-block;
-          width: 18px;
-          height: 24px;
+          width: 14px;
+          height: 21px;
           margin-right: 9px;
-          background: url(../../../public/avator.png) no-repeat left center/18px 21px;
+          background: url(../../../public/avator.png) no-repeat left center/14px 16px;
         }
         > a {
           vertical-align: top;
@@ -57,10 +57,9 @@
             text-decoration: underline;
             color: #fff;
           }
-        }
-        > span {
-          vertical-align: top;
-          display: inline-block;
+          > span {
+            font-size: 14px;
+          }
         }
       }
     }
