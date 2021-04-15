@@ -42,7 +42,8 @@
         > i {
           display: inline-block;
           width: 14px;
-          height: 21px;
+          height: 16px;
+          margin-top: 3px;
           margin-right: 9px;
           background: url(../../../public/avator.png) no-repeat left center/14px 16px;
         }
@@ -53,6 +54,7 @@
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
+          height: 24px;
           &:hover {
             text-decoration: underline;
             color: #fff;
@@ -60,6 +62,12 @@
           > span {
             font-size: 14px;
           }
+        }
+        > span {
+          font-size: 14px;
+          height: 24px;
+          vertical-align: top;
+          display: inline-block;
         }
       }
     }
