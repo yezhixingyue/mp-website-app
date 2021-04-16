@@ -35,8 +35,26 @@ export default function index(props: IProps) {
 
   const lv2List = getLv2List(props.classData, props.First);
 
-  const setWidth = () => {
+  const setWidth = (isInit = false) => {
     const w = lv1Ref.current.offsetWidth - 40;
+    if (isInit && w > 1160) { // 设置选中按钮初始位置 如果其在右侧隐藏区域时让其显示在可视范围内
+      const i = props.classData.findIndex(it => it.ID === props.First);
+      if (i > -1 && i < lv1Ref.current.children.length) {
+        const initActiveDom = lv1Ref.current.children[i];
+        const offsetLeft = (initActiveDom as HTMLElement).offsetLeft;
+        const offsetWidth = (initActiveDom as HTMLElement).offsetWidth;
+        const totalWidth = offsetLeft + offsetWidth;
+        const distance = 1200 - totalWidth;
+        if (distance < 0) {
+          setState({
+            ...state,
+            lv1Width: w,
+            lv1Left: distance,
+          })
+          return;
+        }
+      }
+    }
     setState({
       ...state,
       lv1Width: w,
@@ -44,7 +62,7 @@ export default function index(props: IProps) {
   }
 
   useEffect(() => {
-    setWidth();
+    setWidth(true);
     }, [])
 
   const onLv1MenuToLeft = () => {
@@ -104,7 +122,7 @@ export default function index(props: IProps) {
 
   return (
     <section className={`${styles.wrap} pro-wrap`}>
-      <div style={{ height: 76, borderBottom: '1px dashed #eee' }} onMouseEnter={setWidth}> {/* 一级产品分类 */}
+      <div style={{ height: 76, borderBottom: '1px dashed #eee' }} onMouseEnter={() => setWidth(false)}> {/* 一级产品分类 */}
         {
           state.lv1Width > 1200 && state.lv1Left < 0 && !state.isAnimate && <div className={`${styles['move-item']} ${styles['move-prev']}`} onClick={onLv1MenuToLeft}>
             <Icon type="left" />
