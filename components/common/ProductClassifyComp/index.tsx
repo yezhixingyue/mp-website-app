@@ -131,10 +131,10 @@ export default function index(props: IProps) {
         <ul ref={lv1Ref} style={{ left: state.lv1Left }}>
           {
             props.classData && props.classData.map(lv1 => (
-              <li key={lv1.ID}>
+              <li key={lv1.ID} style={{padding: '20.5px 0', marginRight: '40px'}}>
                 <Link href={`/productIntro?First=${lv1.ID}&Second=0&Page=1`}>
                   <a title={lv1.ClassName}>
-                    <span className={props.First === lv1.ID ? `${styles.active}` : ''}>
+                    <span className={props.First === lv1.ID ? `${styles.active}` : ''}  style={{padding: '0 18px'}}>
                       {lv1.ClassName}
                     </span>
                   </a>

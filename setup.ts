@@ -62,7 +62,7 @@ if (mode === 'prod') {
 export const SetupEnumType = {
   baseUrl: _baseUrl, // 服务器地址
 
-  downloadUrl: 'https://www.mpzj.cn/Private/Files/6373284376831804391773893001.rar', // 客户端下载地址
+  downloadUrl: 'https://order.mpzj.cn/Private/Files/mpzj_download_client.rar', // 客户端下载地址
 
   placeOrderUrl: _placeOrderUrl, // 下单系统链接地址 + 地址域名和下面需要保持一致 ↓
 
