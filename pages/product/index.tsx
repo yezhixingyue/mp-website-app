@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
 import MpImage from '../../components/common/MpImage';
 import api from '../../services';
-import { changeRichContentImgUrl, getFilterClassifyList } from '../../utils';
+import { changeRichContentImgUrl, createMarkup, getFilterClassifyList } from '../../utils';
 import { BaseClassifyItem, IArticleType, IClassifyItem, IStore } from '../../utils/types4TS';
 import styles from './index.module.scss';
 import ProductClassifyComp from '../../components/common/ProductClassifyComp';
@@ -77,6 +77,7 @@ export default function index(props: { curProduct: null | IArticleType, classify
       <Head>
         <title>{getPageTitle()} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <script dangerouslySetInnerHTML={createMarkup()} ></script>
         <meta name="keywords" content={`${getPageKeyWords()},传统专版,商务合版,PVC制卡,商业包装,数码快印`}></meta>
         <meta name="description" content={`${getPageTitle()} - 郑州名片之家电子商务有限公司`}></meta>
       </Head>

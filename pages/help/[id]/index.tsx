@@ -7,7 +7,7 @@ import styles from './index.module.scss';
 import AsideComp from '../../../components/Help/Aside'
 import { Icon } from 'antd';
 import { useRouter } from 'next/router';
-import { changeRichContentImgUrl } from '../../../utils';
+import { changeRichContentImgUrl, createMarkup } from '../../../utils';
 import { SetupEnumType } from '../../../setup';
 
 interface IProps {
@@ -33,6 +33,7 @@ export default function index(props: IProps) {
       <Head>
         <title>{props.helpDetailData ? props.helpDetailData.Title : '帮助中心'} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <script dangerouslySetInnerHTML={createMarkup()} ></script>
         <meta name="keywords" content={`帮助,帮助中心,传统专版,商务合版,PVC制卡,商业包装,数码快印`}></meta>
         <meta name="description" content={`${props.helpDetailData ? props.helpDetailData.Title : '帮助详情'} - 郑州名片之家电子商务有限公司`}></meta>
       </Head>

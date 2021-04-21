@@ -2,6 +2,7 @@ import Head from 'next/head'
 import React, { useEffect } from 'react'
 import styles from './index.module.scss'
 import OpinionForm from '../../components/ContactPage/OpinionForm'
+import { createMarkup } from '../../utils';
 import { Tooltip } from 'antd';
 // import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
@@ -59,6 +60,7 @@ export default function index() {
       <Head>
         <title>联系我们 | 意见建议 - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <script dangerouslySetInnerHTML={createMarkup()} ></script>
         <meta name="keywords" content="联系我们,意见建议,传统专版,商务合版,PVC制卡,商业包装,数码快印,郑州名片之家电子商务有限公司"></meta>
         <meta name="description" content="联系我们 | 意见建议 - 郑州名片之家电子商务有限公司"></meta>
         {/* <script src={mapUrl}></script> */}

@@ -4,7 +4,7 @@ import styles from './index.module.scss'
 import { useRouter } from 'next/router';
 import { ArticleClassEnum, IArticleListItemType, IHelpClassItemType, IParams4GetHelpList } from '../../utils/types4TS';
 import api from '../../services'
-import { formatDateOnlyYear } from '../../utils'
+import { createMarkup, formatDateOnlyYear } from '../../utils'
 import { Empty, Pagination } from 'antd'
 import AsideComp from '../../components/Help/Aside'
 import Link from 'next/link';
@@ -68,6 +68,7 @@ export default function index(props: IProps) {
       <Head>
         <title>{props.curClass ? props.curClass.Name : '帮助中心'} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <script dangerouslySetInnerHTML={createMarkup()} ></script>
         <meta name="keywords" content={`${props.curClass && (props.curClass.Name + ',' )}帮助中心,传统专版,商务合版,PVC制卡,商业包装,数码快印`}></meta>
         <meta name="description" content={`${props.curClass ? props.curClass.Name : '帮助中心'} - 帮助中心 - 郑州名片之家电子商务有限公司`}></meta>
       </Head>

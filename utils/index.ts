@@ -184,3 +184,8 @@ export const changeRichContentImgUrl = (content: string) => {
   // console.log(content);
   return content.replace(/<img src="\//g, `<img src="${SetupEnumType.richContentImgSrc}/`).replace(/src="\/Image/g, `src="${SetupEnumType.richContentImgSrc}/Image`);
 }
+
+
+export const createMarkup = () => {
+  return {__html: `var _hmt = _hmt || [];`};
+}

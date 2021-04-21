@@ -3,7 +3,7 @@ import Head from 'next/head';
 import styles from './index.module.scss';
 import { Button } from 'antd';
 import MpImage from '../../components/common/MpImage';
-import { extname, getFileDownLoad } from '../../utils';
+import { createMarkup, extname, getFileDownLoad } from '../../utils';
 import { SetupEnumType } from '../../setup';
 
 export default function index() {
@@ -35,6 +35,7 @@ export default function index() {
       <Head>
         <title>软件下载 - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <script dangerouslySetInnerHTML={createMarkup()} ></script>
         <meta name="keywords" content="软件下载,传统专版,商务合版,PVC制卡,商业包装,数码快印,郑州名片之家电子商务有限公司"></meta>
         <meta name="description" content="名片之家自助下单客户端软件下载页面 - 郑州名片之家电子商务有限公司"></meta>
       </Head>

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import Head from 'next/head'
 import api from '../../services'
 import { IClassifyItem, ICondtion4ProList, IStore } from '../../utils/types4TS';
-import { getFilterClassifyList } from '../../utils';
+import { createMarkup, getFilterClassifyList } from '../../utils';
 import styles from './index.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { Breadcrumb, Empty, Icon, Pagination, Spin, Tabs, Typography } from 'antd';
@@ -123,6 +123,7 @@ export default function index() {
       <Head>
         <title>{getTitle()} - 郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <script dangerouslySetInnerHTML={createMarkup()} ></script>
         <meta name="keywords" content={`${getTitle(true)},传统专版,商务合版,PVC制卡,商业包装,数码快印`}></meta>
         <meta name="description" content={`${getTitle()} - 郑州名片之家电子商务有限公司`}></meta>
       </Head>

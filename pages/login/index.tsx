@@ -10,6 +10,7 @@ import { NextRouter, withRouter } from 'next/router';
 import { connect } from 'react-redux';
 import { removeUserState } from '../../actions';
 import { route } from 'next/dist/next-server/server/router';
+import { createMarkup } from '../../utils';
 
 interface IProps extends FormComponentProps {
   // 添加组件props类型
@@ -104,6 +105,7 @@ class NormalLoginForm extends React.Component<IProps, IState> {
         <Head>
           <title>登录 - 郑州名片之家电子商务有限公司</title>
           <link rel="icon" href="/favicon.ico" />
+          <script dangerouslySetInnerHTML={createMarkup()} ></script>
           <meta name="keywords" content={`登录,传统专版,商务合版,PVC制卡,商业包装,数码快印`}></meta>
           <meta name="description" content={`登录 - 郑州名片之家电子商务有限公司`}></meta>
         </Head>

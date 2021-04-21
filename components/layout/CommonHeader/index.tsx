@@ -90,6 +90,14 @@ export default function index() {
     }
   }, [])
 
+  
+  useEffect(() => {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?f929fe67a558f511aafdfb2692bc264d";
+    var s = document.getElementsByTagName("script")[0]; 
+    s.parentNode.insertBefore(hm, s);
+  }, [])
+
   const needShowBlueList = ['/help/[id]', '/help', '/productIntro', '/product', '/newsDetail']; // 需要顶部展示蓝色背景的页面地址， 目前只有主页需要
   const key = needShowBlueList.indexOf(router.pathname) > -1;
 

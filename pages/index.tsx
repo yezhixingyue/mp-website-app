@@ -13,12 +13,16 @@ import PartnersComp from '../components/Home/PartnersComp'
 import ServeWorth from '../components/Home/ServeWorth'
 import { useSelector } from 'react-redux'
 import { IStore } from '../utils/types4TS';
-import { getFilterClassifyList } from '../utils';
+import { createMarkup, getFilterClassifyList } from '../utils';
+import { useEffect } from 'react';
 // import { setSwiperState, setNewsState, setLv1ClassifyState, setHomeProductState } from '../actions'
 // if (process.browser) { window.history.replaceState = window.history.replaceState || function () {} }
 // if (process.browser) {
 //   console.log(window.history.replaceState);
 // }
+// function createMarkup() {
+//   return {__html: `var _hmt = _hmt || [];`};
+//  }
 
 export default function Home() {
   const { swiperData, newsDate } = useSelector((store: IStore) => store.home);
@@ -28,6 +32,7 @@ export default function Home() {
       <Head>
         <title>郑州名片之家电子商务有限公司</title>
         <link rel="icon" href="/favicon.ico" />
+        <script dangerouslySetInnerHTML={createMarkup()} ></script>
         <meta name="keywords" content="传统专版,商务合版,PVC制卡,商业包装,数码快印"></meta>
         <meta name="description" content="郑州名片之家电子商务有限公司创立于 2008 年，是河南印之星集团的全资子公司。专门从事商业印刷及包装印刷。为不断适应市场形势，满足市场的多元化需求，为客户提供超值服务，公司引进了一系列国际领先的专业化印前、印刷、印后等生产加工设备，形成了一站式的综合印刷服务能力。智能时代下，我们旨在构建未来的商务生态系统，做中国文化创意与印刷科技产业生态系统的缔造者。"></meta>
       </Head>
