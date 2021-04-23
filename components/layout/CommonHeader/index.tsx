@@ -196,6 +196,8 @@ export default function index() {
         
       </div>
       <Anchor handleAnchorChange={handleAnchorChange} />
+      <img src="web-logo.jpg" alt="网站logo" style={{width: 0, height: 0}} />
+      <img src="web-logo2.jpg" alt="网站logo2" style={{width: 0, height: 0}}/>
     </div>
   )
 }
