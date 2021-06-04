@@ -34,7 +34,7 @@ export default function index({ swiperData }) {
   // }
 
   return (
-    <section className={styles.wrap}>
+    <section className={`${styles.wrap} ${swiperData && swiperData.length > 0 ? styles.hasData : ''}`}>
       <div className={styles.prev} onClick={onPrevClick} onMouseEnter={onMouseEnter}><i></i></div>
       <Carousel autoplay className={styles.carousel} ref={ref}>
         {

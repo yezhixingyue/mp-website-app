@@ -29,8 +29,12 @@ export default function index() {
     const userStr = Cookie.getCookie('customerInfo');
     let user = null;
     if (userStr) {
-      user = JSON.parse(userStr);
-      if (user.Account.Token !== token) user = null;
+      try {
+        user = JSON.parse(userStr);
+      } catch (error) {
+        
+      }
+      if (user && user.Account.Token !== token) user = null;
     }
     if (user) {
       dispatch(setUserState(user));

@@ -10,6 +10,8 @@
       object-fit: cover;
       height: 520px;
       width: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
     }
   }
   > .prev, >.next {
@@ -52,4 +54,8 @@
       opacity: 1;
     }
   }
+}
+
+.hasData {
+  background-color: #fff;
 }
